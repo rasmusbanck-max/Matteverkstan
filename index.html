@@ -50,6 +50,39 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
     </div>
   </section>
 
+  <section class="section" id="study">
+    <div class="tag">Studiero</div>
+    <h2>Plugg-timer och <span class="squiggle">studietips</span></h2>
+    <p class="desc">Korta fokuserade pass fungerar ofta bättre än ett långt maraton. Välj ett pass, träna en del och ta paus när timern säger till.</p>
+    <div class="card">
+      <div class="card-head"><span>Fokuspass</span><span id="timerModeLabel">15 min plugg</span></div>
+      <div class="work">
+        <div class="stage">
+          <div class="timer-face" id="timerFace">
+            <div class="timer-inner">
+              <div>
+                <div class="timer-time" id="timerTime">15:00</div>
+                <div class="timer-label" id="timerStatus">Redo</div>
+              </div>
+            </div>
+          </div>
+          <div class="mini-grid">
+            <div class="study-tip">1. Välj en del<span>Ta till exempel bara bråk-decimal-procent eller bara uppställning.</span></div>
+            <div class="study-tip">2. Gör fel synliga<span>Skriv ner ett misstag och vad du ska tänka nästa gång.</span></div>
+            <div class="study-tip">3. Pausa kort<span>Efter passet: res dig, drick vatten, börja sedan igen.</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Ställ in passet</h3>
+          <p>För NP-träning: kör hellre 10-15 minuter med fullt fokus än att scrolla runt mellan alla delar.</p>
+          <div class="row"><button class="btn alt timerPreset active" data-min="15" data-label="15 min plugg">15 min</button><button class="btn alt timerPreset" data-min="25" data-label="25 min plugg">25 min</button><button class="btn alt timerPreset" data-min="5" data-label="5 min paus">5 min paus</button></div>
+          <div class="row"><button class="btn" id="startTimer">Starta</button><button class="btn alt" id="pauseTimer">Pausa</button><button class="btn alt" id="resetTimer">Återställ</button></div>
+          <div class="feedback show" id="studyFeedback">Tips: välj en station innan du startar. När tiden är slut, skriv en mening: “Nu kan jag...”</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="numbers">
     <div class="tag">Grund</div>
     <h2>Tal, talsorter och <span class="squiggle">rimlighet</span></h2>
@@ -447,39 +480,6 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
           <div class="mini"><b>Välj metod</b><p>Fråga dig själv: ska jag dela, multiplicera, jämföra, avrunda eller göra en tabell?</p></div>
           <div class="mini"><b>Visa beräkning</b><p>Skriv inte bara svaret. Visa stegen så att någon annan kan följa hur du tänkte.</p></div>
           <div class="mini"><b>Rimlighet</b><p>Kontrollera om svaret kan stämma i verkligheten. Avrunda uppåt när svaret måste vara hela saker.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="study">
-    <div class="tag">Studiero</div>
-    <h2>Plugg-timer och <span class="squiggle">studietips</span></h2>
-    <p class="desc">Korta fokuserade pass fungerar ofta bättre än ett långt maraton. Välj ett pass, träna en del och ta paus när timern säger till.</p>
-    <div class="card">
-      <div class="card-head"><span>Fokuspass</span><span id="timerModeLabel">15 min plugg</span></div>
-      <div class="work">
-        <div class="stage">
-          <div class="timer-face" id="timerFace">
-            <div class="timer-inner">
-              <div>
-                <div class="timer-time" id="timerTime">15:00</div>
-                <div class="timer-label" id="timerStatus">Redo</div>
-              </div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div class="study-tip">1. Välj en del<span>Ta till exempel bara bråk-decimal-procent eller bara uppställning.</span></div>
-            <div class="study-tip">2. Gör fel synliga<span>Skriv ner ett misstag och vad du ska tänka nästa gång.</span></div>
-            <div class="study-tip">3. Pausa kort<span>Efter passet: res dig, drick vatten, börja sedan igen.</span></div>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Ställ in passet</h3>
-          <p>För NP-träning: kör hellre 10-15 minuter med fullt fokus än att scrolla runt mellan alla delar.</p>
-          <div class="row"><button class="btn alt timerPreset active" data-min="15" data-label="15 min plugg">15 min</button><button class="btn alt timerPreset" data-min="25" data-label="25 min plugg">25 min</button><button class="btn alt timerPreset" data-min="5" data-label="5 min paus">5 min paus</button></div>
-          <div class="row"><button class="btn" id="startTimer">Starta</button><button class="btn alt" id="pauseTimer">Pausa</button><button class="btn alt" id="resetTimer">Återställ</button></div>
-          <div class="feedback show" id="studyFeedback">Tips: välj en station innan du startar. När tiden är slut, skriv en mening: “Nu kan jag...”</div>
         </div>
       </div>
     </div>
