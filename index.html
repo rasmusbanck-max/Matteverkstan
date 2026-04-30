@@ -9,6 +9,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#fff9df 0%,#edf8ff 45%,#fff1f5 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
 .container{max-width:1180px;margin:auto;padding:28px 16px 64px}.hero{text-align:center;padding:18px 0 28px}.emoji{font-size:32px;letter-spacing:6px}h1{font-size:clamp(40px,7vw,78px);line-height:.95;margin:12px 0}.mark,.squiggle{display:inline-block;background:var(--yellow);border:3px solid var(--line);border-radius:14px;padding:0 12px;box-shadow:var(--shadow);transform:rotate(-2deg)}.squiggle{background:var(--green);box-shadow:none;border:0;font-size:.92em}.lead,.desc{max-width:820px;color:var(--muted);font-size:19px;line-height:1.5}.lead{margin:auto}.nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:24px}.nav a{display:block;text-decoration:none;color:var(--ink);background:white;border:3px solid var(--line);border-radius:16px;box-shadow:4px 4px 0 var(--line);padding:15px;font-weight:900}.nav span{display:block;font-size:26px;margin-bottom:4px}
 .section{margin:62px 0}.tag{display:inline-block;background:var(--ink);color:white;border-radius:999px;padding:8px 13px;font:800 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}h2{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:12px 0}.card,.station,.mini{background:var(--paper);border:3px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}.card-head{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--yellow);border-bottom:3px solid var(--line);padding:14px 18px;font:900 13px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}.work{display:grid;grid-template-columns:1.05fr .95fr}.stage{min-height:390px;background:linear-gradient(135deg,#fff9d8,#eaf8ff);position:relative;padding:18px}.panel{border-left:3px solid var(--line);padding:22px;background:white}.panel h3,.station h3{font-size:26px;margin:0 0 8px}.panel p,.station p,.mini p{color:var(--muted);line-height:1.5}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}.btn{border:3px solid var(--line);border-radius:13px;background:var(--ink);color:white;padding:10px 14px;font-weight:900;cursor:pointer;box-shadow:3px 3px 0 rgba(34,34,51,.24)}.btn.alt{background:white;color:var(--ink)}.btn:hover,.btn.active{background:var(--yellow);color:var(--ink)}.input,select{border:3px solid var(--line);border-radius:12px;padding:10px 12px;font:900 17px ui-monospace,monospace;background:white;max-width:140px}.feedback{display:none;margin-top:13px;padding:12px 14px;border:3px solid var(--line);border-radius:14px;background:var(--yellow);font-weight:900;line-height:1.45}.feedback.show{display:block}.formula{font:900 25px ui-monospace,monospace;background:#fffbea;border:2px dashed var(--line);border-radius:14px;padding:13px;text-align:center;margin:13px 0}.mini-grid,.station-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:18px}.station,.mini{padding:20px}.wide{grid-column:1 / -1}
+.back-top{display:inline-block;margin-top:16px;text-decoration:none;border:3px solid var(--line);border-radius:999px;background:white;color:var(--ink);padding:9px 13px;font-weight:900;box-shadow:3px 3px 0 rgba(34,34,51,.2)}
 .angle-wrap{height:330px;display:grid;place-items:center}.angle-svg{width:min(100%,430px);height:310px}.ray{stroke:var(--ink);stroke-width:8;stroke-linecap:round}.arc{fill:none;stroke:var(--red);stroke-width:7;stroke-linecap:round}.point{fill:var(--ink)}.angle-label{font:900 32px ui-monospace,monospace;fill:var(--ink)}
 .decimal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.place{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;text-align:center}.place b{display:block;font:900 24px ui-monospace,monospace}.place span{font-size:13px;color:var(--muted);font-weight:900}.numberline{height:118px;position:relative;margin:16px 0}.numberline:before{content:"";position:absolute;left:7%;right:7%;top:58px;height:5px;background:var(--ink);border-radius:99px}.tick{position:absolute;top:42px;transform:translateX(-50%);font:900 12px ui-monospace,monospace;text-align:center}.tick:before{content:"";display:block;margin:auto;width:4px;height:26px;background:var(--ink);border-radius:99px}.marker{position:absolute;top:8px;transform:translateX(-50%);font:900 13px ui-monospace,monospace;color:var(--violet);text-align:center}.marker-dot{width:18px;height:18px;border:3px solid var(--line);border-radius:50%;background:var(--violet);margin:18px auto 0}.chip-row{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.chip{border:3px solid var(--line);border-radius:999px;background:#fffbea;padding:9px 12px;font-weight:900;cursor:pointer}.chip.used{opacity:.35;pointer-events:none}.order-box{min-height:48px;border:3px dashed var(--line);border-radius:14px;background:#fffbea;padding:10px;font-weight:900}
 .bridge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:12px 0}.bridge-card{border:3px solid var(--line);border-radius:16px;background:white;padding:14px;text-align:center;box-shadow:3px 3px 0 rgba(34,34,51,.18)}.bridge-card span{display:block;color:var(--muted);font-weight:900;font-size:13px}.bridge-card b{display:block;font:900 30px ui-monospace,monospace;margin-top:5px}.hundred-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;border:3px solid var(--line);border-radius:16px;background:white;padding:8px;max-width:330px;margin:16px auto}.hundred-cell{aspect-ratio:1;border:2px solid rgba(34,34,51,.2);border-radius:4px;background:#fffdf8}.hundred-cell.on{background:var(--violet);border-color:var(--line)}.bridge-strip{height:44px;border:3px solid var(--line);border-radius:999px;background:white;overflow:hidden;margin:14px 0}.bridge-fill{height:100%;width:50%;background:linear-gradient(90deg,var(--violet),var(--blue));border-right:3px solid var(--line);transition:width .2s ease}
@@ -19,6 +20,7 @@
 .scale-map{border:3px solid var(--line);border-radius:18px;background:#e9f6e9;min-height:230px;position:relative;overflow:hidden;margin:12px 0}.scale-map:before{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 0 35%,rgba(134,215,255,.82) 36% 48%,transparent 49%),linear-gradient(120deg,transparent 0 58%,rgba(255,217,90,.72) 59% 64%,transparent 65%);opacity:.9}.map-svg{position:absolute;inset:0;z-index:1}.map-svg line{stroke:var(--ink);stroke-width:5;stroke-linecap:round}.map-place{position:absolute;width:26px;height:26px;border:3px solid var(--line);border-radius:50%;background:var(--red);z-index:2;transform:translate(-50%,-50%)}.map-place.a{left:21%;top:39%}.map-place.b{left:76%;top:62%;background:var(--violet)}.map-scale-card{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(255,253,248,.92);border:3px solid var(--line);border-radius:14px;padding:12px;z-index:3}.map-scale-row{display:flex;align-items:center;gap:10px;font:900 14px ui-monospace,monospace}.map-ruler{height:12px;width:120px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,white 3px 24px);border:3px solid var(--line);border-radius:99px}.scale-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}.scale-fact{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;text-align:center}.scale-fact b{display:block;font:900 22px ui-monospace,monospace}.scale-strip{position:relative;height:76px;margin:14px 0;border:3px solid var(--line);border-radius:16px;background:linear-gradient(90deg,#d6f2ff 0 50%,#e9ffd8 50%)}.scale-line{position:absolute;left:8%;right:8%;top:36px;height:8px;background:var(--ink);border-radius:99px}.scale-pin{position:absolute;top:21px;transform:translateX(-50%);width:28px;height:28px;border:3px solid var(--line);border-radius:50%;background:var(--red)}input[type=range]{width:100%;accent-color:#222233}
 .coord-plane{width:min(100%,330px);aspect-ratio:1;margin:14px auto;border:3px solid var(--line);box-shadow:4px 4px 0 var(--line);display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(9,1fr);background:white}.coord-cell{border:1px solid rgba(34,34,51,.18);font:800 10px ui-monospace,monospace;position:relative;background:white;cursor:pointer}.coord-cell.axis{background:#fff4bf}.coord-cell.hit{background:var(--green)}.coord-cell.miss{background:var(--red)}.coord-cell.a{background:var(--red);color:white}.coord-cell.b{background:var(--blue)}.coord-label{position:absolute;right:2px;bottom:1px}.data-bars{height:170px;border:3px solid var(--line);border-radius:14px;background:#fffbea;display:flex;align-items:end;gap:8px;padding:12px;margin:12px 0}.data-bar{flex:1;background:var(--blue);border:3px solid var(--line);min-height:18px;display:grid;place-items:end center;font:900 12px ui-monospace,monospace;padding-bottom:3px}.bag{display:flex;gap:8px;flex-wrap:wrap;border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;margin:12px 0}.stone{width:32px;height:32px;border:3px solid var(--line);border-radius:50%}.stone.red{background:var(--red)}.stone.blue{background:var(--blue)}.stone.yellow{background:var(--yellow)}.sym-box{height:190px;border:3px solid var(--line);border-radius:14px;background:white;position:relative;display:grid;place-items:center;margin:12px 0}.sym-shape{width:130px;height:130px;background:var(--blue)}.sym-shape.plus{clip-path:polygon(38% 0,62% 0,62% 38%,100% 38%,100% 62%,62% 62%,62% 100%,38% 100%,38% 62%,0 62%,0 38%,38% 38%)}.sym-shape.rect{width:160px;height:100px}.sym-shape.triangle{width:0;height:0;background:transparent;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:125px solid var(--blue)}.sym-line{position:absolute;background:var(--red);border-radius:99px;display:none}.sym-line.show{display:block}.sym-line.v{width:5px;height:160px}.sym-line.h{height:5px;width:190px}.sym-line.d1{height:5px;width:210px;transform:rotate(45deg)}.sym-line.d2{height:5px;width:210px;transform:rotate(-45deg)}.sequence{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.seq-box{min-width:62px;border:3px solid var(--line);border-radius:12px;background:#fffbea;padding:12px;text-align:center;font:900 20px ui-monospace,monospace}.equation-box{font:900 24px ui-monospace,monospace;border:3px dashed var(--line);border-radius:14px;background:#fffbea;padding:14px;text-align:center;margin:12px 0}
 .area-board{display:grid;gap:0;margin:18px auto;background:white;border:3px solid var(--line);box-shadow:4px 4px 0 var(--line);width:min(100%,360px);aspect-ratio:1}.area-cell{border:1px solid rgba(34,34,51,.2);background:var(--blue)}.area-cell.edge{box-shadow:inset 0 0 0 3px var(--red)}.triangle-svg{width:min(100%,390px);height:240px;display:block;margin:auto}.tri-fill{fill:rgba(143,227,162,.82);stroke:var(--line);stroke-width:6;stroke-linejoin:round}.tri-guide{stroke:var(--red);stroke-width:5;stroke-dasharray:8 7}.tri-label{font:900 18px ui-monospace,monospace;fill:var(--ink)}.area-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.timer-face{width:min(100%,330px);aspect-ratio:1;margin:14px auto;border:3px solid var(--line);border-radius:50%;background:conic-gradient(var(--green) var(--timer-progress,0%),white 0);display:grid;place-items:center;box-shadow:5px 5px 0 var(--line)}.timer-inner{width:74%;aspect-ratio:1;border:3px solid var(--line);border-radius:50%;background:var(--paper);display:grid;place-items:center;text-align:center;padding:18px}.timer-time{font:900 clamp(42px,7vw,70px) ui-monospace,monospace}.timer-label{font-weight:900;color:var(--muted)}.study-tip{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:14px;font-weight:900}.study-tip span{display:block;color:var(--muted);font-weight:800;font-size:14px;margin-top:4px;line-height:1.35}
 .setup-box{display:grid;grid-template-columns:repeat(4,54px);justify-content:center;gap:6px;margin:16px 0}.digit-cell{height:54px;border:3px solid var(--line);border-radius:10px;background:white;text-align:center;font:900 24px ui-monospace,monospace}.setup-label{text-align:center;font:900 12px ui-monospace,monospace;color:var(--muted)}.setup-row{display:grid;grid-template-columns:40px repeat(4,54px);gap:6px;justify-content:center;align-items:center}.op-sign{font:900 28px ui-monospace,monospace;text-align:center}.setup-line{height:4px;background:var(--ink);max-width:250px;margin:8px auto;border-radius:99px}
 .answers{display:grid;gap:10px}.answer{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:13px 15px;text-align:left;font-weight:900;cursor:pointer}.answer.good{background:var(--green)}.answer.bad{background:var(--red);color:white}.answer.off{opacity:.45;pointer-events:none}.quiz-controls{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px}.problem-list{display:grid;gap:10px}.problem-card{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:14px}
 footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@media(max-width:840px){.work{grid-template-columns:1fr}.panel{border-left:0;border-top:3px solid var(--line)}.stage{min-height:330px}.np-board{grid-template-columns:1fr}.decimal-grid{grid-template-columns:repeat(2,1fr)}h1{font-size:42px}.setup-row{grid-template-columns:30px repeat(4,44px)}.digit-cell{width:44px;height:48px}.np-tiles{grid-template-columns:repeat(4,20px);grid-auto-rows:20px}.np-tile{width:20px;height:20px}}
@@ -26,7 +28,7 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
 </head>
 <body>
 <div class="container">
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="emoji">📐 📏 🔢 ◼️ 🧩</div>
     <h1>Matematik<span class="mark">verkstan</span></h1>
     <p class="lead">En interaktiv tränare inför nationella provet i åk 6: decimaltal, skala, uppställningar, vinklar, mönster, quiz och problemlösning.</p>
@@ -44,6 +46,7 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
       <a href="#np-pattern"><span>7n</span>Mönster</a>
       <a href="#quiz"><span>?</span>Quizgenerator</a>
       <a href="#problems"><span>NP</span>Problemlösning</a>
+      <a href="#study"><span>⏱</span>Plugg-timer</a>
     </div>
   </section>
 
@@ -348,11 +351,13 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
         <div class="row"><input class="input" id="sequenceGuess" placeholder="?"><button class="btn" id="checkSequence">Kolla</button><button class="btn alt" id="newSequence">Ny följd</button></div>
         <div class="feedback" id="sequenceFeedback"></div>
       </div>
-      <div class="station">
-        <h3>Ekvationer</h3>
-        <p>Lös ut x. Börja med att samla lika termer eller göra motsatt räknesätt.</p>
+      <div class="station wide">
+        <h3>Ekvationer och uttryck</h3>
+        <p>Träna på att lösa ut x, samla lika termer och skriva ett uttryck från en text.</p>
+        <div class="row"><button class="btn alt algebraMode active" data-mode="solve">Lös ekvation</button><button class="btn alt algebraMode" data-mode="simplify">Förenkla uttryck</button><button class="btn alt algebraMode" data-mode="write">Skriv uttryck</button></div>
         <div class="equation-box" id="equationText">x - 18 = 45</div>
-        <div class="row"><label>x = <input class="input" id="equationGuess" placeholder="?"></label><button class="btn" id="checkEquation">Kolla</button><button class="btn alt" id="newEquation">Ny ekvation</button></div>
+        <div id="algebraHelp" class="feedback show">Gör samma sak på båda sidor. Målet är att få x ensamt.</div>
+        <div class="row"><label id="algebraAnswerLabel">Svar <input class="input" id="equationGuess" placeholder="?"></label><button class="btn" id="checkEquation">Kolla</button><button class="btn alt" id="newEquation">Ny uppgift</button></div>
         <div class="feedback" id="equationFeedback"></div>
       </div>
     </div>
@@ -447,11 +452,45 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
     </div>
   </section>
 
+  <section class="section" id="study">
+    <div class="tag">Studiero</div>
+    <h2>Plugg-timer och <span class="squiggle">studietips</span></h2>
+    <p class="desc">Korta fokuserade pass fungerar ofta bättre än ett långt maraton. Välj ett pass, träna en del och ta paus när timern säger till.</p>
+    <div class="card">
+      <div class="card-head"><span>Fokuspass</span><span id="timerModeLabel">15 min plugg</span></div>
+      <div class="work">
+        <div class="stage">
+          <div class="timer-face" id="timerFace">
+            <div class="timer-inner">
+              <div>
+                <div class="timer-time" id="timerTime">15:00</div>
+                <div class="timer-label" id="timerStatus">Redo</div>
+              </div>
+            </div>
+          </div>
+          <div class="mini-grid">
+            <div class="study-tip">1. Välj en del<span>Ta till exempel bara bråk-decimal-procent eller bara uppställning.</span></div>
+            <div class="study-tip">2. Gör fel synliga<span>Skriv ner ett misstag och vad du ska tänka nästa gång.</span></div>
+            <div class="study-tip">3. Pausa kort<span>Efter passet: res dig, drick vatten, börja sedan igen.</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Ställ in passet</h3>
+          <p>För NP-träning: kör hellre 10-15 minuter med fullt fokus än att scrolla runt mellan alla delar.</p>
+          <div class="row"><button class="btn alt timerPreset active" data-min="15" data-label="15 min plugg">15 min</button><button class="btn alt timerPreset" data-min="25" data-label="25 min plugg">25 min</button><button class="btn alt timerPreset" data-min="5" data-label="5 min paus">5 min paus</button></div>
+          <div class="row"><button class="btn" id="startTimer">Starta</button><button class="btn alt" id="pauseTimer">Pausa</button><button class="btn alt" id="resetTimer">Återställ</button></div>
+          <div class="feedback show" id="studyFeedback">Tips: välj en station innan du startar. När tiden är slut, skriv en mening: “Nu kan jag...”</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>Träna lite, ofta och lugnt. NP testar förståelse, metod och rimlighet.</footer>
 </div>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$$(".section").forEach(section=>{if(section.id&&!section.querySelector(".back-top")){const a=document.createElement("a");a.className="back-top";a.href="#top";a.textContent="↑ Till toppen";section.appendChild(a)}});
 const fmt=n=>String(Math.round(n*1000)/1000).replace(".",",");
 const parseNum=v=>Number(String(v).replace(",","."));
 function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -692,9 +731,42 @@ function renderSequence(){sequenceTask=sequenceTasks[Math.floor(Math.random()*se
 $("#newSequence").onclick=renderSequence;$("#checkSequence").onclick=()=>{const ok=Number($("#sequenceGuess").value)===sequenceTask.answer;$("#sequenceFeedback").className="feedback show";$("#sequenceFeedback").textContent=ok?`Rätt. ${sequenceTask.rule}`:`Inte riktigt. Tips: ${sequenceTask.rule}`};
 renderSequence();
 
-const equationTasks=[{text:"x - 18 = 45",answer:63,hint:"Gör motsatsen: addera 18 på båda sidor."},{text:"x + 27 = 84",answer:57,hint:"Gör motsatsen: subtrahera 27."},{text:"3x = 72",answer:24,hint:"Dela båda sidor med 3."},{text:"4x + 6 + 2x - 12 = 42",answer:8,hint:"Samla termer: 6x - 6 = 42, sedan 6x = 48."}];let equationTask=equationTasks[0];
-function renderEquation(){equationTask=equationTasks[Math.floor(Math.random()*equationTasks.length)];$("#equationText").textContent=equationTask.text;$("#equationGuess").value="";$("#equationFeedback").className="feedback"}
-$("#newEquation").onclick=renderEquation;$("#checkEquation").onclick=()=>{const ok=Number($("#equationGuess").value)===equationTask.answer;$("#equationFeedback").className="feedback show";$("#equationFeedback").innerHTML=ok?`Rätt. x = <b>${equationTask.answer}</b>.`:`Inte riktigt. ${equationTask.hint}`};
+const algebraTasks={
+  solve:[
+    {text:"x - 18 = 45",answer:["63"],hint:"Gör motsatsen: addera 18 på båda sidor.",help:"Gör samma sak på båda sidor. Målet är att få x ensamt."},
+    {text:"x + 27 = 84",answer:["57"],hint:"Gör motsatsen: subtrahera 27.",help:"Flytta bort +27 genom att göra -27."},
+    {text:"3x = 72",answer:["24"],hint:"Dela båda sidor med 3.",help:"3x betyder 3 gånger x."},
+    {text:"4x + 6 + 2x - 12 = 42",answer:["8"],hint:"Samla termer: 6x - 6 = 42, sedan 6x = 48.",help:"Samla först x-termer och tal var för sig."},
+    {text:"5x - 10 = 40",answer:["10"],hint:"Addera 10 först, dela sedan med 5.",help:"Gör i motsatt ordning: plus/minus först, sedan gånger/delat."}
+  ],
+  simplify:[
+    {text:"4x + 6 + 2x - 12",answer:["6x-6","6x - 6"],hint:"4x + 2x = 6x och 6 - 12 = -6.",help:"Samla lika termer: x-termer med x-termer, tal med tal."},
+    {text:"3a + 5 + 2a + 7",answer:["5a+12","5a + 12"],hint:"3a + 2a = 5a och 5 + 7 = 12.",help:"Bokstaven kan vara a, x eller n. Samma bokstav kan samlas."},
+    {text:"8n - 3n + 4 - 9",answer:["5n-5","5n - 5"],hint:"8n - 3n = 5n och 4 - 9 = -5.",help:"Var extra noga med minustecken."},
+    {text:"2x + 4x + 10",answer:["6x+10","6x + 10"],hint:"2x och 4x kan samlas. 10 är ett vanligt tal.",help:"Alla termer behöver inte kunna slås ihop."}
+  ],
+  write:[
+    {text:"Ett tal n ökas med 7.",answer:["n+7","7+n"],hint:"Ökas med betyder plus.",help:"Skriv ett uttryck. Du ska inte räkna ut ett tal."},
+    {text:"Det finns 4 påsar med n kulor i varje påse.",answer:["4n","4*n","4 x n","4×n"],hint:"Samma antal upprepas 4 gånger.",help:"Multiplikation skrivs ofta som 4n."},
+    {text:"En biljett kostar x kr. Tre biljetter och en avgift på 20 kr.",answer:["3x+20","20+3x","3*x+20"],hint:"Tre biljetter är 3x. Lägg sedan till 20.",help:"Uttrycket beskriver kostnaden, inte ett svar."},
+    {text:"Figur n har 7 nya plattor per steg och 1 extra platta.",answer:["7n+1","1+7n","7*n+1"],hint:"Det är samma mönstertänk som 7n + 1.",help:"n står för figurnumret."}
+  ]
+};
+let algebraMode="solve",equationTask=algebraTasks.solve[0];
+function cleanAlgebraAnswer(value){return String(value).toLowerCase().replace(/\s/g,"").replace(/−/g,"-").replace(/×/g,"x")}
+function renderEquation(){
+  const list=algebraTasks[algebraMode];
+  equationTask=list[Math.floor(Math.random()*list.length)];
+  $("#equationText").textContent=equationTask.text;
+  $("#equationGuess").value="";
+  $("#equationFeedback").className="feedback";
+  $("#algebraHelp").className="feedback show";
+  $("#algebraHelp").textContent=equationTask.help;
+  $("#algebraAnswerLabel").firstChild.textContent=algebraMode==="solve"?"x = ":"Svar ";
+}
+$$(".algebraMode").forEach(button=>button.onclick=()=>{algebraMode=button.dataset.mode;$$(".algebraMode").forEach(b=>b.classList.remove("active"));button.classList.add("active");renderEquation()});
+$("#newEquation").onclick=renderEquation;
+$("#checkEquation").onclick=()=>{const raw=$("#equationGuess").value.trim();let ok=false;if(algebraMode==="solve"){ok=Number(raw)===Number(equationTask.answer[0])}else{const ans=cleanAlgebraAnswer(raw);ok=equationTask.answer.some(x=>cleanAlgebraAnswer(x)===ans)}$("#equationFeedback").className="feedback show";$("#equationFeedback").innerHTML=ok?`Rätt.`:`Inte riktigt. ${equationTask.hint}`};
 renderEquation();
 
 function angleKind(v){if(v===90)return"rät";return v<90?"spetsig":"trubbig"}
@@ -753,6 +825,24 @@ $("#newProblem").onclick=()=>{newProblem();setStrategyStep(0)};
 $("#showProblemHint").onclick=()=>{$("#problemFeedback").className="feedback show";$("#problemFeedback").textContent=problem.hint};
 $("#checkProblem").onclick=()=>{const ok=Math.abs(parseNum($("#problemAnswer").value)-problem.answer)<.001;$("#problemFeedback").className="feedback show";$("#problemFeedback").innerHTML=ok?`Rätt. Svaret är <b>${fmt(problem.answer)}</b>.`:`Inte riktigt. Ledtråd: ${problem.hint}`};
 newProblem();setStrategyStep(0);
+
+let timerTotal=15*60,timerLeft=timerTotal,timerRunning=false,timerId=null;
+function renderTimer(){
+  const minutes=Math.floor(timerLeft/60),seconds=timerLeft%60;
+  $("#timerTime").textContent=`${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+  const done=timerTotal?((timerTotal-timerLeft)/timerTotal)*100:0;
+  $("#timerFace").style.setProperty("--timer-progress",`${done}%`);
+  $("#timerStatus").textContent=timerRunning?"Fokusera":"Redo";
+}
+function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}timerRunning=false;renderTimer()}
+function setTimer(minutes,label){
+  stopTimer();timerTotal=minutes*60;timerLeft=timerTotal;$("#timerModeLabel").textContent=label;$("#studyFeedback").className="feedback show";$("#studyFeedback").textContent=label.includes("paus")?"Pausläge: vila ögonen och rör på dig lite.":"Välj en station och jobba med den tills tiden är slut.";renderTimer();
+}
+$$(".timerPreset").forEach(button=>button.onclick=()=>{$$(".timerPreset").forEach(b=>b.classList.remove("active"));button.classList.add("active");setTimer(Number(button.dataset.min),button.dataset.label)});
+$("#startTimer").onclick=()=>{if(timerRunning)return;timerRunning=true;renderTimer();timerId=setInterval(()=>{timerLeft-=1;if(timerLeft<=0){timerLeft=0;stopTimer();$("#timerStatus").textContent="Klart";$("#studyFeedback").className="feedback show";$("#studyFeedback").textContent="Passet är klart. Skriv ner vad du lärde dig och ta en kort paus.";return}renderTimer()},1000)};
+$("#pauseTimer").onclick=stopTimer;
+$("#resetTimer").onclick=()=>{stopTimer();timerLeft=timerTotal;renderTimer()};
+renderTimer();
 </script>
 </body>
 </html>
