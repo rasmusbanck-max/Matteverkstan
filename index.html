@@ -1,111 +1,168 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matematikverkstan - ak 6</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Matematikverkstan — åk 6</title>
 <style>
-:root{--bg:#f7f1e6;--paper:#fffdf8;--ink:#222233;--muted:#615d70;--line:#222233;--yellow:#ffd95a;--green:#8fe3a2;--blue:#86d7ff;--pink:#ffb5c7;--red:#ff6b6b;--violet:#7d6bff;--shadow:5px 5px 0 var(--line)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#fff9df 0%,#edf8ff 45%,#fff1f5 100%);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-.container{max-width:1180px;margin:auto;padding:28px 16px 64px}.hero{text-align:center;padding:18px 0 28px}.emoji{font-size:32px;letter-spacing:6px}h1{font-size:clamp(40px,7vw,78px);line-height:.95;margin:12px 0}.mark,.squiggle{display:inline-block;background:var(--yellow);border:3px solid var(--line);border-radius:14px;padding:0 12px;box-shadow:var(--shadow);transform:rotate(-2deg)}.squiggle{background:var(--green);box-shadow:none;border:0;font-size:.92em}.lead,.desc{max-width:820px;color:var(--muted);font-size:19px;line-height:1.5}.lead{margin:auto}.nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:24px}.nav a{display:block;text-decoration:none;color:var(--ink);background:white;border:3px solid var(--line);border-radius:16px;box-shadow:4px 4px 0 var(--line);padding:15px;font-weight:900}.nav span{display:block;font-size:26px;margin-bottom:4px}
-.section{margin:62px 0}.tag{display:inline-block;background:var(--ink);color:white;border-radius:999px;padding:8px 13px;font:800 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}h2{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:12px 0}.card,.station,.mini{background:var(--paper);border:3px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}.card-head{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--yellow);border-bottom:3px solid var(--line);padding:14px 18px;font:900 13px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}.work{display:grid;grid-template-columns:1.05fr .95fr}.stage{min-height:390px;background:linear-gradient(135deg,#fff9d8,#eaf8ff);position:relative;padding:18px}.panel{border-left:3px solid var(--line);padding:22px;background:white}.panel h3,.station h3{font-size:26px;margin:0 0 8px}.panel p,.station p,.mini p{color:var(--muted);line-height:1.5}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}.btn{border:3px solid var(--line);border-radius:13px;background:var(--ink);color:white;padding:10px 14px;font-weight:900;cursor:pointer;box-shadow:3px 3px 0 rgba(34,34,51,.24)}.btn.alt{background:white;color:var(--ink)}.btn:hover,.btn.active{background:var(--yellow);color:var(--ink)}.input,select{border:3px solid var(--line);border-radius:12px;padding:10px 12px;font:900 17px ui-monospace,monospace;background:white;max-width:140px}.feedback{display:none;margin-top:13px;padding:12px 14px;border:3px solid var(--line);border-radius:14px;background:var(--yellow);font-weight:900;line-height:1.45}.feedback.show{display:block}.formula{font:900 25px ui-monospace,monospace;background:#fffbea;border:2px dashed var(--line);border-radius:14px;padding:13px;text-align:center;margin:13px 0}.mini-grid,.station-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:18px}.station,.mini{padding:20px}.wide{grid-column:1 / -1}
-.back-top{display:inline-block;margin-top:16px;text-decoration:none;border:3px solid var(--line);border-radius:999px;background:white;color:var(--ink);padding:9px 13px;font-weight:900;box-shadow:3px 3px 0 rgba(34,34,51,.2)}
-.angle-wrap{height:330px;display:grid;place-items:center}.angle-svg{width:min(100%,430px);height:310px}.ray{stroke:var(--ink);stroke-width:8;stroke-linecap:round}.arc{fill:none;stroke:var(--red);stroke-width:7;stroke-linecap:round}.point{fill:var(--ink)}.angle-label{font:900 32px ui-monospace,monospace;fill:var(--ink)}
-.decimal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.place{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;text-align:center}.place b{display:block;font:900 24px ui-monospace,monospace}.place span{font-size:13px;color:var(--muted);font-weight:900}.numberline{height:118px;position:relative;margin:16px 0}.numberline:before{content:"";position:absolute;left:7%;right:7%;top:58px;height:5px;background:var(--ink);border-radius:99px}.tick{position:absolute;top:42px;transform:translateX(-50%);font:900 12px ui-monospace,monospace;text-align:center}.tick:before{content:"";display:block;margin:auto;width:4px;height:26px;background:var(--ink);border-radius:99px}.marker{position:absolute;top:8px;transform:translateX(-50%);font:900 13px ui-monospace,monospace;color:var(--violet);text-align:center}.marker-dot{width:18px;height:18px;border:3px solid var(--line);border-radius:50%;background:var(--violet);margin:18px auto 0}.chip-row{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.chip{border:3px solid var(--line);border-radius:999px;background:#fffbea;padding:9px 12px;font-weight:900;cursor:pointer}.chip.used{opacity:.35;pointer-events:none}.order-box{min-height:48px;border:3px dashed var(--line);border-radius:14px;background:#fffbea;padding:10px;font-weight:900}
-.bridge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:12px 0}.bridge-card{border:3px solid var(--line);border-radius:16px;background:white;padding:14px;text-align:center;box-shadow:3px 3px 0 rgba(34,34,51,.18)}.bridge-card span{display:block;color:var(--muted);font-weight:900;font-size:13px}.bridge-card b{display:block;font:900 30px ui-monospace,monospace;margin-top:5px}.hundred-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;border:3px solid var(--line);border-radius:16px;background:white;padding:8px;max-width:330px;margin:16px auto}.hundred-cell{aspect-ratio:1;border:2px solid rgba(34,34,51,.2);border-radius:4px;background:#fffdf8}.hundred-cell.on{background:var(--violet);border-color:var(--line)}.bridge-strip{height:44px;border:3px solid var(--line);border-radius:999px;background:white;overflow:hidden;margin:14px 0}.bridge-fill{height:100%;width:50%;background:linear-gradient(90deg,var(--violet),var(--blue));border-right:3px solid var(--line);transition:width .2s ease}
-.fraction-lab{display:grid;gap:16px}.fraction-row{display:grid;grid-template-columns:86px 1fr 78px;gap:10px;align-items:center}.fraction-name{font:900 22px ui-monospace,monospace;text-align:right}.fraction-bar{height:52px;border:3px solid var(--line);border-radius:13px;background:white;display:grid;overflow:hidden}.fraction-part{border-right:2px solid var(--line)}.fraction-part:last-child{border-right:0}.fraction-part.on{background:var(--violet)}.fraction-value{font:900 17px ui-monospace,monospace}.fraction-picker{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fraction-wall{display:grid;gap:8px;margin-top:14px}.wall-row{display:grid;grid-template-columns:60px 1fr;gap:9px;align-items:center}.wall-label{font:900 14px ui-monospace,monospace;text-align:right}.wall-bar{height:30px;border:3px solid var(--line);border-radius:10px;background:white;display:grid;overflow:hidden}.wall-piece{border-right:2px solid var(--line)}.wall-piece:last-child{border-right:0}.wall-piece.on{background:var(--green)}
-.np-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:end;min-height:260px;background:linear-gradient(135deg,#fff9d8,#eaf8ff);border:3px solid var(--line);border-radius:16px;padding:16px;overflow:hidden}.np-figure{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0}.np-tiles{display:grid;grid-template-columns:repeat(4,24px);grid-auto-rows:24px;gap:4px;align-items:end;justify-content:center;max-width:100%;overflow:hidden}.np-tile{width:24px;height:24px;border:3px solid var(--line);background:var(--blue);box-shadow:2px 2px 0 var(--line)}.np-spacer{width:24px;height:24px}.tower-label{font:900 13px ui-monospace,monospace;text-align:center;white-space:nowrap}
-.number-stage{display:grid;align-content:start;gap:16px;min-height:auto}.place-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}.skill-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.skill-card{border:3px solid var(--line);border-radius:14px;background:white;padding:12px;min-height:72px;display:grid;align-content:center;font-weight:900;box-shadow:3px 3px 0 rgba(34,34,51,.2)}.skill-card span{display:block;color:var(--muted);font-size:12px;font-weight:800;margin-top:3px;line-height:1.25}
-.percent-bar{height:58px;border:3px solid var(--line);border-radius:15px;background:white;overflow:hidden;margin:16px 0;position:relative}.percent-fill{height:100%;width:25%;background:linear-gradient(90deg,var(--green),var(--blue));border-right:3px solid var(--line);transition:width .2s ease}.percent-label{position:absolute;inset:0;display:grid;place-items:center;font:900 22px ui-monospace,monospace}.percent-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.percent-card{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;text-align:center}.percent-card b{display:block;font:900 22px ui-monospace,monospace}
-.scale-map{border:3px solid var(--line);border-radius:18px;background:#e9f6e9;min-height:230px;position:relative;overflow:hidden;margin:12px 0}.scale-map:before{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 0 35%,rgba(134,215,255,.82) 36% 48%,transparent 49%),linear-gradient(120deg,transparent 0 58%,rgba(255,217,90,.72) 59% 64%,transparent 65%);opacity:.9}.map-svg{position:absolute;inset:0;z-index:1}.map-svg line{stroke:var(--ink);stroke-width:5;stroke-linecap:round}.map-place{position:absolute;width:26px;height:26px;border:3px solid var(--line);border-radius:50%;background:var(--red);z-index:2;transform:translate(-50%,-50%)}.map-place.a{left:21%;top:39%}.map-place.b{left:76%;top:62%;background:var(--violet)}.map-scale-card{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(255,253,248,.92);border:3px solid var(--line);border-radius:14px;padding:12px;z-index:3}.map-scale-row{display:flex;align-items:center;gap:10px;font:900 14px ui-monospace,monospace}.map-ruler{height:12px;width:120px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,white 3px 24px);border:3px solid var(--line);border-radius:99px}.scale-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}.scale-fact{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;text-align:center}.scale-fact b{display:block;font:900 22px ui-monospace,monospace}.scale-strip{position:relative;height:76px;margin:14px 0;border:3px solid var(--line);border-radius:16px;background:linear-gradient(90deg,#d6f2ff 0 50%,#e9ffd8 50%)}.scale-line{position:absolute;left:8%;right:8%;top:36px;height:8px;background:var(--ink);border-radius:99px}.scale-pin{position:absolute;top:21px;transform:translateX(-50%);width:28px;height:28px;border:3px solid var(--line);border-radius:50%;background:var(--red)}input[type=range]{width:100%;accent-color:#222233}
-.coord-plane{width:min(100%,330px);aspect-ratio:1;margin:14px auto;border:3px solid var(--line);box-shadow:4px 4px 0 var(--line);display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(9,1fr);background:white}.coord-cell{border:1px solid rgba(34,34,51,.18);font:800 10px ui-monospace,monospace;position:relative;background:white;cursor:pointer}.coord-cell.axis{background:#fff4bf}.coord-cell.hit{background:var(--green)}.coord-cell.miss{background:var(--red)}.coord-cell.a{background:var(--red);color:white}.coord-cell.b{background:var(--blue)}.coord-label{position:absolute;right:2px;bottom:1px}.data-bars{height:170px;border:3px solid var(--line);border-radius:14px;background:#fffbea;display:flex;align-items:end;gap:8px;padding:12px;margin:12px 0}.data-bar{flex:1;background:var(--blue);border:3px solid var(--line);min-height:18px;display:grid;place-items:end center;font:900 12px ui-monospace,monospace;padding-bottom:3px}.bag{display:flex;gap:8px;flex-wrap:wrap;border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;margin:12px 0}.stone{width:32px;height:32px;border:3px solid var(--line);border-radius:50%}.stone.red{background:var(--red)}.stone.blue{background:var(--blue)}.stone.yellow{background:var(--yellow)}.sym-box{height:190px;border:3px solid var(--line);border-radius:14px;background:white;position:relative;display:grid;place-items:center;margin:12px 0}.sym-shape{width:130px;height:130px;background:var(--blue)}.sym-shape.plus{clip-path:polygon(38% 0,62% 0,62% 38%,100% 38%,100% 62%,62% 62%,62% 100%,38% 100%,38% 62%,0 62%,0 38%,38% 38%)}.sym-shape.rect{width:160px;height:100px}.sym-shape.triangle{width:0;height:0;background:transparent;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:125px solid var(--blue)}.sym-line{position:absolute;background:var(--red);border-radius:99px;display:none}.sym-line.show{display:block}.sym-line.v{width:5px;height:160px}.sym-line.h{height:5px;width:190px}.sym-line.d1{height:5px;width:210px;transform:rotate(45deg)}.sym-line.d2{height:5px;width:210px;transform:rotate(-45deg)}.sequence{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.seq-box{min-width:62px;border:3px solid var(--line);border-radius:12px;background:#fffbea;padding:12px;text-align:center;font:900 20px ui-monospace,monospace}.equation-box{font:900 24px ui-monospace,monospace;border:3px dashed var(--line);border-radius:14px;background:#fffbea;padding:14px;text-align:center;margin:12px 0}
-.area-board{display:grid;gap:0;margin:18px auto;background:white;border:3px solid var(--line);box-shadow:4px 4px 0 var(--line);width:min(100%,360px);aspect-ratio:1}.area-cell{border:1px solid rgba(34,34,51,.2);background:var(--blue)}.area-cell.edge{box-shadow:inset 0 0 0 3px var(--red)}.triangle-svg{width:min(100%,390px);height:240px;display:block;margin:auto}.tri-fill{fill:rgba(143,227,162,.82);stroke:var(--line);stroke-width:6;stroke-linejoin:round}.tri-guide{stroke:var(--red);stroke-width:5;stroke-dasharray:8 7}.tri-label{font:900 18px ui-monospace,monospace;fill:var(--ink)}.area-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.timer-face{width:min(100%,330px);aspect-ratio:1;margin:14px auto;border:3px solid var(--line);border-radius:50%;background:conic-gradient(var(--green) var(--timer-progress,0%),white 0);display:grid;place-items:center;box-shadow:5px 5px 0 var(--line)}.timer-inner{width:74%;aspect-ratio:1;border:3px solid var(--line);border-radius:50%;background:var(--paper);display:grid;place-items:center;text-align:center;padding:18px}.timer-time{font:900 clamp(42px,7vw,70px) ui-monospace,monospace}.timer-label{font-weight:900;color:var(--muted)}.study-tip{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:14px;font-weight:900}.study-tip span{display:block;color:var(--muted);font-weight:800;font-size:14px;margin-top:4px;line-height:1.35}
-.setup-box{display:grid;grid-template-columns:repeat(4,54px);justify-content:center;gap:6px;margin:16px 0}.digit-cell{height:54px;border:3px solid var(--line);border-radius:10px;background:white;text-align:center;font:900 24px ui-monospace,monospace}.setup-label{text-align:center;font:900 12px ui-monospace,monospace;color:var(--muted)}.setup-row{display:grid;grid-template-columns:40px repeat(4,54px);gap:6px;justify-content:center;align-items:center}.op-sign{font:900 28px ui-monospace,monospace;text-align:center}.setup-line{height:4px;background:var(--ink);max-width:250px;margin:8px auto;border-radius:99px}
-.answers{display:grid;gap:10px}.answer{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:13px 15px;text-align:left;font-weight:900;cursor:pointer}.answer.good{background:var(--green)}.answer.bad{background:var(--red);color:white}.answer.off{opacity:.45;pointer-events:none}.quiz-controls{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px}.problem-list{display:grid;gap:10px}.problem-card{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:14px}
-footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@media(max-width:840px){.work{grid-template-columns:1fr}.panel{border-left:0;border-top:3px solid var(--line)}.stage{min-height:330px}.np-board{grid-template-columns:1fr}.decimal-grid{grid-template-columns:repeat(2,1fr)}h1{font-size:42px}.setup-row{grid-template-columns:30px repeat(4,44px)}.digit-cell{width:44px;height:48px}.np-tiles{grid-template-columns:repeat(4,20px);grid-auto-rows:20px}.np-tile{width:20px;height:20px}}
+:root{--bg:#f8f3e7;--paper:#fffdf8;--ink:#222233;--soft:#5e5b6f;--line:#222233;--yellow:#ffd95a;--green:#8fe3a2;--blue:#86d7ff;--pink:#ffb5c7;--red:#ff6b6b;--violet:#7d6bff;--shadow:6px 6px 0 var(--line)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 12% 14%,rgba(255,181,199,.45) 0 88px,transparent 90px),radial-gradient(circle at 88% 18%,rgba(143,227,162,.42) 0 105px,transparent 107px),radial-gradient(circle at 78% 90%,rgba(134,215,255,.35) 0 130px,transparent 132px)}
+.container{max-width:1180px;margin:auto;padding:32px 18px 70px}.hero{text-align:center;padding:22px 0 36px}.emoji{font-size:34px;letter-spacing:8px;animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px)}}h1{font-size:clamp(40px,7vw,82px);line-height:.95;margin:14px 0}.mark,.squiggle{display:inline-block;background:var(--yellow);border:3px solid var(--line);border-radius:14px;padding:0 12px;box-shadow:var(--shadow);transform:rotate(-2deg)}.squiggle{background:var(--green);border:0;box-shadow:none;font-size:.92em}.lead,.desc{max-width:800px;color:var(--soft);font-size:20px;line-height:1.5}.lead{margin:auto}.nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:28px}.nav a{display:block;text-decoration:none;color:var(--ink);background:white;border:3px solid var(--line);border-radius:18px;box-shadow:5px 5px 0 var(--line);padding:18px;font-weight:900}.nav span{display:block;font-size:28px;margin-bottom:5px}.section{margin:70px 0}.tag{display:inline-block;background:var(--ink);color:white;border-radius:999px;padding:8px 14px;font:800 12px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.08em}h2{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:12px 0}.card{background:var(--paper);border:3px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--yellow);border-bottom:3px solid var(--line);padding:15px 20px;font:900 13px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}.work{display:grid;grid-template-columns:1.05fr .95fr;gap:0}.stage{min-height:430px;background:linear-gradient(135deg,#fff9d8,#eaf8ff);position:relative;padding:18px}.panel{border-left:3px solid var(--line);padding:24px;background:white}.panel h3{font-size:28px;margin:0 0 8px}.panel p{color:var(--soft);line-height:1.5}.controls{border-top:3px solid var(--line);padding:15px;background:#fffbea;display:flex;gap:11px;flex-wrap:wrap;align-items:center;justify-content:center}.btn{border:3px solid var(--line);border-radius:13px;background:var(--ink);color:white;padding:11px 15px;font-weight:900;cursor:pointer;box-shadow:4px 4px 0 rgba(34,34,51,.25)}.btn.alt{background:white;color:var(--ink)}.btn:hover,.btn.active{background:var(--yellow);color:var(--ink)}.btn:disabled{opacity:.45;cursor:not-allowed}.grid-board{display:grid;gap:0;margin:auto;background:white;border:3px solid var(--line);box-shadow:5px 5px 0 var(--line);width:min(100%,390px);aspect-ratio:1}.cell{border:1px solid rgba(34,34,51,.18);display:grid;place-items:center;font:800 13px ui-monospace,monospace}.cell.fill{background:var(--blue)}.cell.edge{box-shadow:inset 0 0 0 3px var(--red)}.formula{font:900 28px ui-monospace,monospace;background:#fffbea;border:2px dashed var(--line);border-radius:14px;padding:14px;text-align:center;margin:14px 0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}.input{border:3px solid var(--line);border-radius:12px;padding:10px 12px;font:900 18px ui-monospace,monospace;width:110px;background:white}.feedback{display:none;margin-top:14px;padding:13px 15px;border:3px solid var(--line);border-radius:14px;background:var(--yellow);font-weight:900;line-height:1.45}.feedback.show{display:block}.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}.mini{background:white;border:3px solid var(--line);border-radius:18px;box-shadow:5px 5px 0 var(--line);padding:20px}.mini b{font-size:20px}.angle-wrap{height:350px;display:grid;place-items:center}.angle-svg{width:min(100%,430px);height:330px}.ray{stroke:var(--ink);stroke-width:8;stroke-linecap:round}.arc{fill:none;stroke:var(--red);stroke-width:7;stroke-linecap:round}.point{fill:var(--ink)}.angle-label{font:900 32px ui-monospace,monospace;fill:var(--ink)}.pattern{display:flex;align-items:end;justify-content:center;gap:16px;height:310px}.tower{display:grid;gap:4px;align-content:end}.block{width:34px;height:34px;border:3px solid var(--line);background:var(--green);box-shadow:2px 2px 0 var(--line)}.tower-label{text-align:center;font:900 14px ui-monospace,monospace;margin-top:8px}.fraction-area{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}.fraction-bars{display:grid;gap:14px}.bar{height:56px;border:3px solid var(--line);border-radius:13px;background:white;display:grid;overflow:hidden}.bar div{border-right:2px solid var(--line)}.bar div:last-child{border-right:0}.bar .on{background:var(--violet)}.numberline{height:110px;position:relative;margin-top:20px}.numberline:before{content:"";position:absolute;left:8%;right:8%;top:48px;height:5px;background:var(--ink);border-radius:99px}.tick{position:absolute;top:32px;transform:translateX(-50%);font:900 13px ui-monospace,monospace;text-align:center}.tick:before{content:"";display:block;margin:auto;width:4px;height:30px;background:var(--ink);border-radius:99px}.quiz{padding:24px}.answers{display:grid;gap:10px}.answer{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:13px 15px;text-align:left;font-weight:900;cursor:pointer}.answer.good{background:var(--green)}.answer.bad{background:var(--red);color:white}.answer.off{opacity:.45;pointer-events:none}footer{text-align:center;margin-top:70px;color:var(--soft);font-weight:900}@media(max-width:840px){.work,.fraction-area{grid-template-columns:1fr}.panel{border-left:0;border-top:3px solid var(--line)}.stage{min-height:360px}.pattern{gap:9px}.block{width:25px;height:25px}h1{font-size:42px}.container{padding:24px 14px 50px}}
+.pattern-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.pattern-tabs .btn{padding:9px 12px}.pattern{height:390px;overflow:hidden;padding:18px 8px 0;align-items:flex-end}.tower{max-height:340px;overflow:hidden}.block{width:22px;height:22px}.marker{position:absolute;top:20px;transform:translateX(-50%);font:900 13px ui-monospace,monospace;text-align:center;color:var(--violet);line-height:1.05}.marker-dot{width:18px;height:18px;border:3px solid var(--line);border-radius:50%;background:var(--violet);margin:17px auto 0}.marker:after{display:none}.tick{top:55px}.tick:before{height:24px}
+.station-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.station{background:white;border:3px solid var(--line);border-radius:18px;box-shadow:5px 5px 0 var(--line);padding:20px}.station h3{font-size:24px;margin:0 0 8px}.station p{color:var(--soft);line-height:1.45}.wide{grid-column:1 / -1}.chip-row{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.choice-chip{border:3px solid var(--line);border-radius:999px;background:#fffbea;padding:9px 12px;font-weight:900;cursor:pointer}.choice-chip.used{opacity:.35;pointer-events:none}.order-box{min-height:48px;border:3px dashed var(--line);border-radius:14px;background:#fffbea;padding:10px;font-weight:900}.np-pattern-board{display:flex;gap:14px;align-items:end;justify-content:center;min-height:210px;background:linear-gradient(135deg,#fff9d8,#eaf8ff);border:3px solid var(--line);border-radius:16px;padding:16px;overflow:hidden}.np-fig{display:grid;gap:3px;align-content:end}.np-tile{width:24px;height:24px;border:3px solid var(--line);background:var(--blue);box-shadow:2px 2px 0 var(--line)}.small-note{font-size:14px;color:var(--soft);font-weight:800}.place-card{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}.place{border:3px solid var(--line);border-radius:14px;background:#fffbea;padding:12px;text-align:center}.place b{display:block;font:900 24px ui-monospace,monospace}.place span{font-size:13px;color:var(--soft);font-weight:900}.fraction-board{display:grid;gap:10px;margin-top:18px}.eq-row{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:center}.eq-label{font:900 16px ui-monospace,monospace;text-align:right}.eq-bar{height:34px;border:3px solid var(--line);border-radius:10px;background:white;display:grid;overflow:hidden}.eq-part{border-right:2px solid var(--line)}.eq-part:last-child{border-right:0}.eq-part.on{background:var(--green)}.module-strip{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.module-pill{border:3px solid var(--line);border-radius:999px;background:white;padding:9px 12px;font-weight:900}
+.grid-board.perimeter{outline:5px solid var(--red);outline-offset:-8px}.cell.edge{box-shadow:none}.triangle-lab{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}.triangle-stage{min-height:320px;background:linear-gradient(135deg,#fff9d8,#eaf8ff);border:3px solid var(--line);border-radius:18px;display:grid;place-items:center;padding:18px}.triangle-svg{width:min(100%,430px);height:260px}.tri-fill{fill:rgba(135,223,154,.75);stroke:var(--line);stroke-width:6;stroke-linejoin:round}.tri-guide{stroke:var(--red);stroke-width:5;stroke-dasharray:8 7}.tri-label{font:900 18px ui-monospace,monospace;fill:var(--ink)}.coord-plane{width:min(100%,390px);aspect-ratio:1;margin:auto;background:white;border:3px solid var(--line);box-shadow:5px 5px 0 var(--line);display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(9,1fr);position:relative}.coord-cell{border:1px solid rgba(34,34,51,.18);display:grid;place-items:center;font:800 11px ui-monospace,monospace;cursor:pointer}.coord-cell.axis{background:#fff4bf}.coord-cell.pointA{background:var(--red);color:white}.coord-cell.pointB{background:var(--blue)}.coord-cell.mid{background:var(--green)}.sym-box{width:min(100%,360px);height:260px;margin:auto;border:3px solid var(--line);border-radius:18px;background:white;position:relative;display:grid;place-items:center}.sym-shape{width:190px;height:190px;background:var(--blue)}.sym-shape.plus{clip-path:polygon(38% 0,62% 0,62% 38%,100% 38%,100% 62%,62% 62%,62% 100%,38% 100%,38% 62%,0 62%,0 38%,38% 38%)}.sym-shape.rect{width:220px;height:140px;border-radius:6px}.sym-shape.triangle{width:0;height:0;background:transparent;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom:180px solid var(--blue)}.sym-shape.lshape{clip-path:polygon(0 0,45% 0,45% 55%,100% 55%,100% 100%,0 100%)}.sym-line{position:absolute;background:var(--red);border-radius:99px;display:none}.sym-line.show{display:block}.sym-line.v{width:5px;height:230px}.sym-line.h{height:5px;width:230px}.sym-line.d1{height:5px;width:300px;transform:rotate(45deg)}.sym-line.d2{height:5px;width:300px;transform:rotate(-45deg)}@media(max-width:840px){.triangle-lab{grid-template-columns:1fr}}
+.coord-cell{position:relative}.coord-cell.origin{background:var(--yellow)}.coord-label{position:absolute;font:900 11px ui-monospace,monospace;color:var(--ink);pointer-events:none}.coord-label.x{bottom:2px;right:4px}.coord-label.y{top:2px;left:4px}.coord-cell.origin .coord-label{font-size:10px}
+@media(max-width:700px){
+  :root{--shadow:3px 3px 0 var(--line)}
+  body{background:#fff9df}
+  .container{padding:18px 10px 42px}
+  .hero{padding:12px 0 22px;text-align:left}
+  .emoji{font-size:24px;letter-spacing:3px;text-align:center}
+  h1{font-size:38px;line-height:1;margin:10px 0;text-align:center}
+  .lead,.desc{font-size:16.5px;line-height:1.42}
+  .lead{text-align:center}
+  .mark{padding:0 9px;border-radius:11px}
+  .nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:18px}
+  .nav a{border-radius:13px;padding:11px 9px;box-shadow:3px 3px 0 var(--line);font-size:13.5px;line-height:1.18;text-align:center}
+  .nav span{font-size:20px;margin-bottom:3px}
+  .section{margin:42px 0}
+  .tag{font-size:10.5px;padding:7px 11px}
+  h2{font-size:29px;line-height:1.08}
+  .card,.station,.mini{border-radius:14px;box-shadow:3px 3px 0 var(--line)}
+  .card-head{padding:12px 13px;font-size:11px;align-items:flex-start;flex-direction:column;gap:4px}
+  .work,.fraction-area,.triangle-lab{grid-template-columns:1fr}
+  .stage{min-height:auto;padding:12px}
+  .panel{border-left:0;border-top:3px solid var(--line);padding:16px}
+  .panel h3,.station h3{font-size:22px}
+  .panel p,.station p,.mini p{font-size:15px}
+  .row{gap:8px;align-items:stretch}
+  .row label{display:grid;gap:4px;flex:1 1 130px}
+  .input,select{width:100%;max-width:none;font-size:16px;padding:9px 10px}
+  .btn{min-height:44px;padding:10px 12px;font-size:14px}
+  .formula{font-size:20px;line-height:1.25;padding:11px;overflow-wrap:anywhere}
+  .feedback{font-size:14.5px;padding:11px 12px}
+  .mini-grid,.station-grid{grid-template-columns:1fr;gap:12px}
+  .station,.mini{padding:15px}
+  .wide{grid-column:auto}
+  .place-card{grid-template-columns:repeat(2,1fr);gap:8px}
+  .place{padding:10px 7px}
+  .place b{font-size:21px}
+  .place span{font-size:12px}
+  .module-strip,.chip-row,.area-tabs,.pattern-tabs{gap:7px}
+  .module-strip .btn,.chip,.choice-chip,.area-tabs .btn,.pattern-tabs .btn{font-size:13px;padding:8px 10px}
+  .grid-board{width:min(100%,300px)}
+  .triangle-stage{min-height:240px;padding:10px}
+  .triangle-svg{height:210px}
+  .tri-label{font-size:14px}
+  .angle-wrap{height:245px}
+  .angle-svg{height:235px}
+  .angle-label{font-size:24px}
+  .fraction-board{gap:8px}
+  .eq-row{grid-template-columns:46px 1fr;gap:7px}
+  .eq-label{font-size:13px}
+  .eq-bar{height:30px}
+  .bar{height:44px}
+  .numberline{height:92px;margin-top:12px}
+  .numberline:before{top:46px;left:9%;right:9%}
+  .tick{top:50px;font-size:10.5px}
+  .tick:before{height:18px}
+  .marker{top:13px;font-size:11.5px}
+  .marker-dot{width:15px;height:15px;margin-top:13px}
+  .pattern{height:270px;gap:8px;padding:12px 4px 0}
+  .block{width:18px!important;height:18px!important;border-width:2px}
+  .tower-label{font-size:11px}
+  .np-pattern-board{min-height:170px;padding:10px;gap:8px;overflow-x:auto;justify-content:flex-start}
+  .np-fig{min-width:max-content}
+  .np-tile{width:18px;height:18px;border-width:2px}
+  .coord-plane{width:min(100%,300px);box-shadow:3px 3px 0 var(--line)}
+  .coord-cell{font-size:9px;min-width:0}
+  .coord-label{font-size:9px}
+  .sym-box{height:210px;width:min(100%,300px)}
+  .sym-shape{transform:scale(.75)}
+  .sym-line.v{height:175px}
+  .sym-line.h{width:180px}
+  .sym-line.d1,.sym-line.d2{width:220px}
+  .answer{padding:12px;font-size:14.5px}
+  footer{font-size:14px;margin-top:42px}
+}
+@media(max-width:390px){
+  .nav{grid-template-columns:1fr}
+  h1{font-size:34px}
+  h2{font-size:26px}
+  .place-card{grid-template-columns:1fr}
+  .btn{width:100%}
+  .row{display:grid}
+}
 </style>
 </head>
 <body>
 <div class="container">
-  <section class="hero" id="top">
+  <section class="hero">
     <div class="emoji">📐 📏 🔢 ◼️ 🧩</div>
     <h1>Matematik<span class="mark">verkstan</span></h1>
-    <p class="lead">En interaktiv tränare inför nationella provet i åk 6: decimaltal, skala, uppställningar, vinklar, mönster, quiz och problemlösning.</p>
+    <p class="lead">En samlad interaktiv tränare inför nationella provet: talförståelse, bråk, geometri, mönster, procent, statistik och blandade NP-uppgifter.</p>
     <div class="nav">
-      <a href="#decimals"><span>0,75</span>Decimaltal</a>
-      <a href="#value-bridge"><span>¼</span>Bråk decimal procent</a>
-      <a href="#fractions"><span>½</span>Bråktavla</a>
       <a href="#numbers"><span>123</span>Tal och talsorter</a>
-      <a href="#setup"><span>+ − ×</span>Uppställningar</a>
-      <a href="#area"><span>▦</span>Area</a>
-      <a href="#scale"><span>1:25 000</span>Skala</a>
-      <a href="#percent"><span>%</span>Procent</a>
-      <a href="#np-skills"><span>Σ</span>Fler NP-delar</a>
+      <a href="#operations"><span>+−×÷</span>Fyra räknesätten</a>
+      <a href="#decimals"><span>0,5</span>Decimaltal</a>
+      <a href="#fractions"><span>½</span>Bråk och decimaler</a>
+      <a href="#area"><span>▦</span>Geometri</a>
       <a href="#angles"><span>∠</span>Vinklar</a>
-      <a href="#np-pattern"><span>7n</span>Mönster</a>
-      <a href="#quiz"><span>?</span>Quizgenerator</a>
-      <a href="#problems"><span>NP</span>Problemlösning</a>
-      <a href="#study"><span>⏱</span>Plugg-timer</a>
-    </div>
-  </section>
-
-  <section class="section" id="study">
-    <div class="tag">Studiero</div>
-    <h2>Plugg-timer och <span class="squiggle">studietips</span></h2>
-    <p class="desc">Korta fokuserade pass fungerar ofta bättre än ett långt maraton. Välj ett pass, träna en del och ta paus när timern säger till.</p>
-    <div class="card">
-      <div class="card-head"><span>Fokuspass</span><span id="timerModeLabel">15 min plugg</span></div>
-      <div class="work">
-        <div class="stage">
-          <div class="timer-face" id="timerFace">
-            <div class="timer-inner">
-              <div>
-                <div class="timer-time" id="timerTime">15:00</div>
-                <div class="timer-label" id="timerStatus">Redo</div>
-              </div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div class="study-tip">1. Välj en del<span>Ta till exempel bara bråk-decimal-procent eller bara uppställning.</span></div>
-            <div class="study-tip">2. Gör fel synliga<span>Skriv ner ett misstag och vad du ska tänka nästa gång.</span></div>
-            <div class="study-tip">3. Pausa kort<span>Efter passet: res dig, drick vatten, börja sedan igen.</span></div>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Ställ in passet</h3>
-          <p>För NP-träning: kör hellre 10-15 minuter med fullt fokus än att scrolla runt mellan alla delar.</p>
-          <div class="row"><button class="btn alt timerPreset active" data-min="15" data-label="15 min plugg">15 min</button><button class="btn alt timerPreset" data-min="25" data-label="25 min plugg">25 min</button><button class="btn alt timerPreset" data-min="5" data-label="5 min paus">5 min paus</button></div>
-          <div class="row"><button class="btn" id="startTimer">Starta</button><button class="btn alt" id="pauseTimer">Pausa</button><button class="btn alt" id="resetTimer">Återställ</button></div>
-          <div class="feedback show" id="studyFeedback">Tips: välj en station innan du startar. När tiden är slut, skriv en mening: “Nu kan jag...”</div>
-        </div>
-      </div>
+      <a href="#patterns"><span>n</span>Mönster med n</a>
+      <a href="#percent"><span>%</span>Procent</a>
+      <a href="#statistics"><span>Σ</span>Statistik</a>
+      <a href="#np-pattern"><span>7n</span>Stor mönsteruppgift</a>
+      <a href="#scale-coordinates"><span>⌖</span>Skala & koordinater</a>
+      <a href="#units-symmetry"><span>↔</span>Enheter & symmetri</a>
+      <a href="#problem-solving"><span>?</span>Problemlösning</a>
     </div>
   </section>
 
   <section class="section" id="numbers">
     <div class="tag">Grund</div>
     <h2>Tal, talsorter och <span class="squiggle">rimlighet</span></h2>
-    <p class="desc">Träna på vad siffrorna betyder, hur tal jämförs och hur du kan kontrollera om ett svar verkar rimligt.</p>
+    <p class="desc">NP testar ofta om du förstår vad siffrorna betyder, kan jämföra tal och välja rätt räknesätt i en textuppgift.</p>
     <div class="card">
-      <div class="card-head"><span>Positionssystemet</span><span id="placeNumber">7 042</span></div>
+      <div class="card-head"><span>Positionssystemet</span><span id="placeNumber">4 806</span></div>
       <div class="work">
-        <div class="stage number-stage">
-          <div class="formula" id="expandedNumber">7 042 = 7 000 + 0 + 40 + 2</div>
-          <div class="place-row" id="placeCards"></div>
-          <div class="skill-row">
-            <div class="skill-card">Jämför tal<span>störst, minst och mellan</span></div>
-            <div class="skill-card">Negativa tal<span>vänster och höger om noll</span></div>
-            <div class="skill-card">Välj räknesätt<span>lägg ihop, ta bort, dela eller upprepa</span></div>
-            <div class="skill-card">Rimligt svar<span>kontrollera med överslag</span></div>
-          </div>
+        <div class="stage">
+          <div class="formula" id="expandedNumber">4 806 = 4 000 + 800 + 0 + 6</div>
+          <div class="place-card" id="placeCards"></div>
+          <div class="feedback show">Positionssystemet hjälper dig att jämföra tal, förstå negativa tal, välja räknesätt och kontrollera om ett svar är rimligt.</div>
         </div>
         <div class="panel">
           <h3>Träna platsvärde</h3>
-          <p>Vilket värde har den markerade siffran? Platsvärde hjälper dig med uppställning, avrundning och överslag.</p>
-          <div class="row"><span id="placeQuestion">Vad är värdet av 4?</span><input class="input" id="placeAnswer" type="number" placeholder="?"><button class="btn" id="checkPlace">Kolla</button></div>
+          <p>Vilket värde har den markerade siffran? Det här är grunden för uppställning, avrundning och rimlighetsbedömning.</p>
+          <div class="row"><span id="placeQuestion">Vad är värdet av 8?</span><input class="input" id="placeAnswer" type="number" placeholder="?"><button class="btn" id="checkPlace">Kolla</button></div>
           <div class="row"><button class="btn alt" id="newPlace">Nytt tal</button></div>
-          <div class="feedback show" id="placeFeedback">Tips: i 7 042 står 4 på tiotalsplatsen, alltså 40.</div>
+          <div class="feedback show" id="placeFeedback">Tips: i 4 806 är 8 hundratal, alltså 800.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="operations">
+    <div class="tag">Grund</div>
+    <h2>De fyra <span class="squiggle">räknesätten</span></h2>
+    <p class="desc">Addition, subtraktion, multiplikation och division är verktyg. På NP är det ofta viktigast att välja rätt verktyg till situationen.</p>
+    <div class="card">
+      <div class="card-head"><span>Välj räknesätt</span><span id="operationLabel">Textuppgift</span></div>
+      <div class="work">
+        <div class="stage">
+          <div class="formula" id="operationStory">Karl har 4,8 liter juice och häller lika mycket i 8 glas.</div>
+          <div class="module-strip">
+            <button class="btn alt opBtn" data-op="+">Addition</button>
+            <button class="btn alt opBtn" data-op="-">Subtraktion</button>
+            <button class="btn alt opBtn" data-op="*">Multiplikation</button>
+            <button class="btn alt opBtn" data-op="/">Division</button>
+          </div>
+          <div class="formula" id="operationCalc">4,8 ÷ 8 = ?</div>
+        </div>
+        <div class="panel">
+          <h3>Välj och räkna</h3>
+          <p>Fundera först: ska något läggas ihop, tas bort, upprepas eller delas lika?</p>
+          <div class="row"><label>Svar <input class="input" id="operationAnswer" placeholder="?"></label><button class="btn" id="checkOperation">Kolla</button><button class="btn alt" id="newOperation">Ny uppgift</button></div>
+          <div class="feedback show" id="operationFeedback">Tips: “lika mycket i varje” betyder ofta division.</div>
         </div>
       </div>
     </div>
@@ -114,735 +171,423 @@ footer{text-align:center;margin-top:60px;color:var(--muted);font-weight:900}@med
   <section class="section" id="decimals">
     <div class="tag">Tal</div>
     <h2>Decimaltal på <span class="squiggle">tallinjen</span></h2>
-    <p class="desc">Fokusera på platsvärde och storleksordning. Sambandet med bråk och procent finns i översättaren direkt efter.</p>
+    <p class="desc">Decimaltal handlar om tiondelar, hundradelar och tusendelar. Här tränar du på platsvärde, jämförelse och rimlig placering på tallinjen.</p>
     <div class="card">
-      <div class="card-head"><span>Decimal-labb</span><span id="decimalTitle">0,75</span></div>
+      <div class="card-head"><span>Decimal-labb</span><span id="decimalFocus">0,75</span></div>
       <div class="work">
         <div class="stage">
-          <div class="formula" id="decimalFormula"></div>
-          <div class="decimal-grid" id="decimalPlaces"></div>
+          <div class="formula" id="decimalExpanded">0,75 = 7 tiondelar + 5 hundradelar</div>
+          <div class="place-card" id="decimalPlaceCards"></div>
           <div class="numberline" id="decimalLine"></div>
-          <div class="chip-row" id="decimalChips"></div>
+          <div class="chip-row" id="decimalCompareChips"></div>
           <div class="order-box" id="decimalOrder"></div>
         </div>
         <div class="panel">
           <h3>Jämför decimaltal</h3>
-          <p>Klicka talen från minst till störst. Fyll gärna på med nollor när du jämför: 0,8 = 0,80.</p>
-          <div class="row"><button class="btn" id="checkDecimalOrder">Kontrollera</button><button class="btn alt" id="newDecimals">Ny omgång</button></div>
-          <div class="feedback show" id="decimalFeedback">Tips: skriv talen med lika många decimaler när du jämför.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="value-bridge">
-    <div class="tag">Samband</div>
-    <h2>Samma värde som <span class="squiggle">bråk, decimal och procent</span></h2>
-    <p class="desc">NP växlar ofta mellan formerna. Här tränar du på att se att till exempel 3/4, 0,75 och 75% betyder samma del av en hel.</p>
-    <div class="card">
-      <div class="card-head"><span>Översättaren</span><span id="bridgeTitle">1/2 = 0,5 = 50%</span></div>
-      <div class="work">
-        <div class="stage">
-          <div class="bridge-grid">
-            <div class="bridge-card"><span>Bråk</span><b id="bridgeFraction">1/2</b></div>
-            <div class="bridge-card"><span>Decimal</span><b id="bridgeDecimal">0,5</b></div>
-            <div class="bridge-card"><span>Procent</span><b id="bridgePercent">50%</b></div>
-            <div class="bridge-card"><span>Hundradelar</span><b id="bridgeHundredths">50/100</b></div>
-          </div>
-          <div class="bridge-strip"><div class="bridge-fill" id="bridgeFill"></div></div>
-          <div class="hundred-grid" id="hundredGrid"></div>
-          <div class="formula" id="bridgeFormula">1/2 = 50/100 = 0,5 = 50%</div>
-        </div>
-        <div class="panel">
-          <h3>Byt form utan att byta värde</h3>
-          <p>Välj ett vanligt bråk eller dra reglaget. Rutan med 100 små delar visar varför procent betyder hundradelar.</p>
-          <div class="chip-row" id="bridgeChips"></div>
-          <div class="row"><label>Procent <input class="input" id="bridgePercentInput" type="number" min="0" max="100" value="50"></label></div>
-          <input id="bridgeSlider" type="range" min="0" max="100" step="5" value="50">
-          <div class="row"><label id="bridgeQuestion">0,5 som procent</label><input class="input" id="bridgeAnswer" placeholder="?"><button class="btn" id="checkBridge">Kolla</button><button class="btn alt" id="newBridge">Ny</button></div>
-          <div class="feedback show" id="bridgeFeedback">Tips: decimal till procent = multiplicera med 100.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="fractions">
-    <div class="tag">Bråk</div>
-    <h2>Interaktiv <span class="squiggle">bråktavla</span></h2>
-    <p class="desc">Välj två bråk och jämför dem. Staplarna har samma totala bredd, så det syns när olika nämnare ändå kan vara lika stora.</p>
-    <div class="card">
-      <div class="card-head"><span>Jämför bråk</span><span id="fractionCompareTitle">1/2 = 2/4</span></div>
-      <div class="work">
-        <div class="stage">
-          <div class="fraction-lab">
-            <div class="fraction-row">
-              <div class="fraction-name" id="fracAName">1/2</div>
-              <div class="fraction-bar" id="fracABar"></div>
-              <div class="fraction-value" id="fracAValue">0,5</div>
-            </div>
-            <div class="fraction-row">
-              <div class="fraction-name" id="fracBName">2/4</div>
-              <div class="fraction-bar" id="fracBBar"></div>
-              <div class="fraction-value" id="fracBValue">0,5</div>
-            </div>
-          </div>
-          <div class="formula" id="fractionCompareFormula">1/2 = 2/4</div>
-          <div class="fraction-wall" id="fractionWall"></div>
-        </div>
-        <div class="panel">
-          <h3>Bygg två bråk</h3>
-          <p>Ändra täljare och nämnare. Jämför sedan värdena, inte bara hur stora siffrorna är.</p>
-          <div class="fraction-picker">
-            <div>
-              <b>Bråk A</b>
-              <div class="row"><label>Täljare <input class="input" id="fracAN" type="number" min="0" max="12" value="1"></label><label>Nämnare <input class="input" id="fracAD" type="number" min="1" max="12" value="2"></label></div>
-            </div>
-            <div>
-              <b>Bråk B</b>
-              <div class="row"><label>Täljare <input class="input" id="fracBN" type="number" min="0" max="12" value="2"></label><label>Nämnare <input class="input" id="fracBD" type="number" min="1" max="12" value="4"></label></div>
-            </div>
-          </div>
-          <div class="row"><button class="btn" id="checkFractionCompare">Förklara jämförelsen</button><button class="btn alt" id="newFractionPair">Nytt par</button></div>
-          <div class="feedback show" id="fractionFeedback">Tips: dela täljaren med nämnaren, eller gör bråken till samma nämnare.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="setup">
-    <div class="tag">Räknesätt</div>
-    <h2>Interaktiv <span class="squiggle">uppställning</span></h2>
-    <p class="desc">Träna addition, subtraktion och multiplikation med tydliga positioner. Skriv svaret ruta för ruta.</p>
-    <div class="card">
-      <div class="card-head"><span>Uppställningsmaskin</span><span id="setupKind">Addition</span></div>
-      <div class="work">
-        <div class="stage" id="setupStage"></div>
-        <div class="panel">
-          <h3>Räkna i kolumner</h3>
-          <p id="setupHelp">Börja längst till höger. Vid addition kan du behöva växla över till nästa kolumn.</p>
-          <div class="row"><button class="btn alt setupMode active" data-mode="add">Addition</button><button class="btn alt setupMode" data-mode="sub">Subtraktion</button><button class="btn alt setupMode" data-mode="mul">Multiplikation</button></div>
-          <div class="row"><button class="btn alt setupLevel active" data-level="easy">Lätt</button><button class="btn alt setupLevel" data-level="medium">Svår</button><button class="btn alt setupLevel" data-level="hard">Utmaning</button></div>
-          <div class="row"><button class="btn" id="checkSetup">Kontrollera</button><button class="btn alt" id="newSetup">Ny uppställning</button></div>
-          <div class="feedback show" id="setupFeedback">Skriv svaret i rutorna längst ner.</div>
+          <p>Klicka talen från minst till störst. Kom ihåg: fler siffror betyder inte automatiskt större tal. 0,8 är större än 0,75.</p>
+          <div class="row"><button class="btn" id="checkDecimalOrder">Kontrollera</button><button class="btn alt" id="resetDecimalOrder">Börja om</button></div>
+          <div class="row"><span id="decimalPlaceQuestion">Vad är värdet av 7?</span><input class="input" id="decimalPlaceAnswer" placeholder="?"><button class="btn" id="checkDecimalPlace">Kolla</button></div>
+          <div class="row"><label>Vad är 0,75 som bråk? <input class="input" id="decimalFractionGuess" placeholder="?"></label><button class="btn" id="checkDecimalFraction">Kolla</button></div>
+          <div class="feedback show" id="decimalFeedback">Tips: 0,75 betyder 75 hundradelar, alltså 75/100 = 3/4.</div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="area">
-    <div class="tag">Geometri</div>
-    <h2>Area, omkrets och <span class="squiggle">triangel</span></h2>
-    <p class="desc">Area är ytan inuti. Omkrets är sträckan runt. En triangel är hälften av en rektangel med samma bas och höjd.</p>
+    <div class="tag">Del 1</div>
+    <h2>Area och <span class="squiggle">omkrets</span></h2>
+    <p class="desc">Area är hur många rutor som täcker ytan. Omkrets är sträckan runt kanten. Dra i bredd och höjd och se båda ändras.</p>
     <div class="card">
-      <div class="card-head"><span>Area-labb</span><span id="areaHeadline">Rektangel</span></div>
+      <div class="card-head"><span>Rektangel-labb</span><span id="areaLabel">4 x 3</span></div>
       <div class="work">
-        <div class="stage">
-          <div id="rectAreaView">
-            <div class="area-board" id="areaBoard"></div>
-            <div class="formula" id="areaFormula">Area = 4 x 3 = 12</div>
-          </div>
-          <div id="triAreaView" style="display:none">
-            <svg class="triangle-svg" viewBox="0 0 430 260" aria-label="Triangel med bas och höjd">
-              <rect x="58" y="38" width="300" height="180" fill="rgba(134,215,255,.16)" stroke="#202338" stroke-width="3" stroke-dasharray="8 7"></rect>
-              <polygon id="triangleShape" class="tri-fill" points="58,218 358,218 238,38"></polygon>
-              <line id="triangleHeightLine" class="tri-guide" x1="238" y1="38" x2="238" y2="218"></line>
-              <text class="tri-label" id="triangleBaseLabel" x="175" y="246">bas = 6</text>
-              <text class="tri-label" id="triangleHeightLabel" x="252" y="135">höjd = 4</text>
-            </svg>
-            <div class="formula" id="triangleFormula">Area = 6 x 4 / 2 = 12</div>
-          </div>
-        </div>
+        <div class="stage"><div class="grid-board" id="areaBoard"></div></div>
         <div class="panel">
-          <h3>Byt form och räkna</h3>
-          <p>Räkna själv först. Kontrollera sedan både formel och enhet.</p>
-          <div class="area-tabs"><button class="btn alt areaMode active" data-mode="rect">Rektangel</button><button class="btn alt areaMode" data-mode="tri">Triangel</button></div>
-          <div id="rectControls">
-            <div class="row"><label>Bredd <input class="input" id="widthInput" type="number" min="1" max="10" value="4"></label><label>Höjd <input class="input" id="heightInput" type="number" min="1" max="8" value="3"></label></div>
-            <div class="row"><label>Area <input class="input" id="areaGuess" placeholder="?"></label><label>Omkrets <input class="input" id="perimeterGuess" placeholder="?"></label></div>
-            <div class="row"><button class="btn" id="checkArea">Kolla</button><button class="btn alt" id="newArea">Ny rektangel</button></div>
-          </div>
-          <div id="triControls" style="display:none">
-            <div class="row"><label>Bas <input class="input" id="triBase" type="number" min="1" max="12" value="6"></label><label>Höjd <input class="input" id="triHeight" type="number" min="1" max="10" value="4"></label></div>
-            <div class="row"><label>Area <input class="input" id="triAreaGuess" placeholder="?"></label><button class="btn" id="checkTriangle">Kolla</button><button class="btn alt" id="newTriangle">Ny triangel</button></div>
-          </div>
-          <div class="feedback show" id="areaFeedback">Tips: area har kvadratenhet, till exempel cm².</div>
+          <h3>Vad händer?</h3>
+          <p>Titta på rektangeln och räkna själv. Skriv area och omkrets, kontrollera sedan.</p>
+          <div class="formula" id="areaFormula"></div>
+          <div class="row"><label>Bredd <input class="input" id="widthInput" type="number" min="1" max="10" value="4"></label><label>Höjd <input class="input" id="heightInput" type="number" min="1" max="8" value="3"></label></div>
+          <div class="row"><label>Area <input class="input" id="areaGuess" type="number" min="1" placeholder="?"></label><label>Omkrets <input class="input" id="perimeterGuess" type="number" min="1" placeholder="?"></label></div>
+          <div class="row"><button class="btn" id="checkArea">Kontrollera</button><button class="btn alt" id="areaTask">Ny uppgift</button></div>
+          <div class="feedback show" id="areaFeedback">Tips: rutorna inuti är area. Kanten runt är omkrets.</div>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="scale">
-    <div class="tag">Geometri</div>
-    <h2>Skala som <span class="squiggle">interaktiv modell</span></h2>
-    <p class="desc">Flytta reglaget och byt skala. Se hur kartans centimeter blir meter och kilometer i verkligheten.</p>
-    <div class="card">
-      <div class="card-head"><span>Skala-labb</span><span id="scaleHeadline">1 : 25 000</span></div>
-      <div class="work">
-        <div class="stage">
-          <div class="formula" id="scaleFormula"></div>
-          <div class="scale-map" aria-label="Karta med två punkter och sträcka">
-            <svg class="map-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <line x1="21" y1="39" x2="76" y2="62"></line>
-            </svg>
-            <div class="map-place a"></div>
-            <div class="map-place b"></div>
-            <div class="map-scale-card">
-              <div class="map-scale-row"><span>Karta</span><div class="map-ruler"></div><span id="scaleMapCm">8 cm</span></div>
-            </div>
-          </div>
-          <div class="scale-facts">
-            <div class="scale-fact"><span>1 cm betyder</span><b id="oneCmReal">250 m</b></div>
-            <div class="scale-fact"><span>På kartan</span><b id="mapDistance">8 cm</b></div>
-            <div class="scale-fact"><span>I verkligheten</span><b id="realDistance">2 km</b></div>
-          </div>
-          <div class="scale-strip"><div class="scale-line"></div><div class="scale-pin" id="scalePin"></div></div>
-          <input id="mapCm" type="range" min="1" max="14" step="0.5" value="8">
-        </div>
-        <div class="panel">
-          <h3>Gör om karta till verklighet</h3>
-          <p id="scaleExplain">Skala 1 : 25 000 betyder att 1 cm på kartan är 25 000 cm i verkligheten.</p>
-          <div class="row"><label>Skala <select id="scaleSelect"><option value="1000">1 : 1 000</option><option value="2000">1 : 2 000</option><option value="5000">1 : 5 000</option><option value="10000">1 : 10 000</option><option value="15000">1 : 15 000</option><option value="20000">1 : 20 000</option><option value="25000" selected>1 : 25 000</option><option value="50000">1 : 50 000</option><option value="75000">1 : 75 000</option><option value="100000">1 : 100 000</option><option value="250000">1 : 250 000</option></select></label></div>
-          <div class="row"><label>Kartavstånd <input class="input" id="mapCmInput" type="number" min="1" max="14" step="0.5" value="8"> cm</label></div>
-          <div class="row"><label>Svaret i km <input class="input" id="scaleGuess" placeholder="km"></label><button class="btn" id="checkScale">Kolla</button></div>
-          <div class="row"><button class="btn alt" id="newScaleTask">Ny skala-uppgift</button></div>
-          <div class="feedback show" id="scaleFeedback">Tips: cm på kartan x skalan = cm i verkligheten. 100 000 cm = 1 km.</div>
-        </div>
+    <div class="triangle-lab">
+      <div class="triangle-stage">
+        <svg class="triangle-svg" viewBox="0 0 430 260" aria-label="Triangel med bas och höjd">
+          <rect x="58" y="38" width="300" height="180" fill="rgba(120,207,255,.18)" stroke="#202338" stroke-width="3" stroke-dasharray="8 7"></rect>
+          <polygon id="triangleShape" class="tri-fill" points="58,218 358,218 238,38"></polygon>
+          <line id="triangleHeightLine" class="tri-guide" x1="238" y1="38" x2="238" y2="218"></line>
+          <text class="tri-label" id="triangleBaseLabel" x="175" y="246">bas = 6</text>
+          <text class="tri-label" id="triangleHeightLabel" x="252" y="135">höjd = 4</text>
+        </svg>
+      </div>
+      <div class="station">
+        <h3>Area av triangel</h3>
+        <p>En triangel är hälften av en rektangel med samma bas och höjd.</p>
+        <div class="formula" id="triangleFormula">Area = 6 · 4 / 2</div>
+        <div class="row"><label>Bas <input class="input" id="triBase" type="number" min="1" max="12" value="6"></label><label>Höjd <input class="input" id="triHeight" type="number" min="1" max="10" value="4"></label></div>
+        <div class="row"><label>Area <input class="input" id="triAreaGuess" type="number" min="1" placeholder="?"></label><button class="btn" id="checkTriangle">Kontrollera</button><button class="btn alt" id="newTriangle">Ny triangel</button></div>
+        <div class="feedback show" id="triangleFeedback">Tips: multiplicera bas och höjd, dela sedan med 2.</div>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="percent">
-    <div class="tag">Tal</div>
-    <h2>Procent, rabatt och <span class="squiggle">förändring</span></h2>
-    <p class="desc">Procent betyder hundradelar. Här kan du se procent som en fylld stapel och räkna med pris, rabatt och höjning.</p>
-    <div class="card">
-      <div class="card-head"><span>Procent-labb</span><span id="percentHeadline">25% av 240</span></div>
-      <div class="work">
-        <div class="stage">
-          <div class="formula" id="percentFormula"></div>
-          <div class="percent-bar"><div class="percent-fill" id="percentFill"></div><div class="percent-label" id="percentBarLabel">25%</div></div>
-          <div class="percent-cards">
-            <div class="percent-card"><span>1%</span><b id="onePercent">2,4</b></div>
-            <div class="percent-card"><span>10%</span><b id="tenPercent">24</b></div>
-            <div class="percent-card"><span>Vald del</span><b id="chosenPercent">60</b></div>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Räkna procent</h3>
-          <p>Välj typ av uppgift. För rabatt drar du bort procentdelen. För höjning lägger du till procentdelen.</p>
-          <div class="row"><button class="btn alt percentMode active" data-mode="part">Procent av</button><button class="btn alt percentMode" data-mode="discount">Rabatt</button><button class="btn alt percentMode" data-mode="increase">Höjning</button></div>
-          <div class="row"><label>Grundvärde <input class="input" id="percentBase" type="number" min="1" value="240"></label><label>Procent <input class="input" id="percentValue" type="number" min="1" max="100" value="25"></label></div>
-          <input id="percentSlider" type="range" min="1" max="100" value="25">
-          <div class="row"><label>Svar <input class="input" id="percentAnswer" placeholder="?"></label><button class="btn" id="checkPercent">Kolla</button><button class="btn alt" id="newPercent">Ny</button></div>
-          <div class="feedback show" id="percentFeedback">Tips: procentdelen = grundvärde x procent / 100.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="np-skills">
-    <div class="tag">Provtyper</div>
-    <h2>Fler interaktiva <span class="squiggle">NP-delar</span></h2>
-    <p class="desc">Kortare stationer för uppgiftstyper som syns tydligt i övningsprovet: koordinater, statistik, sannolikhet, symmetri, talföljder och ekvationer.</p>
-    <div class="station-grid">
-      <div class="station">
-        <h3>Koordinater och mittpunkt</h3>
-        <p>Klicka ut punkt A. Punkterna A och B används sedan för mittpunkten.</p>
-        <p><b id="coordTaskText">A = (-2, 3)</b></p>
-        <div class="coord-plane" id="coordPlane"></div>
-        <div class="row"><label>Mittpunkt <input class="input" id="midGuess" placeholder="(0,5; 1)"></label><button class="btn" id="checkMidpoint">Kolla</button><button class="btn alt" id="newCoordTask">Ny</button></div>
-        <div class="feedback" id="coordFeedback"></div>
-      </div>
-      <div class="station">
-        <h3>Statistik</h3>
-        <p>Hitta typvärde, median och medelvärde.</p>
-        <div class="data-bars" id="statsBars"></div>
-        <p>Tal: <b id="statsNumbers">3, 7, 5, 7, 2, 9, 7</b></p>
-        <div class="row"><input class="input" id="modeGuess" placeholder="typ"><input class="input" id="medianGuess" placeholder="median"><input class="input" id="meanGuess" placeholder="medel"></div>
-        <div class="row"><button class="btn" id="checkStats">Kolla</button><button class="btn alt" id="newStats">Ny data</button></div>
-        <div class="feedback" id="statsFeedback"></div>
-      </div>
-      <div class="station">
-        <h3>Sannolikhet</h3>
-        <p>Räkna gynnsamma utfall delat med totalt antal.</p>
-        <div class="bag" id="probBag"></div>
-        <div class="row"><label>Blå som bråk <input class="input" id="blueProbGuess" placeholder="3/10"></label><label>Röd av 30 <input class="input" id="redExpectedGuess" placeholder="?"></label></div>
-        <div class="row"><button class="btn" id="checkProbability">Kolla</button></div>
-        <div class="feedback" id="probFeedback"></div>
-      </div>
-      <div class="station">
-        <h3>Symmetri</h3>
-        <p>Hur många symmetrilinjer har figuren?</p>
-        <div class="sym-box"><div class="sym-shape plus" id="symShape"></div><div class="sym-line v"></div><div class="sym-line h"></div><div class="sym-line d1"></div><div class="sym-line d2"></div></div>
-        <div class="row"><input class="input" id="symGuess" type="number" placeholder="antal"><button class="btn" id="checkSymmetry">Kolla</button><button class="btn alt" id="newSymmetry">Ny figur</button></div>
-        <div class="feedback" id="symFeedback"></div>
-      </div>
-      <div class="station">
-        <h3>Talföljder</h3>
-        <p>Hitta regeln och fyll i talet som saknas.</p>
-        <div class="sequence" id="sequenceBox"></div>
-        <div class="row"><input class="input" id="sequenceGuess" placeholder="?"><button class="btn" id="checkSequence">Kolla</button><button class="btn alt" id="newSequence">Ny följd</button></div>
-        <div class="feedback" id="sequenceFeedback"></div>
-      </div>
-      <div class="station wide">
-        <h3>Ekvationer och uttryck</h3>
-        <p>Träna på att lösa ut x, samla lika termer och skriva ett uttryck från en text.</p>
-        <div class="row"><button class="btn alt algebraMode active" data-mode="solve">Lös ekvation</button><button class="btn alt algebraMode" data-mode="simplify">Förenkla uttryck</button><button class="btn alt algebraMode" data-mode="write">Skriv uttryck</button></div>
-        <div class="equation-box" id="equationText">x - 18 = 45</div>
-        <div id="algebraHelp" class="feedback show">Gör samma sak på båda sidor. Målet är att få x ensamt.</div>
-        <div class="row"><label id="algebraAnswerLabel">Svar <input class="input" id="equationGuess" placeholder="?"></label><button class="btn" id="checkEquation">Kolla</button><button class="btn alt" id="newEquation">Ny uppgift</button></div>
-        <div class="feedback" id="equationFeedback"></div>
-      </div>
+    <div class="mini-grid">
+      <div class="mini"><b>Area</b><p>Rektangel: bredd x höjd. Exempel: 4 x 3 = 12 rutor.</p></div>
+      <div class="mini"><b>Omkrets</b><p>Rektangel: sida + sida + sida + sida. Exempel: 4 + 3 + 4 + 3 = 14.</p></div>
+      <div class="mini"><b>Triangel</b><p>Triangel: bas x höjd / 2. Höjden ska vara vinkelrät mot basen.</p></div>
+      <div class="mini"><b>NP-tänk</b><p>Skriv alltid enhet: cm, cm², m, m². Area har kvadrat-enhet.</p></div>
     </div>
   </section>
 
   <section class="section" id="angles">
-    <div class="tag">Geometri</div>
+    <div class="tag">Del 2</div>
     <h2>Vinklar: spetsig, rät och <span class="squiggle">trubbig</span></h2>
-    <p class="desc">Här tränar du tre vanliga vinkeltyper. Reglaget stannar före ett helt halvt varv så övningen håller fokus.</p>
+    <p class="desc">Ändra vinkeln och träna på att uppskatta. En rät vinkel är 90°. Ett halvt varv är 180°.</p>
     <div class="card">
       <div class="card-head"><span>Vinkel-labb</span><span id="angleKind">Spetsig</span></div>
       <div class="work">
         <div class="stage">
           <div class="angle-wrap">
-            <svg class="angle-svg" viewBox="0 0 430 310" aria-label="Vinkel">
-              <line class="ray" x1="215" y1="245" x2="365" y2="245"></line>
-              <line class="ray" id="angleRay" x1="215" y1="245" x2="320" y2="145"></line>
-              <path class="arc" id="angleArc"></path>
-              <circle class="point" cx="215" cy="245" r="8"></circle>
-              <text class="angle-label" id="angleText" x="184" y="120">60°</text>
+            <svg class="angle-svg" viewBox="0 0 430 330" aria-label="Vinkel">
+              <line class="ray" x1="215" y1="250" x2="360" y2="250"></line>
+              <line class="ray" id="angleRay" x1="215" y1="250" x2="320" y2="145"></line>
+              <path class="arc" id="angleArc" d=""></path>
+              <circle class="point" cx="215" cy="250" r="8"></circle>
+              <text class="angle-label" id="angleText" x="185" y="130">60°</text>
             </svg>
           </div>
         </div>
         <div class="panel">
           <h3>Uppskatta vinkeln</h3>
-          <p>Reglaget går från 10° till 170°. Välj vilken sorts vinkel det är.</p>
-          <input id="angleSlider" type="range" min="10" max="170" value="60">
+          <p>Flytta reglaget. Försök säga om vinkeln är spetsig, rät, trubbig eller rak.</p>
+          <input id="angleSlider" type="range" min="10" max="180" value="60" style="width:100%">
           <div class="formula" id="angleFormula">60°</div>
-          <div class="row"><button class="btn alt angleBtn" data-kind="spetsig">Spetsig</button><button class="btn alt angleBtn" data-kind="rät">Rät</button><button class="btn alt angleBtn" data-kind="trubbig">Trubbig</button></div>
+          <div class="row"><button class="btn alt angleBtn" data-kind="spetsig">Spetsig</button><button class="btn alt angleBtn" data-kind="rät">Rät</button><button class="btn alt angleBtn" data-kind="trubbig">Trubbig</button><button class="btn alt angleBtn" data-kind="rak">Rak</button></div>
           <div class="feedback" id="angleFeedback"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="np-pattern">
-    <div class="tag">Mönster</div>
-    <h2>Stor mönsteruppgift med <span class="squiggle">7n + 1</span></h2>
-    <p class="desc">Samma typ av lång mönsteruppgift som i övningsprovet: rita vidare, fyll tabell, använd formel och resonera baklänges.</p>
+  <section class="section" id="patterns">
+    <div class="tag">Del 3</div>
+    <h2>Mönster med <span class="squiggle">n</span></h2>
+    <p class="desc">När figurer växer behöver vi en regel. Bokstaven n betyder figurens nummer.</p>
     <div class="card">
-      <div class="card-head"><span>Figur, tabell och formel</span><span>antal = 7n + 1</span></div>
+      <div class="card-head"><span>Mönster-maskinen</span><span id="patternRule">Regel: 2n + 1</span></div>
+      <div class="work">
+        <div class="stage"><div class="pattern" id="patternStage"></div></div>
+        <div class="panel">
+          <h3>Hitta regeln</h3>
+          <p id="patternText">Figur 1 har 3 rutor. Figur 2 har 5 rutor. Figur 3 har 7 rutor. Vad har figur n?</p>
+          <div class="pattern-tabs" id="patternTabs"></div>
+          <div class="formula" id="patternFormula">Antal rutor = 2n + 1</div>
+          <div class="row"><label>n = <input class="input" id="nInput" type="number" min="1" max="20" value="4"></label><button class="btn" id="patternCheck">Räkna</button></div>
+          <div class="feedback show" id="patternFeedback">Om n = 4 blir 2 x 4 + 1 = 9 rutor.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-grid">
+      <div class="mini"><b>Tabell</b><p>Skriv figurens nummer och antal. Leta efter hur mycket det ökar varje gång.</p></div>
+      <div class="mini"><b>Regel</b><p>Om det ökar med 2 varje steg börjar regeln ofta med 2n.</p></div>
+      <div class="mini"><b>Kontroll</b><p>Testa regeln på figur 1. 2 x 1 + 1 = 3. Då stämmer starten.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="fractions">
+    <div class="tag">Del 4</div>
+    <h2>Bråk och <span class="squiggle">decimaler</span></h2>
+    <p class="desc">Bråk, decimaler och procent kan beskriva samma mängd. En halv är 1/2, 0,5 och 50%.</p>
+    <div class="card">
+      <div class="card-head"><span>Bråk-översättaren</span><span id="fractionLabel">1/2 = 0,5</span></div>
       <div class="work">
         <div class="stage">
-          <div class="np-board" id="npBoard"></div>
-          <div class="formula">Antal plattor = 7n + 1</div>
-          <div class="sequence" id="npTable"></div>
+          <div class="fraction-area">
+            <div class="fraction-bars">
+              <div class="bar" id="fractionBar"></div>
+              <div class="numberline" id="numberLine"></div>
+            </div>
+            <div>
+              <div class="formula" id="fractionFormula"></div>
+              <div class="row"><button class="btn alt fracBtn" data-n="1" data-d="2">1/2</button><button class="btn alt fracBtn" data-n="1" data-d="4">1/4</button><button class="btn alt fracBtn" data-n="3" data-d="4">3/4</button><button class="btn alt fracBtn" data-n="1" data-d="5">1/5</button><button class="btn alt fracBtn" data-n="2" data-d="5">2/5</button></div>
+            </div>
+          </div>
+          <div class="fraction-board" id="equivBoard"></div>
         </div>
         <div class="panel">
-          <h3>Räkna framåt och bakåt</h3>
-          <p>Om du vet figurnumret kan du räkna antalet plattor med 7n + 1. Om du vet antalet plattor kan du räkna baklänges för att hitta figurnumret.</p>
-          <div class="row"><label>Figur <input class="input" id="npN" type="number" min="1" value="10"></label><input class="input" id="npTilesGuess" placeholder="antal"><button class="btn" id="checkNpTiles">Kolla</button></div>
-          <div class="row"><label>Antal <input class="input" id="npReverseTiles" type="number" min="8" value="64"></label><input class="input" id="npReverseGuess" placeholder="n"><button class="btn" id="checkNpReverse">Kolla</button></div>
-          <div class="row"><label>Omkrets 12n + 4, n = <input class="input" id="npPerN" type="number" min="1" value="7"></label><input class="input" id="npPerGuess" placeholder="cm"><button class="btn" id="checkNpPerimeter">Kolla</button></div>
-          <div class="feedback show" id="npFeedback">Exempel: figur 3 har 7 x 3 + 1 = 22 plattor.</div>
+          <h3>Översätt mellan former</h3>
+          <p>Skriv decimalen. Bråktavlan visar också när olika bråk är lika stora, till exempel 1/2 och 2/4.</p>
+          <div class="row"><span id="fractionQuestion">1/2 =</span><input class="input" id="decimalGuess" placeholder="0,5"><button class="btn" id="decimalCheck">Kolla</button></div>
+          <div class="row"><label>Lika med <span id="equivQuestion">1/2</span>?</label><input class="input" id="equivGuess" placeholder="t.ex. 2/4"><button class="btn" id="equivCheck">Kolla</button></div>
+          <div class="feedback" id="fractionFeedback"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="quiz">
-    <div class="tag">Snabbtest</div>
-    <h2>Quizgenerator med <span class="squiggle">nya frågor</span></h2>
-    <p class="desc">Varje gång du trycker på knappen slumpas ett nytt quiz från en större frågebank.</p>
-    <div class="card">
-      <div class="card-head"><span>Mini-quiz</span><span id="quizScore">0 / 0</span></div>
-      <div class="stage" style="min-height:auto;background:white">
-        <div id="quizBox"></div>
-        <div class="quiz-controls"><button class="btn alt" id="newQuiz">Generera nytt quiz</button><button class="btn" id="nextQuiz">Nästa fråga</button></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="problems">
-    <div class="tag">NP-strategier</div>
-    <h2>Fler <span class="squiggle">problemlösningsuppgifter</span></h2>
-    <p class="desc">Välj en uppgift, skriv svar och använd ledtråden om du fastnar. Uppgifterna blandar procent, skala, bråk, statistik, enheter och rimlighet.</p>
+  <section class="section" id="more-walkthroughs">
+    <div class="tag">Fler genomgångar</div>
+    <h2>Fler interaktiva <span class="squiggle">huvudområden</span></h2>
+    <p class="desc">De här fungerar som egna genomgångar, precis som area, bråk och mönster. De tränar vanliga områden i åk 6: tallinje, procent, statistik och längre mönsterresonemang.</p>
     <div class="station-grid">
-      <div class="station wide">
-        <div class="row"><button class="btn" id="newProblem">Ny problemuppgift</button><button class="btn alt" id="showProblemHint">Visa ledtråd</button></div>
-        <div class="problem-list" id="problemBox"></div>
-        <div class="row"><label>Svar <input class="input" id="problemAnswer" placeholder="?"></label><button class="btn" id="checkProblem">Kolla</button></div>
-        <div class="feedback show" id="problemFeedback">Läs uppgiften långsamt: vad frågar den efter?</div>
-        <div class="row" style="margin-top:18px"><button class="btn alt problemStrategy active" data-step="0">1. Förstå</button><button class="btn alt problemStrategy" data-step="1">2. Planera</button><button class="btn alt problemStrategy" data-step="2">3. Beräkna</button><button class="btn alt problemStrategy" data-step="3">4. Kontrollera</button></div>
-        <div class="feedback show" id="strategyText">Vad frågar uppgiften efter? Stryk under frågan och ringa in viktiga tal.</div>
-        <div class="mini-grid">
-          <div class="mini"><b>Rita</b><p>Gör en bild, tallinje, tabell eller markera viktiga tal. Det hjälper särskilt vid bråk, skala och jämförelser.</p></div>
-          <div class="mini"><b>Välj metod</b><p>Fråga dig själv: ska jag dela, multiplicera, jämföra, avrunda eller göra en tabell?</p></div>
-          <div class="mini"><b>Visa beräkning</b><p>Skriv inte bara svaret. Visa stegen så att någon annan kan följa hur du tänkte.</p></div>
-          <div class="mini"><b>Rimlighet</b><p>Kontrollera om svaret kan stämma i verkligheten. Avrunda uppåt när svaret måste vara hela saker.</p></div>
-        </div>
+      <div class="station" id="numberline">
+        <h3>Tallinje och negativa tal</h3>
+        <p>Klicka talen i storleksordning, från minst till störst.</p>
+        <div class="chip-row" id="numberChips"></div>
+        <div class="order-box" id="numberOrder"></div>
+        <div class="row"><button class="btn" id="checkOrder">Kontrollera</button><button class="btn alt" id="resetOrder">Börja om</button></div>
+        <div class="feedback" id="orderFeedback"></div>
+      </div>
+      <div class="station" id="percent">
+        <h3>Procent och rabatt</h3>
+        <p id="percentTaskText">En biljett kostar 60 kr. Skolbarn får 25% rabatt. Vad blir priset?</p>
+        <div class="row"><input class="input" id="percentAnswer" type="number" placeholder="kr"><button class="btn" id="checkPercent">Kolla</button></div>
+        <button class="btn alt" id="newPercent">Ny procentuppgift</button>
+        <div class="feedback" id="percentFeedback"></div>
+      </div>
+      <div class="station" id="statistics">
+        <h3>Statistik</h3>
+        <p>Tal: <b id="statsData">3, 7, 5, 7, 2, 9, 7</b></p>
+        <div class="row"><label>Typvärde <input class="input" id="modeAnswer"></label><label>Median <input class="input" id="medianAnswer"></label><label>Medel <input class="input" id="meanAnswer"></label></div>
+        <div class="row"><button class="btn" id="checkStats">Kontrollera</button><button class="btn alt" id="newStats">Ny data</button></div>
+        <div class="feedback" id="statsFeedback"></div>
+      </div>
+      <div class="station wide" id="np-pattern">
+        <h3>NP-mönster: figur, tabell och formel</h3>
+        <p>Olivia bygger figurer. Regeln är <b>antal plattor = 7n + 1</b>. Det här tränar samma tänk som den långa mönsteruppgiften.</p>
+        <div class="np-pattern-board" id="npPatternBoard"></div>
+        <div class="row"><label>Hur många plattor i figur <input class="input" id="npN" type="number" min="1" value="10">?</label><input class="input" id="npTilesGuess" type="number" placeholder="antal"><button class="btn" id="checkNpTiles">Kolla</button></div>
+        <div class="row"><label>Vilken figur har <input class="input" id="npReverseTiles" type="number" min="8" value="64"> plattor?</label><input class="input" id="npReverseGuess" type="number" placeholder="n"><button class="btn" id="checkNpReverse">Kolla</button></div>
+        <div class="row"><label>Omkrets enligt 12n + 4, n = <input class="input" id="npPerN" type="number" min="1" value="7"></label><input class="input" id="npPerGuess" type="number" placeholder="cm"><button class="btn" id="checkNpPerimeter">Kolla</button></div>
+        <div class="feedback show" id="npPatternFeedback">Tips: i 7n + 1 betyder n figurnumret, 7 hur mycket som ökar per figur och 1 det som alltid finns med.</div>
       </div>
     </div>
   </section>
 
-  <footer>Träna lite, ofta och lugnt. NP testar förståelse, metod och rimlighet.</footer>
+  <section class="section">
+    <div class="tag">Snabbtest</div>
+    <h2>Mini-quiz inför <span class="squiggle">NP</span></h2>
+    <div class="card quiz" id="quizBox"></div>
+  </section>
+
+  <section class="section" id="scale-coordinates">
+    <div class="tag">Geometri</div>
+    <h2>Skala och <span class="squiggle">koordinater</span></h2>
+    <p class="desc">Här tränar du på kartskala och koordinatsystem, två saker som ofta kräver att man håller ordning på både tal och enheter.</p>
+    <div class="station-grid">
+      <div class="station">
+        <h3>Skala 1 : 25 000</h3>
+        <p>1 cm på kartan är 25 000 cm i verkligheten, alltså 250 meter.</p>
+        <div class="formula" id="scaleTask">8 cm på kartan = ? km i verkligheten</div>
+        <div class="row"><input class="input" id="scaleAnswer" placeholder="km"><button class="btn" id="checkScale">Kolla</button><button class="btn alt" id="newScale">Ny</button></div>
+        <div class="feedback show" id="scaleFeedback">Tips: multiplicera med 25 000 cm och omvandla till km.</div>
+      </div>
+      <div class="station">
+        <h3>Koordinatsystem</h3>
+        <p>Klicka ut punkten <b id="coordTargetText">(−2, 3)</b>. x går åt sidan, y går upp/ned.</p>
+        <div class="coord-plane" id="coordPlane"></div>
+        <div class="row"><button class="btn alt" id="newCoord">Ny punkt</button></div>
+        <div class="feedback" id="coordFeedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="units-symmetry">
+    <div class="tag">Begrepp</div>
+    <h2>Enheter och <span class="squiggle">symmetri</span></h2>
+    <p class="desc">Enheter hjälper dig veta vad svaret betyder. Symmetri handlar om linjer som delar en figur i två spegelbilder.</p>
+    <div class="station-grid">
+      <div class="station">
+        <h3>Enhetsväxlaren</h3>
+        <p id="unitTaskText">3,5 m = ? cm</p>
+        <div class="row"><input class="input" id="unitAnswer" placeholder="?"><button class="btn" id="checkUnit">Kolla</button><button class="btn alt" id="newUnit">Ny</button></div>
+        <div class="feedback show" id="unitFeedback">Tips: 1 m = 100 cm. Multiplicera med 100.</div>
+      </div>
+      <div class="station">
+        <h3>Symmetrilinjer</h3>
+        <p id="symQuestion">Hur många symmetrilinjer har figuren?</p>
+        <div class="sym-box"><div class="sym-shape plus" id="symShape"></div><div class="sym-line v"></div><div class="sym-line h"></div><div class="sym-line d1"></div><div class="sym-line d2"></div></div>
+        <div class="row"><input class="input" id="symAnswer" type="number" placeholder="antal"><button class="btn" id="checkSym">Kolla</button><button class="btn alt" id="newSym">Ny figur</button></div>
+        <div class="feedback" id="symFeedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="problem-solving">
+    <div class="tag">Strategier</div>
+    <h2>Problemlösning och <span class="squiggle">strategier</span></h2>
+    <p class="desc">Problemlösning handlar om att förstå situationen, välja metod, visa beräkning och kontrollera om svaret är rimligt.</p>
+    <div class="card">
+      <div class="card-head"><span>Strategi-guiden</span><span id="strategyStep">Steg 1 av 4</span></div>
+      <div class="work">
+        <div class="stage">
+          <div class="formula" id="problemStory">Fyra klasser med 28 elever i varje klass ska åka buss. En buss tar 45 personer. Hur många bussar behövs?</div>
+          <div class="module-strip">
+            <button class="btn alt strategyBtn" data-step="0">1. Förstå</button>
+            <button class="btn alt strategyBtn" data-step="1">2. Planera</button>
+            <button class="btn alt strategyBtn" data-step="2">3. Beräkna</button>
+            <button class="btn alt strategyBtn" data-step="3">4. Kontrollera</button>
+          </div>
+          <div class="feedback show" id="strategyText">Vad frågar uppgiften efter? Här frågar den efter antal bussar.</div>
+        </div>
+        <div class="panel">
+          <h3>Visa din lösning</h3>
+          <p>Skriv svaret, men tänk också på hur du skulle redovisa stegen.</p>
+          <div class="row"><label>Antal bussar <input class="input" id="problemAnswer" type="number" placeholder="?"></label><button class="btn" id="checkProblem">Kolla</button><button class="btn alt" id="newProblem">Ny strategiuppgift</button></div>
+          <div class="feedback" id="problemFeedback"></div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-grid">
+      <div class="mini"><b>Rita</b><p>Gör en bild, tallinje, tabell eller markera viktiga tal.</p></div>
+      <div class="mini"><b>Välj metod</b><p>Fråga: ska jag dela, multiplicera, jämföra, avrunda eller göra en tabell?</p></div>
+      <div class="mini"><b>Rimlighet</b><p>Fråga: kan svaret stämma i verkligheten? Avrunda uppåt när svaret måste vara hela saker, till exempel bussar, paket eller grupper.</p></div>
+    </div>
+  </section>
+
+  <footer>Träna lite, ofta och lugnt. NP testar förståelse, inte bara snabbhet.</footer>
 </div>
 
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-$$(".section").forEach(section=>{if(section.id&&!section.querySelector(".back-top")){const a=document.createElement("a");a.className="back-top";a.href="#top";a.textContent="↑ Till toppen";section.appendChild(a)}});
-const fmt=n=>String(Math.round(n*1000)/1000).replace(".",",");
-const parseNum=v=>Number(String(v).replace(",","."));
-function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function gcd(a,b){return b?gcd(b,a%b):Math.abs(a)}
 
 const placeTasks=[
-  {num:"7 042",digits:[["7","tusental",7000],["0","hundratal",0],["4","tiotal",40],["2","ental",2]],ask:"4",answer:40},
-  {num:"4 806",digits:[["4","tusental",4000],["8","hundratal",800],["0","tiotal",0],["6","ental",6]],ask:"8",answer:800},
-  {num:"23 519",digits:[["2","tiotusental",20000],["3","tusental",3000],["5","hundratal",500],["1","tiotal",10],["9","ental",9]],ask:"3",answer:3000},
-  {num:"58 230",digits:[["5","tiotusental",50000],["8","tusental",8000],["2","hundratal",200],["3","tiotal",30],["0","ental",0]],ask:"5",answer:50000}
-];
-let placeTask=placeTasks[0];
-function renderPlace(){
-  placeTask=placeTasks[Math.floor(Math.random()*placeTasks.length)];
-  $("#placeNumber").textContent=placeTask.num;
-  $("#expandedNumber").textContent=`${placeTask.num} = ${placeTask.digits.map(d=>d[2]).join(" + ")}`;
-  $("#placeCards").innerHTML=placeTask.digits.map(d=>`<div class="place"><b>${d[0]}</b><span>${d[1]}<br>${d[2]}</span></div>`).join("");
-  $("#placeQuestion").textContent=`Vad är värdet av ${placeTask.ask}?`;
-  $("#placeAnswer").value="";
-  $("#placeFeedback").className="feedback show";
-  $("#placeFeedback").textContent="Titta på vilken position siffran står på.";
-}
-$("#newPlace").onclick=renderPlace;
-$("#checkPlace").onclick=()=>{const ok=Number($("#placeAnswer").value)===placeTask.answer;$("#placeFeedback").className="feedback show";$("#placeFeedback").innerHTML=ok?`Rätt. ${placeTask.ask} är värt <b>${placeTask.answer}</b> i talet ${placeTask.num}.`:"Inte riktigt. Leta efter om siffran står på ental, tiotal, hundratal eller tusental."};
-renderPlace();
+  {num:'4 806',digits:[['4','tusental',4000],['8','hundratal',800],['0','tiotal',0],['6','ental',6]],ask:'8',answer:800},
+  {num:'23 519',digits:[['2','tiotusental',20000],['3','tusental',3000],['5','hundratal',500],['1','tiotal',10],['9','ental',9]],ask:'3',answer:3000},
+  {num:'7 042',digits:[['7','tusental',7000],['0','hundratal',0],['4','tiotal',40],['2','ental',2]],ask:'4',answer:40},
+  {num:'58 230',digits:[['5','tiotusental',50000],['8','tusental',8000],['2','hundratal',200],['3','tiotal',30],['0','ental',0]],ask:'5',answer:50000}
+];let placeTask=placeTasks[0];
+function renderPlace(){placeTask=placeTasks[Math.floor(Math.random()*placeTasks.length)];$('#placeNumber').textContent=placeTask.num;$('#expandedNumber').textContent=placeTask.num+' = '+placeTask.digits.map(d=>d[2]).join(' + ');$('#placeCards').innerHTML=placeTask.digits.map(d=>`<div class="place"><b>${d[0]}</b><span>${d[1]}<br>${d[2]}</span></div>`).join('');$('#placeQuestion').textContent='Vad är värdet av '+placeTask.ask+'?';$('#placeAnswer').value='';$('#placeFeedback').className='feedback show';$('#placeFeedback').textContent='Titta på vilken position siffran står på.'}
+$('#newPlace').onclick=renderPlace;$('#checkPlace').onclick=()=>{const ok=Number($('#placeAnswer').value)===placeTask.answer;$('#placeFeedback').className='feedback show';$('#placeFeedback').innerHTML=ok?`Rätt. ${placeTask.ask} är värt <b>${placeTask.answer}</b> i talet ${placeTask.num}.`:`Inte riktigt. Titta på rubriken under siffran: ental, tiotal, hundratal, tusental.`};renderPlace();
 
-let decimalFocus={text:"0,75",value:.75,frac:"3/4"};
-let decimalItems=[],pickedDecimals=[];
-function renderDecimals(){
-  const bank=[{text:"0,05",value:.05,frac:"1/20"},{text:"0,3",value:.3,frac:"3/10"},{text:"0,75",value:.75,frac:"3/4"},{text:"0,8",value:.8,frac:"4/5"},{text:"1,2",value:1.2,frac:"6/5"},{text:"0,125",value:.125,frac:"1/8"}];
-  decimalItems=shuffle(bank).slice(0,5);decimalFocus=decimalItems[Math.floor(Math.random()*decimalItems.length)];pickedDecimals=[];
-  $("#decimalTitle").textContent=decimalFocus.text;
-  const [whole,dec=""]=decimalFocus.text.replace(",",".").split(".");
-  $("#decimalFormula").textContent=`${decimalFocus.text} = ${whole} heltal + ${dec[0]||0} tiondelar + ${dec[1]||0} hundradelar + ${dec[2]||0} tusendelar`;
-  $("#decimalPlaces").innerHTML=[["Heltal",whole],["Tiondelar",dec[0]||0],["Hundradelar",dec[1]||0],["Tusendelar",dec[2]||0]].map(x=>`<div class="place"><b>${x[1]}</b><span>${x[0]}</span></div>`).join("");
-  $("#decimalLine").innerHTML=["0","0,25","0,5","0,75","1","1,25"].map((x,i)=>`<div class="tick" style="left:${7+i*17.2}%">${x}</div>`).join("")+`<div class="marker" style="left:${7+(decimalFocus.value/1.25)*86}%"><div class="marker-dot"></div>${decimalFocus.text}</div>`;
-  $("#decimalChips").innerHTML="";$("#decimalOrder").textContent="";
-  shuffle(decimalItems).forEach(item=>{const b=document.createElement("button");b.className="chip";b.textContent=item.text;b.onclick=()=>{pickedDecimals.push(item);b.classList.add("used");$("#decimalOrder").textContent=pickedDecimals.map(x=>x.text).join(" < ")};$("#decimalChips").appendChild(b)});
-  $("#decimalFeedback").className="feedback show";$("#decimalFeedback").textContent="Tips: skriv talen med lika många decimaler när du jämför.";
-}
-$("#newDecimals").onclick=renderDecimals;
-$("#checkDecimalOrder").onclick=()=>{const ok=pickedDecimals.length===decimalItems.length&&pickedDecimals.every((x,i,a)=>i===0||a[i-1].value<=x.value);$("#decimalFeedback").className="feedback show";$("#decimalFeedback").textContent=ok?"Rätt ordning. Bra koll på decimalerna.":"Inte riktigt. Fyll på med nollor: 0,8 = 0,80 och 0,05 = 0,050."};
-renderDecimals();
+const operationTasks=[
+  {story:'Karl har 4,8 liter juice och häller lika mycket i 8 glas.',calc:'4,8 ÷ 8',op:'/',answer:.6,unit:'liter per glas',tip:'“Lika mycket i varje” betyder att totalen delas upp.'},
+  {story:'Fyra klasser har 28 elever i varje klass. Hur många elever är det totalt?',calc:'4 × 28',op:'*',answer:112,unit:'elever',tip:'Samma antal upprepas flera gånger: multiplikation.'},
+  {story:'Temperaturen är -6 °C och stiger med 14 grader. Vad blir temperaturen?',calc:'-6 + 14',op:'+',answer:8,unit:'°C',tip:'Stiger betyder att du adderar.'},
+  {story:'En stig är 12,5 km. Klassen har gått 8,2 km. Hur långt är det kvar?',calc:'12,5 - 8,2',op:'-',answer:4.3,unit:'km',tip:'Kvar betyder skillnad: subtraktion.'}
+];let operationTask=operationTasks[0],chosenOp=null;
+function renderOperation(){operationTask=operationTasks[Math.floor(Math.random()*operationTasks.length)];chosenOp=null;$('#operationStory').textContent=operationTask.story;$('#operationCalc').textContent=operationTask.calc+' = ?';$('#operationAnswer').value='';$('#operationFeedback').className='feedback show';$('#operationFeedback').textContent='Välj räknesätt först. '+operationTask.tip;$$('.opBtn').forEach(b=>b.classList.remove('active'))}
+$$('.opBtn').forEach(b=>b.onclick=()=>{chosenOp=b.dataset.op;$$('.opBtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#operationFeedback').className='feedback show';$('#operationFeedback').textContent=chosenOp===operationTask.op?'Rätt räknesätt. Räkna nu ut svaret.':'Det räknesättet passar inte bäst här. '+operationTask.tip});
+$('#newOperation').onclick=renderOperation;$('#checkOperation').onclick=()=>{const ans=Number($('#operationAnswer').value.replace?.(',','.')??$('#operationAnswer').value),okOp=chosenOp===operationTask.op,okAns=Math.abs(ans-operationTask.answer)<.001;$('#operationFeedback').className='feedback show';$('#operationFeedback').innerHTML=okOp&&okAns?`Rätt. ${operationTask.calc} = <b>${String(operationTask.answer).replace('.',',')}</b> ${operationTask.unit}.`:`Kolla igen. ${operationTask.tip} Beräkningen är ${operationTask.calc}.`};renderOperation();
 
-const bridgePresets=[
-  {n:1,d:2,p:50},{n:1,d:4,p:25},{n:3,d:4,p:75},{n:1,d:5,p:20},{n:2,d:5,p:40},{n:1,d:10,p:10},{n:3,d:10,p:30},{n:1,d:8,p:12.5}
-];
-let bridgePercentValue=50,bridgeAskMode="percent";
-function percentToFraction(p){
-  const tenths=Math.round(p*10),den=1000,g=gcd(tenths,den);
-  return [tenths/g,den/g];
-}
-function renderHundredGrid(p){
-  const full=Math.round(p);
-  $("#hundredGrid").innerHTML=Array.from({length:100},(_,i)=>`<div class="hundred-cell ${i<full?"on":""}"></div>`).join("");
-}
-function renderBridge(){
-  const p=Math.max(0,Math.min(100,parseNum($("#bridgePercentInput").value)||0));
-  bridgePercentValue=p;$("#bridgePercentInput").value=p;$("#bridgeSlider").value=p;
-  const [n,d]=percentToFraction(p),dec=p/100,decText=fmt(dec);
-  $("#bridgeFraction").textContent=`${n}/${d}`;$("#bridgeDecimal").textContent=decText;$("#bridgePercent").textContent=`${fmt(p)}%`;$("#bridgeHundredths").textContent=`${fmt(p)}/100`;
-  $("#bridgeFill").style.width=p+"%";renderHundredGrid(p);
-  $("#bridgeTitle").textContent=`${n}/${d} = ${decText} = ${fmt(p)}%`;
-  $("#bridgeFormula").textContent=`${n}/${d} = ${fmt(p)} hundradelar = ${fmt(p)}/100 = ${decText} = ${fmt(p)}%`;
-  $("#bridgeQuestion").textContent=bridgeAskMode==="percent"?`${decText} som procent`:`${fmt(p)}% som decimal`;
-  $("#bridgeAnswer").value="";
-}
-function buildBridgeChips(){
-  $("#bridgeChips").innerHTML="";
-  bridgePresets.forEach(item=>{const b=document.createElement("button");b.className="chip";b.textContent=`${item.n}/${item.d}`;b.onclick=()=>{$("#bridgePercentInput").value=item.p;bridgeAskMode=Math.random()>.5?"percent":"decimal";$("#bridgeFeedback").className="feedback show";$("#bridgeFeedback").textContent="Samma värde visas nu i tre former.";renderBridge()};$("#bridgeChips").appendChild(b)});
-}
-$("#bridgePercentInput").oninput=renderBridge;$("#bridgeSlider").oninput=()=>{$("#bridgePercentInput").value=$("#bridgeSlider").value;renderBridge()};
-$("#newBridge").onclick=()=>{const item=bridgePresets[Math.floor(Math.random()*bridgePresets.length)];$("#bridgePercentInput").value=item.p;bridgeAskMode=Math.random()>.5?"percent":"decimal";$("#bridgeFeedback").className="feedback show";$("#bridgeFeedback").textContent="Ny översättning: jämför rutnätet, decimalen och procenten.";renderBridge()};
-$("#checkBridge").onclick=()=>{const ans=$("#bridgeAnswer").value.trim().replace("%","").replace(",",".");const expected=bridgeAskMode==="percent"?bridgePercentValue:bridgePercentValue/100;const ok=Math.abs(Number(ans)-expected)<.001;$("#bridgeFeedback").className="feedback show";$("#bridgeFeedback").innerHTML=ok?`Rätt. Det är samma värde.`:bridgeAskMode==="percent"?`Inte riktigt. Multiplicera decimalen med 100: ${fmt(bridgePercentValue/100)} x 100 = ${fmt(bridgePercentValue)}%.`:`Inte riktigt. Dela procenten med 100: ${fmt(bridgePercentValue)} / 100 = ${fmt(bridgePercentValue/100)}.`};
-buildBridgeChips();renderBridge();
+const decimalValues=[{t:'0,3',v:.3},{t:'0,75',v:.75},{t:'0,8',v:.8},{t:'0,05',v:.05},{t:'1,2',v:1.2}];let pickedDecimals=[];
+let decimalPlaceTask={digit:'7',answer:'0,7'};function renderDecimalPlaces(){const parts=[['0','ental','0'],['7','tiondelar','0,7'],['5','hundradelar','0,05']];$('#decimalPlaceCards').innerHTML=parts.map(p=>`<div class="place"><b>${p[0]}</b><span>${p[1]}<br>${p[2]}</span></div>`).join('');$('#decimalPlaceQuestion').textContent='Vad är värdet av 7 i 0,75?';decimalPlaceTask={digit:'7',answer:'0,7'}}
+function renderDecimalLine(){const value=.75;$('#decimalLine').innerHTML=['0','0,25','0,5','0,75','1','1,25'].map((x,i)=>`<div class="tick" style="left:${8+i*16.8}%">${x}</div>`).join('')+`<div class="marker" style="left:${8+(value/1.25)*84}%"><div class="marker-dot"></div>0,75</div>`}
+function renderDecimalOrder(){pickedDecimals=[];$('#decimalOrder').textContent='';const chips=$('#decimalCompareChips');chips.innerHTML='';decimalValues.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).forEach(([,item])=>{const b=document.createElement('button');b.className='choice-chip';b.textContent=item.t;b.onclick=()=>{pickedDecimals.push(item);b.classList.add('used');$('#decimalOrder').textContent=pickedDecimals.map(x=>x.t).join('  <  ')};chips.appendChild(b)});$('#decimalFeedback').className='feedback show';$('#decimalFeedback').textContent='Tips: gör lika många decimaler om du jämför. 0,8 = 0,80.'}
+$('#resetDecimalOrder').onclick=renderDecimalOrder;$('#checkDecimalOrder').onclick=()=>{const ok=pickedDecimals.length===decimalValues.length&&pickedDecimals.every((x,i,a)=>i===0||a[i-1].v<=x.v);$('#decimalFeedback').className='feedback show';$('#decimalFeedback').textContent=ok?'Rätt. Ordningen blir 0,05 < 0,3 < 0,75 < 0,8 < 1,2.':'Inte riktigt. Tips: 0,05 är fem hundradelar, 0,3 är tre tiondelar och 0,8 är åtta tiondelar.'};$('#checkDecimalPlace').onclick=()=>{const raw=$('#decimalPlaceAnswer').value.trim().replace('.',',');const ok=raw==='0,7'||raw==='7/10';$('#decimalFeedback').className='feedback show';$('#decimalFeedback').textContent=ok?'Rätt. 7 i 0,75 står på tiondelsplatsen, alltså 0,7.':'Inte riktigt. 7:an står på tiondelsplatsen. Det betyder 7 tiondelar = 0,7.'};$('#checkDecimalFraction').onclick=()=>{const raw=$('#decimalFractionGuess').value.trim();const ok=['3/4','75/100'].includes(raw.replace(/\s/g,''));$('#decimalFeedback').className='feedback show';$('#decimalFeedback').textContent=ok?'Rätt. 0,75 = 75/100 = 3/4.':'Inte riktigt. 0,75 betyder 75 hundradelar: 75/100. Förkorta sedan till 3/4.'};renderDecimalPlaces();renderDecimalLine();renderDecimalOrder();
 
-function clampInput(id,min,max){const el=$("#"+id);const v=Math.max(min,Math.min(max,Number(el.value)||min));el.value=v;return v}
-function simplify(n,d){const g=gcd(n,d)||1;return [n/g,d/g]}
-function makeFractionBar(id,n,d,colorClass="on"){const bar=$("#"+id);bar.style.gridTemplateColumns=`repeat(${d},1fr)`;bar.innerHTML="";for(let i=1;i<=d;i++){const part=document.createElement("div");part.className="fraction-part"+(i<=n?` ${colorClass}`:"");bar.appendChild(part)}}
-function renderFractionWall(targetValue){
-  const rows=[[1,2],[1,3],[2,3],[1,4],[2,4],[3,4],[1,5],[2,5],[3,6],[4,8]];
-  $("#fractionWall").innerHTML=rows.map(([n,d])=>{let pieces="";for(let i=1;i<=d;i++)pieces+=`<div class="wall-piece ${i<=n?"on":""}"></div>`;const same=Math.abs(n/d-targetValue)<.001;return `<div class="wall-row"><div class="wall-label">${n}/${d}</div><div class="wall-bar" style="grid-template-columns:repeat(${d},1fr);${same?"box-shadow:0 0 0 4px var(--yellow)":""}">${pieces}</div></div>`}).join("");
-}
-function renderFractions(){
-  let an=clampInput("fracAN",0,12),ad=clampInput("fracAD",1,12),bn=clampInput("fracBN",0,12),bd=clampInput("fracBD",1,12);
-  an=Math.min(an,ad);bn=Math.min(bn,bd);$("#fracAN").value=an;$("#fracBN").value=bn;
-  const av=an/ad,bv=bn/bd,cmp=Math.abs(av-bv)<.001?"=":av>bv?">":"<";
-  $("#fracAName").textContent=`${an}/${ad}`;$("#fracBName").textContent=`${bn}/${bd}`;
-  $("#fracAValue").textContent=fmt(av);$("#fracBValue").textContent=fmt(bv);
-  makeFractionBar("fracABar",an,ad);makeFractionBar("fracBBar",bn,bd);
-  $("#fractionCompareTitle").textContent=`${an}/${ad} ${cmp} ${bn}/${bd}`;
-  $("#fractionCompareFormula").textContent=`${an}/${ad} ${cmp} ${bn}/${bd}`;
-  renderFractionWall(av);
-}
-["fracAN","fracAD","fracBN","fracBD"].forEach(id=>$("#"+id).oninput=renderFractions);
-$("#checkFractionCompare").onclick=()=>{const an=Number($("#fracAN").value),ad=Number($("#fracAD").value),bn=Number($("#fracBN").value),bd=Number($("#fracBD").value),left=an*bd,right=bn*ad,cmp=left===right?"lika stora":left>right?"första bråket är störst":"andra bråket är störst";const [saN,saD]=simplify(an,ad),[sbN,sbD]=simplify(bn,bd);$("#fractionFeedback").className="feedback show";$("#fractionFeedback").innerHTML=`Jämför med korsmultiplikation: ${an} x ${bd} = ${left} och ${bn} x ${ad} = ${right}. Alltså är <b>${cmp}</b>. Förkortat: ${an}/${ad} = ${saN}/${saD} och ${bn}/${bd} = ${sbN}/${sbD}.`};
-$("#newFractionPair").onclick=()=>{const pairs=[[1,2,2,4],[1,3,2,6],[3,4,4,5],[2,5,1,2],[5,8,3,4],[2,3,3,5],[3,6,1,2],[4,10,2,5]];const p=pairs[Math.floor(Math.random()*pairs.length)];["fracAN","fracAD","fracBN","fracBD"].forEach((id,i)=>$("#"+id).value=p[i]);$("#fractionFeedback").className="feedback show";$("#fractionFeedback").textContent="Jämför bråken med staplarna. Är de lika stora, eller är ett större?";renderFractions()};
-renderFractions();
+let width=4,height=3;
+function clamp(v,min,max){return Math.max(min,Math.min(max,Number(v)||min))}
+function renderArea(){width=clamp($('#widthInput').value,1,10);height=clamp($('#heightInput').value,1,8);$('#widthInput').value=width;$('#heightInput').value=height;const board=$('#areaBoard');board.classList.add('perimeter');board.style.gridTemplateColumns=`repeat(${width},1fr)`;board.style.gridTemplateRows=`repeat(${height},1fr)`;board.innerHTML='';for(let y=0;y<height;y++)for(let x=0;x<width;x++){const c=document.createElement('div');c.className='cell fill '+(x===0||y===0||x===width-1||y===height-1?'edge':'');board.appendChild(c)}$('#areaLabel').textContent=`${width} x ${height}`;$('#areaFormula').innerHTML=`Bredd: ${width}<br>Höjd: ${height}`}
+function resetAreaAnswer(){if($('#areaGuess'))$('#areaGuess').value='';if($('#perimeterGuess'))$('#perimeterGuess').value='';$('#areaFeedback').className='feedback show';$('#areaFeedback').innerHTML='Uppgift: Räkna ut area och omkrets för rektangeln.'}
+function checkAreaAnswer(){const area=width*height,per=2*(width+height),a=Number($('#areaGuess').value),p=Number($('#perimeterGuess').value),areaOk=a===area,perOk=p===per;$('#areaFeedback').className='feedback show';if(areaOk&&perOk){$('#areaFeedback').innerHTML=`Rätt! Area = ${width} x ${height} = <b>${area}</b>. Omkrets = ${width}+${height}+${width}+${height} = <b>${per}</b>.`}else{$('#areaFeedback').innerHTML=`Inte riktigt än. Tips: area är rutorna inuti. Omkrets är alla fyra sidorna tillsammans.`}}
+$('#widthInput').oninput=()=>{renderArea();resetAreaAnswer()};$('#heightInput').oninput=()=>{renderArea();resetAreaAnswer()};$('#checkArea').onclick=checkAreaAnswer;$('#areaTask').onclick=()=>{width=Math.floor(Math.random()*8)+2;height=Math.floor(Math.random()*6)+2;$('#widthInput').value=width;$('#heightInput').value=height;renderArea();resetAreaAnswer()};renderArea();resetAreaAnswer();
 
-let setupMode="add",setupLevel="easy",setupTask={a:348,b:176,op:"+",answer:524},setupDigits=4;
-function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min}
-function newSetup(){
-  if(setupMode==="add"){
-    const ranges={easy:[120,899],medium:[900,4999],hard:[3500,29999]}[setupLevel];
-    setupTask={a:rand(ranges[0],ranges[1]),b:rand(ranges[0],ranges[1]),op:"+",answer:0};setupTask.answer=setupTask.a+setupTask.b;
-  }
-  if(setupMode==="sub"){
-    const ranges={easy:[220,999],medium:[1200,6999],hard:[10000,49999]}[setupLevel];
-    const a=rand(ranges[0],ranges[1]),minB=setupLevel==="easy"?40:300,b=rand(minB,a-1);
-    setupTask={a,b,op:"-",answer:a-b};
-  }
-  if(setupMode==="mul"){
-    if(setupLevel==="easy"){setupTask={a:rand(12,89),b:rand(3,9),op:"×",answer:0}}
-    if(setupLevel==="medium"){setupTask={a:rand(120,899),b:rand(3,9),op:"×",answer:0}}
-    if(setupLevel==="hard"){setupTask={a:rand(120,999),b:rand(12,29),op:"×",answer:0}}
-    setupTask.answer=setupTask.a*setupTask.b;
-  }
-  setupDigits=Math.max(4,String(setupTask.a).length,String(setupTask.b).length,String(setupTask.answer).length);
-  renderSetup();
-}
-function setupDigitColumns(){return `repeat(${setupDigits},minmax(38px,54px))`}
-function setupGridStyle(){return `grid-template-columns:40px ${setupDigitColumns()}`}
-function rowDigits(num,sign=""){const s=String(num).padStart(setupDigits," ");return `<div class="setup-row" style="${setupGridStyle()}"><div class="op-sign">${sign}</div>${[...s].map(ch=>`<div class="digit-cell" style="${ch===" "?"background:transparent;border-color:transparent;box-shadow:none":""}">${ch===" "?"":ch}</div>`).join("")}</div>`}
-function renderSetup(){
-  const levelText={easy:"Lätt",medium:"Svår",hard:"Utmaning"}[setupLevel];
-  $("#setupKind").textContent=(setupMode==="add"?"Addition":setupMode==="sub"?"Subtraktion":"Multiplikation")+" · "+levelText;
-  $("#setupHelp").textContent=setupMode==="mul"?(setupLevel==="hard"?"Multiplicera med tvåsiffrigt tal. Skriv slutprodukten i rutorna, och använd papper för mellanleden om du vill.":"Multiplicera stegvis. Här räcker det att skriva slutprodukten i rutorna."):"Börja längst till höger och arbeta en kolumn i taget.";
-  const allLabels=["hundratusental","tiotusental","tusental","hundratal","tiotal","ental"];
-  const labels=allLabels.slice(allLabels.length-setupDigits);
-  $("#setupStage").innerHTML=`<div class="setup-box" style="grid-template-columns:${setupDigitColumns()}">${labels.map(x=>`<div class="setup-label">${x}</div>`).join("")}</div>${rowDigits(setupTask.a)}${rowDigits(setupTask.b,setupTask.op)}<div class="setup-line" style="max-width:${setupDigits*60}px"></div><div class="setup-row" style="${setupGridStyle()}"><div></div>${Array.from({length:setupDigits},(_,i)=>`<input class="digit-cell setupAns" inputmode="numeric" maxlength="1" data-i="${i}">`).join("")}</div>`;
-  $("#setupFeedback").className="feedback show";$("#setupFeedback").textContent=`${levelText}: skriv svaret i rutorna längst ner. Lämna tomt före första siffran om svaret har färre siffror än rutorna.`;
-}
-$$(".setupMode").forEach(b=>b.onclick=()=>{setupMode=b.dataset.mode;$$(".setupMode").forEach(x=>x.classList.remove("active"));b.classList.add("active");newSetup()});
-$$(".setupLevel").forEach(b=>b.onclick=()=>{setupLevel=b.dataset.level;$$(".setupLevel").forEach(x=>x.classList.remove("active"));b.classList.add("active");newSetup()});
-$("#newSetup").onclick=newSetup;
-$("#checkSetup").onclick=()=>{const guess=$$(".setupAns").map(i=>i.value||" ").join("").trim();const ok=Number(guess)===setupTask.answer;$("#setupFeedback").className="feedback show";$("#setupFeedback").innerHTML=ok?`Rätt. ${setupTask.a} ${setupTask.op} ${setupTask.b} = <b>${setupTask.answer}</b>.`:`Inte riktigt. Räkna kolumn för kolumn. Facit är ${setupTask.answer}.`};
-newSetup();
+let triBase=6,triHeight=4;
+function renderTriangle(){triBase=clamp($('#triBase').value,1,12);triHeight=clamp($('#triHeight').value,1,10);$('#triBase').value=triBase;$('#triHeight').value=triHeight;const basePx=240+triBase*8,heightPx=90+triHeight*10,left=(430-basePx)/2,right=left+basePx,bottom=218,top=bottom-heightPx,peak=left+basePx*.6;$('#triangleShape').setAttribute('points',`${left},${bottom} ${right},${bottom} ${peak},${top}`);$('#triangleHeightLine').setAttribute('x1',peak);$('#triangleHeightLine').setAttribute('x2',peak);$('#triangleHeightLine').setAttribute('y1',top);$('#triangleHeightLine').setAttribute('y2',bottom);$('#triangleBaseLabel').textContent='bas = '+triBase;$('#triangleBaseLabel').setAttribute('x',left+basePx/2-42);$('#triangleHeightLabel').textContent='höjd = '+triHeight;$('#triangleHeightLabel').setAttribute('x',peak+14);$('#triangleHeightLabel').setAttribute('y',top+heightPx/2);$('#triangleFormula').textContent=`Area = ${triBase} · ${triHeight} / 2`;$('#triangleFeedback').className='feedback show';$('#triangleFeedback').textContent='Uppgift: räkna ut triangelns area.'}
+function checkTriangle(){const sol=triBase*triHeight/2,ans=Number($('#triAreaGuess').value);$('#triangleFeedback').className='feedback show';$('#triangleFeedback').innerHTML=Math.abs(ans-sol)<.001?`Rätt. ${triBase} · ${triHeight} / 2 = <b>${sol}</b>.`:`Inte riktigt. Triangelns area är bas · höjd / 2.`}
+$('#triBase').oninput=()=>{renderTriangle();$('#triAreaGuess').value=''};$('#triHeight').oninput=()=>{renderTriangle();$('#triAreaGuess').value=''};$('#checkTriangle').onclick=checkTriangle;$('#newTriangle').onclick=()=>{$('#triBase').value=Math.floor(Math.random()*8)+3;$('#triHeight').value=Math.floor(Math.random()*6)+3;$('#triAreaGuess').value='';renderTriangle()};renderTriangle();
 
-let areaMode="rect",areaW=4,areaH=3,triBaseVal=6,triHeightVal=4;
-function renderAreaBoard(){
-  areaW=Math.max(1,Math.min(10,Number($("#widthInput").value)||4));areaH=Math.max(1,Math.min(8,Number($("#heightInput").value)||3));
-  $("#widthInput").value=areaW;$("#heightInput").value=areaH;
-  const board=$("#areaBoard");board.style.gridTemplateColumns=`repeat(${areaW},1fr)`;board.style.gridTemplateRows=`repeat(${areaH},1fr)`;board.innerHTML="";
-  for(let y=0;y<areaH;y++)for(let x=0;x<areaW;x++){const c=document.createElement("div");c.className="area-cell "+(x===0||y===0||x===areaW-1||y===areaH-1?"edge":"");board.appendChild(c)}
-  $("#areaFormula").textContent=`Area = ${areaW} x ${areaH} = ${areaW*areaH}. Omkrets = ${areaW}+${areaH}+${areaW}+${areaH} = ${2*(areaW+areaH)}`;
-}
-function renderTriangleArea(){
-  triBaseVal=Math.max(1,Math.min(12,Number($("#triBase").value)||6));triHeightVal=Math.max(1,Math.min(10,Number($("#triHeight").value)||4));
-  $("#triBase").value=triBaseVal;$("#triHeight").value=triHeightVal;
-  const basePx=220+triBaseVal*9,heightPx=85+triHeightVal*10,left=(430-basePx)/2,right=left+basePx,bottom=218,top=bottom-heightPx,peak=left+basePx*.6;
-  $("#triangleShape").setAttribute("points",`${left},${bottom} ${right},${bottom} ${peak},${top}`);
-  $("#triangleHeightLine").setAttribute("x1",peak);$("#triangleHeightLine").setAttribute("x2",peak);$("#triangleHeightLine").setAttribute("y1",top);$("#triangleHeightLine").setAttribute("y2",bottom);
-  $("#triangleBaseLabel").textContent=`bas = ${triBaseVal}`;$("#triangleBaseLabel").setAttribute("x",left+basePx/2-42);
-  $("#triangleHeightLabel").textContent=`höjd = ${triHeightVal}`;$("#triangleHeightLabel").setAttribute("x",peak+14);$("#triangleHeightLabel").setAttribute("y",top+heightPx/2);
-  $("#triangleFormula").textContent=`Area = ${triBaseVal} x ${triHeightVal} / 2 = ${fmt(triBaseVal*triHeightVal/2)}`;
-}
-$$(".areaMode").forEach(b=>b.onclick=()=>{areaMode=b.dataset.mode;$$(".areaMode").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("#rectAreaView").style.display=areaMode==="rect"?"":"none";$("#rectControls").style.display=areaMode==="rect"?"":"none";$("#triAreaView").style.display=areaMode==="tri"?"":"none";$("#triControls").style.display=areaMode==="tri"?"":"none";$("#areaHeadline").textContent=areaMode==="rect"?"Rektangel":"Triangel";$("#areaFeedback").className="feedback show";$("#areaFeedback").textContent=areaMode==="rect"?"Tips: omkrets är alla sidor runt figuren.":"Tips: triangelarea = bas x höjd / 2."});
-$("#widthInput").oninput=renderAreaBoard;$("#heightInput").oninput=renderAreaBoard;
-$("#newArea").onclick=()=>{$("#widthInput").value=rand(2,9);$("#heightInput").value=rand(2,7);$("#areaGuess").value="";$("#perimeterGuess").value="";renderAreaBoard()};
-$("#checkArea").onclick=()=>{const a=areaW*areaH,p=2*(areaW+areaH),ok=Number($("#areaGuess").value)===a&&Number($("#perimeterGuess").value)===p;$("#areaFeedback").className="feedback show";$("#areaFeedback").innerHTML=ok?`Rätt. Area = <b>${a}</b> och omkrets = <b>${p}</b>.`:`Inte riktigt. Area är rutorna inuti (${areaW} x ${areaH}). Omkrets är kanten runt.`};
-$("#triBase").oninput=renderTriangleArea;$("#triHeight").oninput=renderTriangleArea;
-$("#newTriangle").onclick=()=>{$("#triBase").value=rand(3,10);$("#triHeight").value=rand(3,8);$("#triAreaGuess").value="";renderTriangleArea()};
-$("#checkTriangle").onclick=()=>{const sol=triBaseVal*triHeightVal/2,ok=Math.abs(parseNum($("#triAreaGuess").value)-sol)<.001;$("#areaFeedback").className="feedback show";$("#areaFeedback").innerHTML=ok?`Rätt. ${triBaseVal} x ${triHeightVal} / 2 = <b>${fmt(sol)}</b>.`:`Inte riktigt. Multiplicera bas och höjd, dela sedan med 2.`};
-renderAreaBoard();renderTriangleArea();
+function angleKind(v){if(v===90)return'rät';if(v===180)return'rak';return v<90?'spetsig':'trubbig'}
+function renderAngle(){const v=Number($('#angleSlider').value),rad=(180-v)*Math.PI/180,cx=215,cy=250,r=145,x=cx+Math.cos(rad)*r,y=cy-Math.sin(rad)*r;$('#angleRay').setAttribute('x2',x);$('#angleRay').setAttribute('y2',y);const ar=58,ax=cx+Math.cos(rad)*ar,ay=cy-Math.sin(rad)*ar,large=v>180?1:0;$('#angleArc').setAttribute('d',`M ${cx+ar} ${cy} A ${ar} ${ar} 0 ${large} 0 ${ax} ${ay}`);$('#angleText').textContent=v+'°';$('#angleFormula').textContent=v+'°';$('#angleKind').textContent=angleKind(v)[0].toUpperCase()+angleKind(v).slice(1)}
+$('#angleSlider').oninput=renderAngle;$$('.angleBtn').forEach(b=>b.onclick=()=>{const guess=b.dataset.kind,real=angleKind(Number($('#angleSlider').value));$('#angleFeedback').className='feedback show';$('#angleFeedback').textContent=guess===real?'Rätt. Bra uppskattat!':'Inte riktigt. Mindre än 90° är spetsig, 90° är rät, mellan 90° och 180° är trubbig, 180° är rak.'});renderAngle();
 
-function renderScale(){
-  const cm=parseNum($("#mapCm").value),scale=Number($("#scaleSelect").value),realCm=cm*scale,km=realCm/100000,m=realCm/100;
-  $("#scaleHeadline").textContent=`1 : ${scale.toLocaleString("sv-SE")}`;$("#scaleFormula").innerHTML=`${fmt(cm)} cm på kartan = ${fmt(m)} m = <b>${fmt(km)} km</b>`;
-  $("#scaleExplain").textContent=`Skala 1 : ${scale.toLocaleString("sv-SE")} betyder att 1 cm på kartan är ${scale.toLocaleString("sv-SE")} cm i verkligheten.`;
-  $("#mapCmInput").value=cm;$("#scaleMapCm").textContent=`${fmt(cm)} cm`;$("#oneCmReal").textContent=scale>=100000?`${fmt(scale/100000)} km`:`${fmt(scale/100)} m`;$("#mapDistance").textContent=`${fmt(cm)} cm`;$("#realDistance").textContent=`${fmt(km)} km`;
-  $("#scalePin").style.left=`${8+((cm-1)/13)*84}%`;
-}
-$("#mapCm").oninput=renderScale;$("#mapCmInput").oninput=()=>{const v=Math.max(1,Math.min(14,parseNum($("#mapCmInput").value)||1));$("#mapCm").value=v;renderScale()};$("#scaleSelect").onchange=renderScale;
-$("#checkScale").onclick=()=>{const cm=parseNum($("#mapCm").value),scale=Number($("#scaleSelect").value),sol=cm*scale/100000,ans=parseNum($("#scaleGuess").value);$("#scaleFeedback").className="feedback show";$("#scaleFeedback").innerHTML=Math.abs(ans-sol)<.001?`Rätt. Det blir <b>${fmt(sol)} km</b>.`:`Inte riktigt. ${fmt(cm)} x ${scale} cm = ${fmt(cm*scale/100)} m = ${fmt(sol)} km.`};
-$("#newScaleTask").onclick=()=>{const scales=[1000,2000,5000,10000,15000,20000,25000,50000,75000,100000,250000],distances=[1.5,2,2.5,3.5,4,5,6.5,8,10,12];$("#scaleSelect").value=scales[Math.floor(Math.random()*scales.length)];$("#mapCm").value=distances[Math.floor(Math.random()*distances.length)];$("#scaleGuess").value="";$("#scaleFeedback").className="feedback show";$("#scaleFeedback").textContent="Ny uppgift: använd kartavståndet och skalan för att räkna verklig sträcka.";renderScale()};
-renderScale();
+const patternTypes=[
+  {name:'Ökar med 2',rule:'2n + 1',text:'Figur 1 har 3 rutor. Figur 2 har 5 rutor. Figur 3 har 7 rutor. Vad har figur n?',calc:n=>2*n+1,color:'var(--green)'},
+  {name:'Ökar med 3',rule:'3n + 2',text:'Figur 1 har 5 rutor. Figur 2 har 8 rutor. Figur 3 har 11 rutor. Vad har figur n?',calc:n=>3*n+2,color:'var(--blue)'},
+  {name:'Startar högt',rule:'4n - 1',text:'Figur 1 har 3 rutor. Figur 2 har 7 rutor. Figur 3 har 11 rutor. Vad har figur n?',calc:n=>4*n-1,color:'var(--pink)'},
+  {name:'Kvadrater',rule:'n x n',text:'Figur 1 är 1 x 1. Figur 2 är 2 x 2. Figur 3 är 3 x 3. Hur många rutor har figur n?',calc:n=>n*n,color:'var(--yellow)',square:true}
+];let patternIndex=0;
+function renderPatternTabs(){const tabs=$('#patternTabs');tabs.innerHTML='';patternTypes.forEach((p,i)=>{const b=document.createElement('button');b.className='btn alt'+(i===patternIndex?' active':'');b.textContent=p.name;b.onclick=()=>{patternIndex=i;renderPattern();renderPatternTabs();checkPattern(false)};tabs.appendChild(b)})}
+function renderPattern(){const p=patternTypes[patternIndex],st=$('#patternStage');st.innerHTML='';$('#patternRule').textContent='Regel: '+p.rule;$('#patternText').textContent=p.text;$('#patternFormula').textContent='Antal rutor = '+p.rule;const shown=[1,2,3],maxCount=p.calc(3),size=Math.max(18,Math.min(28,Math.floor(250/Math.max(4,maxCount))));for(const n of shown){const count=p.calc(n),t=document.createElement('div');t.className='tower';t.style.gap='3px';t.style.alignSelf='flex-end';if(p.square){t.style.gridTemplateColumns=`repeat(${n}, ${size}px)`;for(let i=0;i<count;i++){const b=document.createElement('div');b.className='block';b.style.width=size+'px';b.style.height=size+'px';b.style.background=p.color;t.appendChild(b)}}else{for(let i=0;i<count;i++){const b=document.createElement('div');b.className='block';b.style.width=size+'px';b.style.height=size+'px';b.style.background=p.color;t.appendChild(b)}}const lab=document.createElement('div');lab.className='tower-label';lab.style.gridColumn='1 / -1';lab.textContent=`figur ${n}: ${count}`;t.appendChild(lab);st.appendChild(t)}}
+function checkPattern(show=true){const p=patternTypes[patternIndex],n=clamp($('#nInput').value,1,20),val=p.calc(n);$('#nInput').value=n;$('#patternFeedback').className='feedback show';$('#patternFeedback').innerHTML=show?`Om n = ${n} och regeln är ${p.rule}, blir antalet <b>${val}</b> rutor.`:`Välj ett mönster och testa olika värden på n.`}
+renderPattern();renderPatternTabs();checkPattern(false);$('#patternCheck').onclick=()=>checkPattern(true);
 
-let percentMode="part";
-function percentResult(){
-  const base=Number($("#percentBase").value)||0,p=Number($("#percentValue").value)||0,part=base*p/100;
-  if(percentMode==="discount")return base-part;
-  if(percentMode==="increase")return base+part;
-  return part;
-}
-function renderPercent(){
-  let base=Math.max(1,Number($("#percentBase").value)||240),p=Math.max(1,Math.min(100,Number($("#percentValue").value)||25));
-  $("#percentBase").value=base;$("#percentValue").value=p;$("#percentSlider").value=p;
-  const part=base*p/100,result=percentResult();
-  const modeText=percentMode==="part"?"av":percentMode==="discount"?"rabatt på":"höjning av";
-  $("#percentHeadline").textContent=`${p}% ${modeText} ${base}`;
-  $("#percentFill").style.width=p+"%";$("#percentBarLabel").textContent=p+"%";
-  $("#onePercent").textContent=fmt(base/100);$("#tenPercent").textContent=fmt(base/10);$("#chosenPercent").textContent=fmt(part);
-  if(percentMode==="part")$("#percentFormula").innerHTML=`${p}% av ${base} = ${base} x ${p}/100 = <b>${fmt(result)}</b>`;
-  if(percentMode==="discount")$("#percentFormula").innerHTML=`Rabatt: ${fmt(part)}. Nytt pris = ${base} - ${fmt(part)} = <b>${fmt(result)}</b>`;
-  if(percentMode==="increase")$("#percentFormula").innerHTML=`Höjning: ${fmt(part)}. Nytt värde = ${base} + ${fmt(part)} = <b>${fmt(result)}</b>`;
-}
-$$(".percentMode").forEach(b=>b.onclick=()=>{percentMode=b.dataset.mode;$$(".percentMode").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("#percentAnswer").value="";$("#percentFeedback").className="feedback show";$("#percentFeedback").textContent="Fundera på om procentdelen ska vara själva svaret, dras bort eller läggas till.";renderPercent()});
-$("#percentBase").oninput=renderPercent;$("#percentValue").oninput=renderPercent;$("#percentSlider").oninput=()=>{$("#percentValue").value=$("#percentSlider").value;renderPercent()};
-$("#checkPercent").onclick=()=>{const sol=percentResult(),ans=parseNum($("#percentAnswer").value);$("#percentFeedback").className="feedback show";$("#percentFeedback").innerHTML=Math.abs(ans-sol)<.001?`Rätt. Svaret är <b>${fmt(sol)}</b>.`:`Inte riktigt. Titta på beräkningen: procentdelen är grundvärde x procent / 100.`};
-$("#newPercent").onclick=()=>{const bases=[60,80,120,240,300,450,1800],ps=[10,12.5,20,25,30,40,50,75];$("#percentBase").value=bases[Math.floor(Math.random()*bases.length)];$("#percentValue").value=ps[Math.floor(Math.random()*ps.length)];$("#percentAnswer").value="";renderPercent()};
-renderPercent();
+let frac={n:1,d:2};function decimalText(n,d){return (n/d).toFixed(d===5?1:2).replace(/0$/,'').replace('.',',')}function renderEquivBoard(){const value=frac.n/frac.d,rows=[[1,2],[2,4],[3,6],[4,8],[1,4],[3,4]];$('#equivQuestion').textContent=`${frac.n}/${frac.d}`;$('#equivBoard').innerHTML=rows.map(([n,d])=>{const same=Math.abs(n/d-value)<.001;let parts='';for(let i=1;i<=d;i++)parts+=`<div class="eq-part ${i<=n?'on':''}"></div>`;return `<div class="eq-row"><div class="eq-label">${n}/${d}</div><div class="eq-bar" style="grid-template-columns:repeat(${d},1fr);${same?'box-shadow:0 0 0 4px var(--yellow)':''}">${parts}</div></div>`}).join('')}function renderFraction(){const n=frac.n,d=frac.d;const bar=$('#fractionBar');bar.style.gridTemplateColumns=`repeat(${d},1fr)`;bar.innerHTML='';for(let i=1;i<=d;i++){const part=document.createElement('div');if(i<=n)part.className='on';bar.appendChild(part)}$('#fractionFormula').innerHTML=`${n}/${d} = ${decimalText(n,d)} = ${Math.round(n/d*100)}%`;$('#fractionLabel').textContent=`${n}/${d} = ${decimalText(n,d)}`;$('#fractionQuestion').textContent=`${n}/${d} =`;$('#numberLine').innerHTML=['0','0,25','0,5','0,75','1'].map((x,i)=>`<div class="tick" style="left:${8+i*21}%">${x}</div>`).join('')+`<div class="marker" style="left:${8+(n/d)*84}%"><div class="marker-dot"></div>${n}/${d}</div>`;$('#fractionFeedback').className='feedback';renderEquivBoard()}
+$$('.fracBtn').forEach(b=>b.onclick=()=>{frac={n:Number(b.dataset.n),d:Number(b.dataset.d)};renderFraction()});$('#decimalCheck').onclick=()=>{const guess=$('#decimalGuess').value.trim().replace(',','.'),ok=Math.abs(Number(guess)-frac.n/frac.d)<0.001;$('#fractionFeedback').className='feedback show';$('#fractionFeedback').textContent=ok?'Rätt. Samma värde kan skrivas som bråk och decimal.':`Nästan. ${frac.n}/${frac.d} är ${decimalText(frac.n,frac.d)}.`};$('#equivCheck').onclick=()=>{const raw=$('#equivGuess').value.trim().replace(',','.');const parts=raw.split('/').map(Number);const ok=parts.length===2&&parts[1]!==0&&Math.abs(parts[0]/parts[1]-frac.n/frac.d)<.001;$('#fractionFeedback').className='feedback show';$('#fractionFeedback').textContent=ok?`Rätt. ${raw} är lika stort som ${frac.n}/${frac.d}.`:`Inte riktigt. Förläng eller förkorta bråket: multiplicera eller dividera täljare och nämnare med samma tal.`};renderFraction();
 
-let coordTask={a:{x:-2,y:3},b:{x:3,y:-1}};
-function renderCoordPlane(){
-  $("#coordTaskText").textContent=`A = (${coordTask.a.x}, ${coordTask.a.y}), B = (${coordTask.b.x}, ${coordTask.b.y})`;
-  const plane=$("#coordPlane");plane.innerHTML="";
-  for(let y=4;y>=-4;y--)for(let x=-4;x<=4;x++){
-    const c=document.createElement("button");c.className="coord-cell "+(x===0||y===0?"axis ":"")+(x===coordTask.b.x&&y===coordTask.b.y?"b":"");
-    c.innerHTML=(x===0&&y===0)?'<span class="coord-label">0</span>':(y===0?`<span class="coord-label">${x}</span>`:"");
-    c.onclick=()=>{const ok=x===coordTask.a.x&&y===coordTask.a.y;c.classList.add(ok?"hit":"miss");if(ok)c.classList.add("a");$("#coordFeedback").className="feedback show";$("#coordFeedback").textContent=ok?"Rätt. A är markerad.":"Inte riktigt. Kom ihåg: x först åt sidan, y sedan upp eller ner."};
-    plane.appendChild(c);
-  }
-}
-$("#newCoordTask").onclick=()=>{const tasks=[[[-2,3],[3,-1]],[[2,2],[-4,-2]],[[-3,1],[1,3]],[[0,4],[4,0]]];const t=tasks[Math.floor(Math.random()*tasks.length)];coordTask={a:{x:t[0][0],y:t[0][1]},b:{x:t[1][0],y:t[1][1]}};$("#midGuess").value="";$("#coordFeedback").className="feedback";renderCoordPlane()};
-$("#checkMidpoint").onclick=()=>{const mx=(coordTask.a.x+coordTask.b.x)/2,my=(coordTask.a.y+coordTask.b.y)/2;const nums=($("#midGuess").value.match(/-?\d+(?:[,.]\d+)?/g)||[]).map(x=>Number(x.replace(",",".")));const ok=nums.length>=2&&Math.abs(nums[0]-mx)<.001&&Math.abs(nums[1]-my)<.001;$("#coordFeedback").className="feedback show";$("#coordFeedback").innerHTML=ok?`Rätt. Mittpunkten är <b>(${fmt(mx)}, ${fmt(my)})</b>.`:`Inte riktigt. Mittpunkt: lägg ihop x-värdena och dela med 2. Gör samma med y-värdena.`};
-renderCoordPlane();
+const numberValues=[{t:'0,3',v:.3},{t:'-1,5',v:-1.5},{t:'0',v:0},{t:'3/4',v:.75},{t:'-0,8',v:-.8}];let pickedNumbers=[];
+function renderNumberOrder(){pickedNumbers=[];$('#numberOrder').textContent='';const chips=$('#numberChips');chips.innerHTML='';numberValues.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).forEach(([,item])=>{const b=document.createElement('button');b.className='choice-chip';b.textContent=item.t;b.onclick=()=>{pickedNumbers.push(item);b.classList.add('used');$('#numberOrder').textContent=pickedNumbers.map(x=>x.t).join('  <  ')};chips.appendChild(b)});$('#orderFeedback').className='feedback'}renderNumberOrder();$('#resetOrder').onclick=renderNumberOrder;$('#checkOrder').onclick=()=>{const ok=pickedNumbers.length===numberValues.length&&pickedNumbers.every((x,i,a)=>i===0||a[i-1].v<=x.v);$('#orderFeedback').className='feedback show';$('#orderFeedback').textContent=ok?'Rätt. Negativa tal ligger till vänster om noll, och 3/4 = 0,75.':'Inte riktigt. Tips: börja med mest negativt. 3/4 är samma som 0,75.'};
 
-let statsData=[3,7,5,7,2,9,7];
-function statsMode(list){return [...list].sort((a,b)=>list.filter(x=>x===b).length-list.filter(x=>x===a).length)[0]}
-function statsMedian(list){const s=[...list].sort((a,b)=>a-b);return s[Math.floor(s.length/2)]}
-function statsMean(list){return list.reduce((s,x)=>s+x,0)/list.length}
-function renderStatsStation(){const max=Math.max(...statsData);$("#statsNumbers").textContent=statsData.join(", ");$("#statsBars").innerHTML=statsData.map(x=>`<div class="data-bar" style="height:${20+x/max*120}px">${x}</div>`).join("");$("#modeGuess").value="";$("#medianGuess").value="";$("#meanGuess").value="";$("#statsFeedback").className="feedback"}
-$("#newStats").onclick=()=>{const sets=[[3,7,5,7,2,9,7],[8,12,18,16,11],[4,6,6,8,10,6,2],[5,5,7,8,11,13,5]];statsData=sets[Math.floor(Math.random()*sets.length)];renderStatsStation()};
-$("#checkStats").onclick=()=>{const mode=statsMode(statsData),median=statsMedian(statsData),mean=statsMean(statsData);const ok=Number($("#modeGuess").value)===mode&&Number($("#medianGuess").value)===median&&Math.abs(parseNum($("#meanGuess").value)-mean)<.01;$("#statsFeedback").className="feedback show";$("#statsFeedback").innerHTML=ok?`Rätt. Typvärde ${mode}, median ${median}, medelvärde ${fmt(mean)}.`:`Sortera först: ${[...statsData].sort((a,b)=>a-b).join(", ")}. Typvärde är vanligast, median är mitterst, medel är summa delat med antal.`};
-renderStatsStation();
+let percentTask={price:60,percent:25,type:'discount'};
+function renderPercentTask(){const prices=[60,80,120,300],percents=[10,20,25,40];percentTask={price:prices[Math.floor(Math.random()*prices.length)],percent:percents[Math.floor(Math.random()*percents.length)],type:Math.random()>.35?'discount':'part'};$('#percentAnswer').value='';$('#percentFeedback').className='feedback';$('#percentTaskText').textContent=percentTask.type==='discount'?`En vara kostar ${percentTask.price} kr och har ${percentTask.percent}% rabatt. Vad blir priset?`:`Hur mycket är ${percentTask.percent}% av ${percentTask.price}?`}
+function percentSolution(){const part=percentTask.price*percentTask.percent/100;return percentTask.type==='discount'?percentTask.price-part:part}
+$('#newPercent').onclick=renderPercentTask;$('#checkPercent').onclick=()=>{const ans=Number($('#percentAnswer').value),sol=percentSolution(),ok=Math.abs(ans-sol)<.001;$('#percentFeedback').className='feedback show';$('#percentFeedback').innerHTML=ok?`Rätt. Svaret är <b>${sol}</b>.`:`Inte riktigt. ${percentTask.percent}% av ${percentTask.price} är ${percentTask.price} x ${percentTask.percent/100} = ${percentTask.price*percentTask.percent/100}.`};renderPercentTask();
 
-function renderProbability(){const bag=$("#probBag");bag.innerHTML="";["red","red","red","red","blue","blue","blue","yellow","yellow","yellow"].forEach(c=>{const s=document.createElement("div");s.className="stone "+c;bag.appendChild(s)});$("#probFeedback").className="feedback"}
-$("#checkProbability").onclick=()=>{const blue=$("#blueProbGuess").value.replace(/\s/g,""),red=Number($("#redExpectedGuess").value);const ok=(blue==="3/10"||blue==="0,3"||blue==="0.3")&&red===12;$("#probFeedback").className="feedback show";$("#probFeedback").innerHTML=ok?"Rätt. Blå är 3 av 10 och röd förväntas bli 4/10 av 30 = 12.":"Inte riktigt. Blå: 3 av 10. Röd: 4/10 av 30 försök."};
-renderProbability();
+let stats=[3,7,5,7,2,9,7];function statsMode(a){return [...a].sort((x,y)=>a.filter(v=>v===y).length-a.filter(v=>v===x).length)[0]}function statsMedian(a){const s=[...a].sort((x,y)=>x-y);return s[Math.floor(s.length/2)]}function statsMean(a){return a.reduce((m,x)=>m+x,0)/a.length}function renderStats(){const sets=[[3,7,5,7,2,9,7],[4,6,6,8,10,6,2],[12,9,15,9,6,3,9],[5,5,7,8,11,13,5]];stats=sets[Math.floor(Math.random()*sets.length)];$('#statsData').textContent=stats.join(', ');$('#modeAnswer').value='';$('#medianAnswer').value='';$('#meanAnswer').value='';$('#statsFeedback').className='feedback'}$('#newStats').onclick=renderStats;$('#checkStats').onclick=()=>{const mode=statsMode(stats),median=statsMedian(stats),mean=statsMean(stats);const ok=Number($('#modeAnswer').value)===mode&&Number($('#medianAnswer').value)===median&&Math.abs(Number($('#meanAnswer').value.replace?.(',','.')??$('#meanAnswer').value)-mean)<.01;$('#statsFeedback').className='feedback show';$('#statsFeedback').innerHTML=ok?`Rätt. Typvärde ${mode}, median ${median}, medelvärde ${mean.toFixed(1).replace('.',',')}.`:`Kolla igen. Sorterat blir ${[...stats].sort((a,b)=>a-b).join(', ')}. Typvärde är vanligast, median är mitterst, medelvärde är summa delat med antal.`};renderStats();
 
-const symTasks=[{cls:"plus",answer:4,lines:["v","h","d1","d2"],why:"Plustecknet har lodrät, vågrät och två diagonala symmetrilinjer."},{cls:"rect",answer:2,lines:["v","h"],why:"Rektangeln har en lodrät och en vågrät symmetrilinje."},{cls:"triangle",answer:1,lines:["v"],why:"Den likbenta triangeln har en symmetrilinje."}];let symTask=symTasks[0];
-function renderSymmetry(){symTask=symTasks[Math.floor(Math.random()*symTasks.length)];$("#symShape").className="sym-shape "+symTask.cls;$("#symGuess").value="";$$(".sym-line").forEach(l=>l.classList.remove("show"));$("#symFeedback").className="feedback"}
-$("#newSymmetry").onclick=renderSymmetry;$("#checkSymmetry").onclick=()=>{const ok=Number($("#symGuess").value)===symTask.answer;$$(".sym-line").forEach(l=>l.classList.toggle("show",symTask.lines.some(x=>l.classList.contains(x))));$("#symFeedback").className="feedback show";$("#symFeedback").textContent=(ok?"Rätt. ":"Inte riktigt. ")+symTask.why};
-renderSymmetry();
+function renderNpPatternBoard(){const board=$('#npPatternBoard');board.innerHTML='';[1,2,3].forEach(n=>{const fig=document.createElement('div');fig.className='np-fig';fig.style.gridTemplateRows='repeat(4, 24px) auto';fig.style.gridAutoFlow='column';fig.style.alignContent='end';for(let i=0;i<7*n+1;i++){const tile=document.createElement('div');tile.className='np-tile';fig.appendChild(tile)}const label=document.createElement('div');label.className='tower-label';label.style.gridRow='5';label.style.gridColumn='1 / -1';label.textContent=`figur ${n}: ${7*n+1}`;fig.appendChild(label);board.appendChild(fig)})}renderNpPatternBoard();$('#checkNpTiles').onclick=()=>{const n=clamp($('#npN').value,1,50),sol=7*n+1,ok=Number($('#npTilesGuess').value)===sol;$('#npN').value=n;$('#npPatternFeedback').className='feedback show';$('#npPatternFeedback').innerHTML=ok?`Rätt. 7 x ${n} + 1 = <b>${sol}</b>.`:`Inte riktigt. Använd 7n + 1: 7 x ${n} + 1.`};$('#checkNpReverse').onclick=()=>{const tiles=Number($('#npReverseTiles').value),n=(tiles-1)/7,ok=Number($('#npReverseGuess').value)===n&&Number.isInteger(n);$('#npPatternFeedback').className='feedback show';$('#npPatternFeedback').innerHTML=ok?`Rätt. ${tiles} = 7n + 1, alltså n = <b>${n}</b>.`:`Tänk baklänges: ${tiles} - 1 = ${tiles-1}. Dela sedan med 7.`};$('#checkNpPerimeter').onclick=()=>{const n=clamp($('#npPerN').value,1,50),sol=12*n+4,ok=Number($('#npPerGuess').value)===sol;$('#npPerN').value=n;$('#npPatternFeedback').className='feedback show';$('#npPatternFeedback').innerHTML=ok?`Rätt. 12 x ${n} + 4 = <b>${sol} cm</b>.`:`Inte riktigt. Sätt in n i 12n + 4: 12 x ${n} + 4.`};
 
-const sequenceTasks=[{items:[96,48,null,12,6],answer:24,rule:"Dividera med 2 varje steg."},{items:[4,12,36,null,324],answer:108,rule:"Multiplicera med 3 varje steg."},{items:[3,7,11,null,19],answer:15,rule:"Lägg till 4 varje steg."},{items:[160,80,40,null,10],answer:20,rule:"Halvera varje steg."}];let sequenceTask=sequenceTasks[0];
-function renderSequence(){sequenceTask=sequenceTasks[Math.floor(Math.random()*sequenceTasks.length)];$("#sequenceBox").innerHTML=sequenceTask.items.map(x=>`<div class="seq-box">${x===null?"?":x}</div>`).join("");$("#sequenceGuess").value="";$("#sequenceFeedback").className="feedback"}
-$("#newSequence").onclick=renderSequence;$("#checkSequence").onclick=()=>{const ok=Number($("#sequenceGuess").value)===sequenceTask.answer;$("#sequenceFeedback").className="feedback show";$("#sequenceFeedback").textContent=ok?`Rätt. ${sequenceTask.rule}`:`Inte riktigt. Tips: ${sequenceTask.rule}`};
-renderSequence();
+const quiz=[
+  ['Vilket tal är störst?',['0,8','0,75','0,05'],0],
+  ['Vad är 0,75 som bråk i enklaste form?',['3/4','75/10','7/5'],0],
+  ['Vilket räknesätt passar bäst: 4,8 liter delas lika i 8 glas?',['Division','Multiplikation','Subtraktion'],0],
+  ['En triangel har basen 6 cm och höjden 4 cm. Vad är arean?',['12 cm²','24 cm²','10 cm²'],0],
+  ['En rektangel är 5 cm bred och 4 cm hög. Vad är omkretsen?',['18 cm','20 cm²','9 cm'],0],
+  ['Vilken vinkel är trubbig?',['120°','90°','45°'],0],
+  ['Figur n har regeln 3n + 2. Hur många delar har figur 4?',['14','9','12'],0],
+  ['Vilken figur har 64 plattor om antalet är 7n + 1?',['9','8','10'],0],
+  ['Skala 1 : 25 000. Hur långt är 4 cm på kartan i verkligheten?',['1 km','100 km','10 m'],0],
+  ['Vilken koordinat skrivs rätt?',['(x, y)','(y, x)','(höjd, bredd)'],0],
+  ['3,5 m är samma som...',['350 cm','35 cm','3500 cm'],0],
+  ['Hur många symmetrilinjer har ett plustecken?',['4','2','1'],0],
+  ['Talen är 3, 7, 5, 7, 2, 9, 7. Vilket är typvärdet?',['7','5','9'],0],
+  ['En buss tar 45 personer. 112 personer ska åka. Hur många bussar behövs?',['3','2','2,5'],0]
+];let qi=0,score=0;
+function renderQuiz(){const box=$('#quizBox');if(qi>=quiz.length){box.innerHTML=`<h3>Resultat</h3><p>Du fick ${score} av ${quiz.length} rätt.</p><button class="btn" id="restartQuiz">Spela igen</button>`;$('#restartQuiz').onclick=()=>{qi=0;score=0;renderQuiz()};return}const q=quiz[qi],opts=q[1].map((x,i)=>({x,i})).sort(()=>Math.random()-.5);box.innerHTML=`<h3>Fråga ${qi+1} av ${quiz.length}</h3><p>${q[0]}</p><div class="answers">${opts.map(o=>`<button class="answer" data-i="${o.i}">${o.x}</button>`).join('')}</div><div class="feedback" id="quizFeedback"></div>`;$$('.answer').forEach(b=>b.onclick=()=>{const good=Number(b.dataset.i)===q[2];$$('.answer').forEach(x=>x.classList.add('off'));b.classList.remove('off');b.classList.add(good?'good':'bad');if(good)score++;$('#quizFeedback').className='feedback show';$('#quizFeedback').innerHTML=(good?'Rätt.':'Inte riktigt.')+`<br><br><button class="btn" id="nextQuiz">${qi===quiz.length-1?'Se resultat':'Nästa fråga'}</button>`;$('#nextQuiz').onclick=()=>{qi++;renderQuiz()}})}
+renderQuiz();
 
-const algebraTasks={
-  solve:[
-    {text:"x - 18 = 45",answer:["63"],hint:"Gör motsatsen: addera 18 på båda sidor.",help:"Gör samma sak på båda sidor. Målet är att få x ensamt."},
-    {text:"x + 27 = 84",answer:["57"],hint:"Gör motsatsen: subtrahera 27.",help:"Flytta bort +27 genom att göra -27."},
-    {text:"3x = 72",answer:["24"],hint:"Dela båda sidor med 3.",help:"3x betyder 3 gånger x."},
-    {text:"4x + 6 + 2x - 12 = 42",answer:["8"],hint:"Samla termer: 6x - 6 = 42, sedan 6x = 48.",help:"Samla först x-termer och tal var för sig."},
-    {text:"5x - 10 = 40",answer:["10"],hint:"Addera 10 först, dela sedan med 5.",help:"Gör i motsatt ordning: plus/minus först, sedan gånger/delat."}
-  ],
-  simplify:[
-    {text:"4x + 6 + 2x - 12",answer:["6x-6","6x - 6"],hint:"4x + 2x = 6x och 6 - 12 = -6.",help:"Samla lika termer: x-termer med x-termer, tal med tal."},
-    {text:"3a + 5 + 2a + 7",answer:["5a+12","5a + 12"],hint:"3a + 2a = 5a och 5 + 7 = 12.",help:"Bokstaven kan vara a, x eller n. Samma bokstav kan samlas."},
-    {text:"8n - 3n + 4 - 9",answer:["5n-5","5n - 5"],hint:"8n - 3n = 5n och 4 - 9 = -5.",help:"Var extra noga med minustecken."},
-    {text:"2x + 4x + 10",answer:["6x+10","6x + 10"],hint:"2x och 4x kan samlas. 10 är ett vanligt tal.",help:"Alla termer behöver inte kunna slås ihop."}
-  ],
-  write:[
-    {text:"Ett tal n ökas med 7.",answer:["n+7","7+n"],hint:"Ökas med betyder plus.",help:"Skriv ett uttryck. Du ska inte räkna ut ett tal."},
-    {text:"Det finns 4 påsar med n kulor i varje påse.",answer:["4n","4*n","4 x n","4×n"],hint:"Samma antal upprepas 4 gånger.",help:"Multiplikation skrivs ofta som 4n."},
-    {text:"En biljett kostar x kr. Tre biljetter och en avgift på 20 kr.",answer:["3x+20","20+3x","3*x+20"],hint:"Tre biljetter är 3x. Lägg sedan till 20.",help:"Uttrycket beskriver kostnaden, inte ett svar."},
-    {text:"Figur n har 7 nya plattor per steg och 1 extra platta.",answer:["7n+1","1+7n","7*n+1"],hint:"Det är samma mönstertänk som 7n + 1.",help:"n står för figurnumret."}
-  ]
-};
-let algebraMode="solve",equationTask=algebraTasks.solve[0];
-function cleanAlgebraAnswer(value){return String(value).toLowerCase().replace(/\s/g,"").replace(/−/g,"-").replace(/×/g,"x")}
-function renderEquation(){
-  const list=algebraTasks[algebraMode];
-  equationTask=list[Math.floor(Math.random()*list.length)];
-  $("#equationText").textContent=equationTask.text;
-  $("#equationGuess").value="";
-  $("#equationFeedback").className="feedback";
-  $("#algebraHelp").className="feedback show";
-  $("#algebraHelp").textContent=equationTask.help;
-  $("#algebraAnswerLabel").firstChild.textContent=algebraMode==="solve"?"x = ":"Svar ";
-}
-$$(".algebraMode").forEach(button=>button.onclick=()=>{algebraMode=button.dataset.mode;$$(".algebraMode").forEach(b=>b.classList.remove("active"));button.classList.add("active");renderEquation()});
-$("#newEquation").onclick=renderEquation;
-$("#checkEquation").onclick=()=>{const raw=$("#equationGuess").value.trim();let ok=false;if(algebraMode==="solve"){ok=Number(raw)===Number(equationTask.answer[0])}else{const ans=cleanAlgebraAnswer(raw);ok=equationTask.answer.some(x=>cleanAlgebraAnswer(x)===ans)}$("#equationFeedback").className="feedback show";$("#equationFeedback").innerHTML=ok?`Rätt.`:`Inte riktigt. ${equationTask.hint}`};
-renderEquation();
+let scaleCm=8;function renderScale(){scaleCm=[2,4,8,12][Math.floor(Math.random()*4)];$('#scaleTask').textContent=`${scaleCm} cm på kartan = ? km i verkligheten`;$('#scaleAnswer').value='';$('#scaleFeedback').className='feedback show';$('#scaleFeedback').textContent='Tips: 1 cm motsvarar 250 m vid skala 1 : 25 000.'}$('#newScale').onclick=renderScale;$('#checkScale').onclick=()=>{const sol=scaleCm*250/1000,ans=Number($('#scaleAnswer').value.replace?.(',','.')??$('#scaleAnswer').value);$('#scaleFeedback').className='feedback show';$('#scaleFeedback').innerHTML=Math.abs(ans-sol)<.001?`Rätt. ${scaleCm} cm motsvarar <b>${String(sol).replace('.',',')} km</b>.`:`Inte riktigt. ${scaleCm} · 250 m = ${scaleCm*250} m.`};renderScale();
 
-function angleKind(v){if(v===90)return"rät";return v<90?"spetsig":"trubbig"}
-function renderAngle(){const v=Number($("#angleSlider").value),rad=v*Math.PI/180,cx=215,cy=245,r=145,x=cx+Math.cos(rad)*r,y=cy-Math.sin(rad)*r;$("#angleRay").setAttribute("x2",x);$("#angleRay").setAttribute("y2",y);const ar=58,ax=cx+Math.cos(rad)*ar,ay=cy-Math.sin(rad)*ar;$("#angleArc").setAttribute("d",`M ${cx+ar} ${cy} A ${ar} ${ar} 0 0 0 ${ax} ${ay}`);$("#angleText").textContent=v+"°";$("#angleFormula").textContent=v+"°";$("#angleKind").textContent=angleKind(v)[0].toUpperCase()+angleKind(v).slice(1)}
-$("#angleSlider").oninput=renderAngle;$$(".angleBtn").forEach(b=>b.onclick=()=>{const real=angleKind(Number($("#angleSlider").value));$("#angleFeedback").className="feedback show";$("#angleFeedback").textContent=b.dataset.kind===real?"Rätt.":"Inte riktigt. Mindre än 90° är spetsig, 90° är rät och större än 90° är trubbig."});renderAngle();
+let coordTarget={x:-2,y:3};function renderCoord(){const pts=[{x:-2,y:3},{x:3,y:-1},{x:0,y:4},{x:-4,y:-2},{x:2,y:2}];coordTarget=pts[Math.floor(Math.random()*pts.length)];$('#coordTargetText').textContent=`(${coordTarget.x}, ${coordTarget.y})`;const plane=$('#coordPlane');plane.innerHTML='';for(let y=4;y>=-4;y--)for(let x=-4;x<=4;x++){const c=document.createElement('button');c.className='coord-cell '+(x===0||y===0?'axis ':'')+(x===0&&y===0?'origin':'');let labels='';if(y===0)labels+=`<span class="coord-label x">${x}</span>`;if(x===0&&y!==0)labels+=`<span class="coord-label y">${y}</span>`;if(x===0&&y===0)labels='<span class="coord-label x">0</span>';c.innerHTML=labels;c.onclick=()=>{const ok=x===coordTarget.x&&y===coordTarget.y;c.classList.add(ok?'pointA':'pointB');$('#coordFeedback').className='feedback show';$('#coordFeedback').textContent=ok?'Rätt punkt. x först, sedan y.':'Inte riktigt. Gå först i x-led, sedan i y-led.'};plane.appendChild(c)}}$('#newCoord').onclick=renderCoord;renderCoord();
 
-function renderNp(){const board=$("#npBoard");board.innerHTML="";[1,2,3].forEach(n=>{const count=7*n+1,cols=4,remainder=count%cols;const fig=document.createElement("div");fig.className="np-figure";const tiles=document.createElement("div");tiles.className="np-tiles";if(remainder){for(let i=0;i<cols-remainder;i++){const spacer=document.createElement("div");spacer.className="np-spacer";tiles.appendChild(spacer)}}for(let i=0;i<count;i++){const tile=document.createElement("div");tile.className="np-tile";tiles.appendChild(tile)}fig.appendChild(tiles);const lab=document.createElement("div");lab.className="tower-label";lab.textContent=`figur ${n}: ${count}`;fig.appendChild(lab);board.appendChild(fig)});$("#npTable").innerHTML=[1,2,3,4,5].map(n=>`<div class="seq-box"><small>n=${n}</small><br>${7*n+1}</div>`).join("")}
-$("#checkNpTiles").onclick=()=>{const n=Number($("#npN").value),sol=7*n+1,ok=Number($("#npTilesGuess").value)===sol;$("#npFeedback").className="feedback show";$("#npFeedback").innerHTML=ok?`Rätt. 7 x ${n} + 1 = <b>${sol}</b>.`:`Inte riktigt. Använd 7n + 1: 7 x ${n} + 1.`};
-$("#checkNpReverse").onclick=()=>{const tiles=Number($("#npReverseTiles").value),n=(tiles-1)/7,ok=Number($("#npReverseGuess").value)===n&&Number.isInteger(n);$("#npFeedback").className="feedback show";$("#npFeedback").innerHTML=ok?`Rätt. ${tiles} - 1 = ${tiles-1}, och ${tiles-1} / 7 = <b>${n}</b>.`:`Tänk baklänges: ta bort 1 först, dela sedan med 7.`};
-$("#checkNpPerimeter").onclick=()=>{const n=Number($("#npPerN").value),sol=12*n+4,ok=Number($("#npPerGuess").value)===sol;$("#npFeedback").className="feedback show";$("#npFeedback").innerHTML=ok?`Rätt. 12 x ${n} + 4 = <b>${sol} cm</b>.`:`Inte riktigt. Sätt in n i 12n + 4: 12 x ${n} + 4.`};
-renderNp();
+const unitTasks=[
+  {text:'3,5 m = ? cm',answer:350,tip:'1 m = 100 cm.'},
+  {text:'2 km = ? m',answer:2000,tip:'1 km = 1000 m.'},
+  {text:'0,75 km = ? m',answer:750,tip:'1 km = 1000 m. Multiplicera med 1000.'},
+  {text:'450 cm = ? m',answer:4.5,tip:'100 cm = 1 m. Dividera med 100.'},
+  {text:'1500 g = ? kg',answer:1.5,tip:'1000 g = 1 kg.'},
+  {text:'2,4 kg = ? g',answer:2400,tip:'1 kg = 1000 g.'},
+  {text:'3500 mg = ? g',answer:3.5,tip:'1000 mg = 1 g.'},
+  {text:'2,5 liter = ? dl',answer:25,tip:'1 liter = 10 dl.'},
+  {text:'75 cl = ? dl',answer:7.5,tip:'1 dl = 10 cl. Dividera centiliter med 10.'},
+  {text:'0,6 liter = ? ml',answer:600,tip:'1 liter = 1000 ml.'},
+  {text:'3 minuter = ? sekunder',answer:180,tip:'1 minut = 60 sekunder.'},
+  {text:'1,5 timmar = ? minuter',answer:90,tip:'1 timme = 60 minuter.'},
+  {text:'4 m² = ? dm²',answer:400,tip:'1 m² = 100 dm² eftersom 10 dm · 10 dm = 100 dm².'},
+  {text:'30 000 m² = ? hektar',answer:3,tip:'1 hektar = 10 000 m².'}
+];let unitTask=unitTasks[0];function renderUnit(){unitTask=unitTasks[Math.floor(Math.random()*unitTasks.length)];$('#unitTaskText').textContent=unitTask.text;$('#unitAnswer').value='';$('#unitFeedback').className='feedback show';$('#unitFeedback').textContent='Tips: '+unitTask.tip}$('#newUnit').onclick=renderUnit;$('#checkUnit').onclick=()=>{const ans=Number($('#unitAnswer').value.replace?.(',','.')??$('#unitAnswer').value);$('#unitFeedback').className='feedback show';$('#unitFeedback').innerHTML=Math.abs(ans-unitTask.answer)<.001?`Rätt. Svaret är <b>${String(unitTask.answer).replace('.',',')}</b>.`:`Inte riktigt. ${unitTask.tip}`};renderUnit();
 
-const quizBank=[
-["Vilket tal är störst?",["0,8","0,75","0,05"],0],["Vad är 0,75 i enklaste bråkform?",["3/4","75/10","7/5"],0],["45 mm är...",["4,5 cm","45 cm","0,45 cm"],0],["En triangel har bas 10 och höjd 7. Area?",["35","70","17"],0],["Skala 1:25 000. 4 cm är...",["1 km","10 km","100 m"],0],["Vilken vinkel är trubbig?",["120°","90°","45°"],0],["3,5 m är...",["350 cm","35 cm","3500 cm"],0],["Medelvärdet av 4, 6, 8 är...",["6","18","8"],0],["Figur n har 7n+1. Figur 12 har...",["85","84","91"],0],["25% av 240 är...",["60","80","25"],0],["80 ökar till 100. Ökningen är...",["25%","20%","125%"],0],["1,5 liter är...",["15 dl","150 dl","1,5 dl"],0],["Omkrets för 5 cm x 4 cm rektangel?",["18 cm","20 cm²","9 cm"],0],["3/10 som decimal är...",["0,3","0,03","3,10"],0],["112 personer, buss tar 45. Bussar?",["3","2","2,5"],0],["0,125 är samma som...",["1/8","1/4","1/2"],0],["2,4 kg är...",["2400 g","240 g","24 g"],0],["Medianen av 2, 5, 9 är...",["5","2","9"],0]];
-let quiz=[],qi=0,score=0,answered=false;
-function newQuiz(){quiz=shuffle(quizBank).slice(0,10);qi=0;score=0;answered=false;renderQuiz()}
-function renderQuiz(){if(qi>=quiz.length){$("#quizBox").innerHTML=`<h3>Resultat</h3><p>Du fick ${score} av ${quiz.length} rätt.</p>`;$("#quizScore").textContent=`${score} / ${quiz.length}`;return}const q=quiz[qi],opts=shuffle(q[1].map((x,i)=>({x,i})));answered=false;$("#quizScore").textContent=`${score} / ${qi}`;$("#quizBox").innerHTML=`<h3>Fråga ${qi+1} av ${quiz.length}</h3><p>${q[0]}</p><div class="answers">${opts.map(o=>`<button class="answer" data-i="${o.i}">${o.x}</button>`).join("")}</div><div class="feedback" id="quizFeedback"></div>`;$$(".answer").forEach(b=>b.onclick=()=>{if(answered)return;answered=true;const good=Number(b.dataset.i)===q[2];if(good)score++;$$(".answer").forEach(x=>x.classList.add("off"));b.classList.remove("off");b.classList.add(good?"good":"bad");$("#quizFeedback").className="feedback show";$("#quizFeedback").textContent=good?"Rätt.":"Inte riktigt. Titta på det gröna svaret i facit när ni går igenom."})}
-$("#newQuiz").onclick=newQuiz;$("#nextQuiz").onclick=()=>{if(qi<quiz.length){if(!answered){$("#quizFeedback").className="feedback show";$("#quizFeedback").textContent="Välj ett svar först.";return}qi++;renderQuiz()}};newQuiz();
+const symTasks=[
+  {name:'plusfigur',cls:'plus',answer:4,lines:['v','h','d1','d2'],why:'Plusfiguren har lodrät, vågrät och två diagonala symmetrilinjer.'},
+  {name:'rektangel',cls:'rect',answer:2,lines:['v','h'],why:'En rektangel har en lodrät och en vågrät symmetrilinje.'},
+  {name:'likbent triangel',cls:'triangle',answer:1,lines:['v'],why:'Den likbenta triangeln har en symmetrilinje rakt genom toppen.'},
+  {name:'L-form',cls:'lshape',answer:1,lines:['d2'],why:'Den här L-formen har en diagonal symmetrilinje eftersom armarna är lika breda.'}
+];let symTask=symTasks[0];function renderSym(){symTask=symTasks[Math.floor(Math.random()*symTasks.length)];$('#symShape').className='sym-shape '+symTask.cls;$('#symQuestion').textContent='Hur många symmetrilinjer har denna '+symTask.name+'?';$('#symAnswer').value='';$('#symFeedback').className='feedback';$$('.sym-line').forEach(l=>l.classList.remove('show'))}$('#newSym').onclick=renderSym;$('#checkSym').onclick=()=>{const ok=Number($('#symAnswer').value)===symTask.answer;$$('.sym-line').forEach(l=>l.classList.toggle('show',symTask.lines.some(x=>l.classList.contains(x))));$('#symFeedback').className='feedback show';$('#symFeedback').textContent=ok?'Rätt. '+symTask.why:'Inte riktigt. '+symTask.why};renderSym();
 
-const problems=[
-{text:"Fyra klasser med 28 elever i varje klass ska åka buss. En buss tar 45 personer. Hur många bussar behövs?",answer:3,hint:"Räkna först 4 x 28. Dela sedan med 45 och avrunda uppåt."},
-{text:"En biljett kostar 60 kr. Skolbarn får 25% rabatt. Vad kostar biljetten?",answer:45,hint:"25% av 60 är 15. Dra bort rabatten."},
-{text:"5 våfflor kostar 60 kr. Vad kostar 8 våfflor?",answer:96,hint:"Hitta priset för en våffla först."},
-{text:"En karta har skalan 1 : 25 000. En stig är 6 cm på kartan. Hur många km är stigen?",answer:1.5,hint:"1 cm är 250 m. 6 cm är 1500 m."},
-{text:"Fåglar per timme: 8, 12, 18, 16, 11. Vad är medelvärdet?",answer:13,hint:"Lägg ihop allt och dela med 5."},
-{text:"I en påse finns 4 röda, 3 blå och 3 gula stenar. Sannolikhet att dra blå i procent?",answer:30,hint:"3 av 10 är 30%."},
-{text:"En rektangel har area 48 cm² och bredd 6 cm. Hur hög är den?",answer:8,hint:"Area = bredd x höjd. Gör baklänges."},
-{text:"Figur n har 7n + 1 plattor. Hur många plattor har figur 12?",answer:85,hint:"Sätt in n = 12."},
-{text:"Ett tal ökar från 80 till 100. Hur många procent har talet ökat?",answer:25,hint:"Ökningen är 20. Jämför 20 med startvärdet 80."},
-{text:"Tre paket väger 0,75 kg, 1,2 kg och 0,55 kg. Total vikt i kg?",answer:2.5,hint:"Lägg ihop decimalerna."},
-{text:"Ett recept för 4 personer använder 300 g pasta. Hur mycket behövs för 10 personer?",answer:750,hint:"300/4 = 75 g per person."},
-{text:"126 burkar packas med 8 burkar per påse. Hur många påsar behövs?",answer:16,hint:"126/8 = 15,75. Man behöver hela påsar."},
-{text:"Temperaturen går från -4°C till 9°C. Hur många grader stiger den?",answer:13,hint:"Från -4 till 0 är 4 steg. Från 0 till 9 är 9 steg."},
-{text:"En vara kostar 240 kr och sänks med 25%. Vad blir nya priset?",answer:180,hint:"Du betalar 75% av priset."},
-{text:"En låda har 6 rader med 24 pennor. 35 tas bort. Hur många finns kvar?",answer:109,hint:"6 x 24 först, sedan minus 35."},
-{text:"0,8 av en klass på 30 elever är med på idrotten. Hur många elever är det?",answer:24,hint:"0,8 = 80%. Räkna 0,8 x 30."},
-{text:"En kvadrat har omkretsen 36 cm. Hur lång är en sida?",answer:9,hint:"Fyra lika sidor. Dela omkretsen med 4."},
-{text:"En cykel kostar 1800 kr. Priset höjs med 10%. Vad kostar den sedan?",answer:1980,hint:"10% av 1800 är 180. Lägg till."},
-{text:"En klass läser 3/4 av 240 sidor. Hur många sidor är det?",answer:180,hint:"En fjärdedel är 60, tre fjärdedelar är 180."},
-{text:"Ett tåg kör 90 km på 1,5 timmar. Medelhastighet i km/h?",answer:60,hint:"Hastighet = sträcka / tid."}
-];let problem=problems[0];
-const strategySteps=[
-  "Vad frågar uppgiften efter? Stryk under frågan och ringa in viktiga tal.",
-  "Välj metod: dela, multiplicera, rita, göra tabell, räkna procent eller omvandla enheter.",
-  "Räkna steg för steg och skriv en mellanrad. Då blir det lättare att hitta misstag.",
-  "Kontrollera rimlighet: är svaret lagom stort, har rätt enhet och behöver det avrundas?"
-];
-function setStrategyStep(step){
-  $$(".problemStrategy").forEach((button,index)=>button.classList.toggle("active",index===step));
-  $("#strategyText").className="feedback show";
-  $("#strategyText").textContent=strategySteps[step];
-}
-function newProblem(){problem=problems[Math.floor(Math.random()*problems.length)];$("#problemBox").innerHTML=`<div class="problem-card"><b>Uppgift:</b><br>${problem.text}</div>`;$("#problemAnswer").value="";$("#problemFeedback").className="feedback show";$("#problemFeedback").textContent="Läs uppgiften långsamt: vad frågar den efter?"}
-$$(".problemStrategy").forEach(button=>button.onclick=()=>setStrategyStep(Number(button.dataset.step)));
-$("#newProblem").onclick=()=>{newProblem();setStrategyStep(0)};
-$("#showProblemHint").onclick=()=>{$("#problemFeedback").className="feedback show";$("#problemFeedback").textContent=problem.hint};
-$("#checkProblem").onclick=()=>{const ok=Math.abs(parseNum($("#problemAnswer").value)-problem.answer)<.001;$("#problemFeedback").className="feedback show";$("#problemFeedback").innerHTML=ok?`Rätt. Svaret är <b>${fmt(problem.answer)}</b>.`:`Inte riktigt. Ledtråd: ${problem.hint}`};
-newProblem();setStrategyStep(0);
-
-let timerTotal=15*60,timerLeft=timerTotal,timerRunning=false,timerId=null;
-function renderTimer(){
-  const minutes=Math.floor(timerLeft/60),seconds=timerLeft%60;
-  $("#timerTime").textContent=`${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
-  const done=timerTotal?((timerTotal-timerLeft)/timerTotal)*100:0;
-  $("#timerFace").style.setProperty("--timer-progress",`${done}%`);
-  $("#timerStatus").textContent=timerRunning?"Fokusera":"Redo";
-}
-function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}timerRunning=false;renderTimer()}
-function setTimer(minutes,label){
-  stopTimer();timerTotal=minutes*60;timerLeft=timerTotal;$("#timerModeLabel").textContent=label;$("#studyFeedback").className="feedback show";$("#studyFeedback").textContent=label.includes("paus")?"Pausläge: vila ögonen och rör på dig lite.":"Välj en station och jobba med den tills tiden är slut.";renderTimer();
-}
-$$(".timerPreset").forEach(button=>button.onclick=()=>{$$(".timerPreset").forEach(b=>b.classList.remove("active"));button.classList.add("active");setTimer(Number(button.dataset.min),button.dataset.label)});
-$("#startTimer").onclick=()=>{if(timerRunning)return;timerRunning=true;renderTimer();timerId=setInterval(()=>{timerLeft-=1;if(timerLeft<=0){timerLeft=0;stopTimer();$("#timerStatus").textContent="Klart";$("#studyFeedback").className="feedback show";$("#studyFeedback").textContent="Passet är klart. Skriv ner vad du lärde dig och ta en kort paus.";return}renderTimer()},1000)};
-$("#pauseTimer").onclick=stopTimer;
-$("#resetTimer").onclick=()=>{stopTimer();timerLeft=timerTotal;renderTimer()};
-renderTimer();
+const problemTasks=[
+  {story:'Fyra klasser med 28 elever i varje klass ska åka buss. En buss tar 45 personer. Hur många bussar behövs?',answer:3,steps:['Vad frågar uppgiften efter? Antal bussar.','Räkna först totalt antal elever, sedan dela på platser per buss.','4 × 28 = 112 elever. 112 ÷ 45 ≈ 2,49.','Det behövs hela bussar, så avrunda uppåt till 3.']},
+  {story:'En biljett kostar 60 kr. Skolbarn får 25% rabatt. Vad kostar biljetten efter rabatt?',answer:45,steps:['Vad frågar uppgiften efter? Priset efter rabatt.','Räkna rabatten eller räkna 75% av priset.','25% av 60 är 15. 60 - 15 = 45.','Svaret är rimligt eftersom priset ska bli mindre än 60.']},
+  {story:'5 våfflor kostar 60 kr. Hur mycket kostar 8 våfflor?',answer:96,steps:['Vad frågar uppgiften efter? Priset för 8 våfflor.','Hitta först priset för 1 våffla.','60 ÷ 5 = 12 kr. 8 × 12 = 96 kr.','Svaret är rimligt: 8 våfflor kostar mer än 5 våfflor.']},
+  {story:'En karta har skalan 1 : 25 000. En stig är 6 cm på kartan. Hur många kilometer är stigen i verkligheten?',answer:1.5,steps:['Vad frågar uppgiften efter? Kilometer i verkligheten.','Vid skala 1 : 25 000 är 1 cm på kartan 250 m i verkligheten.','6 × 250 m = 1500 m = 1,5 km.','Svaret är rimligt eftersom några centimeter på kartan kan vara kilometer i verkligheten.']},
+  {story:'En grupp ser fåglar under fem timmar: 8, 12, 18, 16 och 11. Vad är medelvärdet?',answer:13,steps:['Vad frågar uppgiften efter? Medelvärde.','Lägg ihop alla värden och dela med antal värden.','8 + 12 + 18 + 16 + 11 = 65. 65 ÷ 5 = 13.','Svaret är rimligt eftersom 13 ligger mellan minsta och största värdet.']},
+  {story:'I en påse finns 4 röda, 3 blå och 3 gula stenar. Hur stor är sannolikheten att dra en blå sten? Svara i procent.',answer:30,steps:['Vad frågar uppgiften efter? Sannolikhet i procent.','Räkna gynnsamma utfall och totalt antal utfall.','Det finns 3 blå av 10 stenar. 3/10 = 0,3 = 30%.','Svaret är rimligt eftersom blå är ungefär en tredjedel av stenarna.']},
+  {story:'En rektangel har arean 48 cm² och bredden 6 cm. Hur hög är rektangeln?',answer:8,steps:['Vad frågar uppgiften efter? Höjden.','Area för rektangel är bredd × höjd. Gör baklänges med division.','48 ÷ 6 = 8. Höjden är 8 cm.','Kontroll: 6 × 8 = 48, så svaret stämmer.']},
+  {story:'En triangel har basen 10 cm och höjden 7 cm. Vad är arean?',answer:35,steps:['Vad frågar uppgiften efter? Triangelns area.','Använd formeln bas × höjd ÷ 2.','10 × 7 = 70. 70 ÷ 2 = 35.','Svaret ska vara cm² eftersom det är area.']},
+  {story:'Figur n har 7n + 1 plattor. Hur många plattor har figur 12?',answer:85,steps:['Vad frågar uppgiften efter? Antal plattor i figur 12.','Sätt in n = 12 i formeln 7n + 1.','7 × 12 + 1 = 84 + 1 = 85.','Svaret är rimligt eftersom figurerna ökar med 7 varje steg.']},
+  {story:'En flaska innehåller 1,5 liter saft. Hur många deciliter är det?',answer:15,steps:['Vad frågar uppgiften efter? Antal deciliter.','Använd att 1 liter = 10 deciliter.','1,5 × 10 = 15 dl.','Svaret är rimligt: deciliter är en mindre enhet, så talet blir större.']},
+  {story:'Ett tal ökar från 80 till 100. Hur många procent har talet ökat?',answer:25,steps:['Vad frågar uppgiften efter? Procentuell ökning.','Räkna ökningen och jämför med startvärdet.','100 - 80 = 20. 20/80 = 0,25 = 25%.','Svaret är rimligt eftersom 20 är en fjärdedel av 80.']},
+  {story:'Tre paket väger 0,75 kg, 1,2 kg och 0,55 kg. Hur mycket väger de tillsammans i kg?',answer:2.5,steps:['Vad frågar uppgiften efter? Total vikt.','Lägg ihop vikterna.','0,75 + 1,2 + 0,55 = 2,50 kg.','Svaret är rimligt eftersom två paket väger lite under 1 kg och ett lite över 1 kg.']},
+  {story:'Ett recept för 4 personer använder 300 g pasta. Hur mycket pasta behövs för 10 personer?',answer:750,steps:['Vad frågar uppgiften efter? Gram pasta för 10 personer.','Hitta mängd per person och multiplicera med 10.','300 ÷ 4 = 75 g per person. 75 × 10 = 750 g.','Svaret är rimligt eftersom 10 personer är 2,5 gånger så många som 4.']},
+  {story:'En klass samlar 126 burkar. De packar 8 burkar i varje påse. Hur många påsar behövs?',answer:16,steps:['Vad frågar uppgiften efter? Antal påsar.','Dela antal burkar med burkar per påse.','126 ÷ 8 = 15,75.','Det behövs hela påsar, så avrunda uppåt till 16.']},
+  {story:'På en tallinje går temperaturen från -4 °C till 9 °C. Hur många grader stiger temperaturen?',answer:13,steps:['Vad frågar uppgiften efter? Skillnaden mellan två temperaturer.','Räkna avståndet från -4 till 9 på tallinjen.','Från -4 till 0 är 4 steg. Från 0 till 9 är 9 steg. Totalt 13.','Svaret är rimligt eftersom man passerar noll.']},
+  {story:'En vara kostar 240 kr. Priset sänks först med 25%. Vad blir det nya priset?',answer:180,steps:['Vad frågar uppgiften efter? Priset efter sänkning.','Vid 25% rabatt betalar man 75% av priset.','0,75 × 240 = 180.','Svaret är rimligt eftersom priset ska bli lägre än 240.']},
+  {story:'En låda har 6 rader med 24 pennor i varje rad. 35 pennor tas bort. Hur många pennor finns kvar?',answer:109,steps:['Vad frågar uppgiften efter? Antal pennor kvar.','Räkna först totalt antal pennor och ta sedan bort 35.','6 × 24 = 144. 144 - 35 = 109.','Svaret är rimligt: det blir mindre än 144 men mer än 100.']}
+];let problemTask=problemTasks[0],strategyIndex=0;
+function renderProblem(){problemTask=problemTasks[Math.floor(Math.random()*problemTasks.length)];strategyIndex=0;$('#problemStory').textContent=problemTask.story;$('#problemAnswer').value='';updateStrategy();$('#problemFeedback').className='feedback'}
+function updateStrategy(){ $('#strategyStep').textContent='Steg '+(strategyIndex+1)+' av 4';$('#strategyText').className='feedback show';$('#strategyText').textContent=problemTask.steps[strategyIndex];$$('.strategyBtn').forEach((b,i)=>b.classList.toggle('active',i===strategyIndex))}
+$$('.strategyBtn').forEach(b=>b.onclick=()=>{strategyIndex=Number(b.dataset.step);updateStrategy()});$('#newProblem').onclick=renderProblem;$('#checkProblem').onclick=()=>{const ok=Number($('#problemAnswer').value)===problemTask.answer;$('#problemFeedback').className='feedback show';$('#problemFeedback').innerHTML=ok?`Rätt. Svaret är <b>${problemTask.answer}</b>.`:`Inte riktigt än. Gå igenom strategistegen: förstå, planera, beräkna, kontrollera.`};renderProblem();
 </script>
 </body>
 </html>
